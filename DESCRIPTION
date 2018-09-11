@@ -1,0 +1,18 @@
+Package: justifier
+Title: Human and machine-readable justifications and justified decisions based on YAML
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Gjalt-Jorn Ygram",
+           family = "Peters",
+           role = c("aut", "cre"),
+           email = "gjalt-jorn@behaviorchange.eu")
+Maintainer: Gjalt-Jorn Peters <gjalt-jorn@behaviorchange.eu>
+Description: This package implements a YAML standard for documenting
+             justifications, such as for decisions taken during the
+             planning, execution and analysis of a study or during the
+             development of a behavior change intervention.
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/academy-of-behavior-change/justifier
+BugReports: https://github.com/academy-of-behavior-change/justifier/issues
