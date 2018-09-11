@@ -16,3 +16,5 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/academy-of-behavior-change/justifier
 BugReports: https://github.com/academy-of-behavior-change/justifier/issues
+Suggests: 
+    covr
