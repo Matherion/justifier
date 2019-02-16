@@ -6,8 +6,8 @@
 
 [![Coverage status](https://codecov.io/gh/academy-of-behavior-change/justifier/branch/master/graph/badge.svg)](https://codecov.io/github/academy-of-behavior-change/justifier?branch=master)
 
-justifier
-=========
+justifier: Human and machine-readable justifications and justified decisions based on YAML
+==========================================================================================
 
 The goal of `justifier` is to provide a simple human- and machine-readable standard for documenting justifications for decisions. `justifier` was primarily developed to enable documenting teh development of behavior change interventions and the planning and execution of scientific studies, but it can also be used to document decisions in organisations, enabling accumulation of decisions and types of justifications over time.
 
