@@ -9,43 +9,21 @@
 justifier
 =========
 
-The goal of justifier is to ...
+The goal of `justifier` is to provide a simple human- and machine-readable standard for documenting justifications for decisions. `justifier` was primarily developed to enable documenting teh development of behavior change interventions and the planning and execution of scientific studies, but it can also be used to document decisions in organisations, enabling accumulation of decisions and types of justifications over time.
 
 Installation
 ------------
 
-You can install the released version of justifier from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of `justifier` from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("justifier")
+install.packages("justifier");
 ```
 
-Example
--------
-
-This is a basic example which shows you how to solve a common problem:
+You can install the development version of `justifier` from [GitHub](https://github.com) with:
 
 ``` r
-## basic example code
+devtools::install_github("academy-of-behavior-change/justifier");
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+(assuming you have `devtools` installed; otherwise, install that first using the `install.packages` function)

@@ -1,0 +1,70 @@
+---
+title: "Using justifier in intervention development"
+author: "Gjalt-Jorn Peters"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using justifier in intervention development}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process.
+
+
+
+To justify choosing a target behavior, 
+
+```
+---
+justifier:
+  -
+    label: Selection of target behavior
+    description: Because risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic).
+    date: 2019-09-03
+    justification:
+      type: expert opinion
+
+---
+```
+
+To justify choosing a sub-behavior, 
+
+```
+---
+justifier:
+  -
+    label: 
+    description: 
+    date: 2019-09-03
+    justification:
+      type: 
+
+---
+```
+
+
+To justify choosing a determinant for a sub-behavior,
+
+To justify choosing a sub-determinant underlying a determinant
+
+To justify choosing a behavior change principle
+
+To justify choosing an application
+
+To justify the conditions for effectiveness
+
+
+There are many more choices to make during intervention development, but two are obviously omitted here and so deserve mentioning. Both capture those factors that contribute to behavior that are not part of the target population's psychology: their environment. First, the environmental conditions themselves; and second, the environmental agent(s) under whose control those enviromental condition(s) are. These are not included in this vignette because this vignette is based on acyclic behavior change diagrams (ABCDs), which are a tool to work with behavior change efforts that directly target individuals; other tools exist for other aspects of intervention development.
+
+
+
+
+

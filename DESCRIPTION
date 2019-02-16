@@ -1,6 +1,6 @@
 Package: justifier
 Title: Human and machine-readable justifications and justified decisions based on YAML
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Gjalt-Jorn Ygram",
            family = "Peters",
@@ -14,7 +14,13 @@ Description: This package implements a YAML standard for documenting
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/academy-of-behavior-change/justifier
+URL: https://justifier.opens.science
 BugReports: https://github.com/academy-of-behavior-change/justifier/issues
 Suggests: 
-    covr
+    covr,
+    knitr,
+    rmarkdown
+Imports: 
+    yum (>= 0.0.1)
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1

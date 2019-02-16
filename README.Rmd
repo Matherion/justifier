@@ -19,38 +19,23 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
 # justifier
 
-The goal of justifier is to ...
+The goal of `justifier` is to provide a simple human- and machine-readable standard for documenting justifications for decisions. `justifier` was primarily developed to enable documenting teh development of behavior change interventions and the planning and execution of scientific studies, but it can also be used to document decisions in organisations, enabling accumulation of decisions and types of justifications over time.
 
 ## Installation
 
-You can install the released version of justifier from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of `justifier` from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("justifier")
+install.packages("justifier");
 ```
 
-## Example
+You can install the development version of `justifier` from [GitHub](https://github.com) with:
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-## basic example code
+``` r
+devtools::install_github("academy-of-behavior-change/justifier");
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+(assuming you have `devtools` installed; otherwise, install that first using the `install.packages` function)
