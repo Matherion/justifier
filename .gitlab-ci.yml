@@ -1,0 +1,31 @@
+variables:
+  _R_CHECK_CRAN_INCOMING_: "false"
+  _R_CHECK_FORCE_SUGGESTS_: "true"
+  APT_PKGS: "libcurl4-openssl-dev libssh2-1-dev libssl-dev libxml2-dev zlib1g-dev git"
+
+pages:
+  stage: build
+  image: alpine:latest
+  script:
+    - echo 'Nothing to do...'
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+devtools-check:
+  before_script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends ${APT_PKGS}
+    - apt-get install -y --no-install-recommends qpdf pandoc pandoc-citeproc
+  stage: test
+  image: rocker/tidyverse
+  script:
+    - R -e 'install.packages(c("yaml"))'
+    - R -e 'install.packages(c("knitr", "rmarkdown", "covr", "testthat"))'
+    - R -e 'devtools::install_gitlab("r-packages/yum")'
+    - R -e 'devtools::install_github("matherion/ufs")'
+    - R -e 'devtools::check()'
+  tags:
+    - docker
