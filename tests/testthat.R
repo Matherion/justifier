@@ -1,3 +1,3 @@
 require(testthat);
 require(here);
-test_check("justifier");
+testthat::test_check("justifier");
