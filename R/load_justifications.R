@@ -68,7 +68,10 @@
 load_justifications <- function(text,
                                 file,
                                 delimiterRegEx = "^---$",
-                                justificationContainer = "justifier",
+                                justificationContainer = c("justification",
+                                                           "decision",
+                                                           "assertion",
+                                                           "source"),
                                 ignoreOddDelimiters = FALSE,
                                 encoding="UTF-8",
                                 silent=TRUE) {
@@ -79,20 +82,22 @@ load_justifications <- function(text,
 
   if (!missing(file)) {
     justifications <-
-      yum::load_yaml_fragments(file=file,
-                               delimiterRegEx=delimiterRegEx,
-                               select=justificationContainer,
-                               ignoreOddDelimiters=ignoreOddDelimiters,
-                               encoding=encoding,
-                               silent=silent);
+      yum::load_and_simplify(file=file,
+                             delimiterRegEx=delimiterRegEx,
+                             select=paste0(justificationContainer,
+                                           collapse="|"),
+                             ignoreOddDelimiters=ignoreOddDelimiters,
+                             encoding=encoding,
+                             silent=silent);
   } else if (!missing(text)) {
     justifications <-
-      yum::load_yaml_fragments(text=text,
-                               delimiterRegEx=delimiterRegEx,
-                               select=justificationContainer,
-                               ignoreOddDelimiters=ignoreOddDelimiters,
-                               encoding=encoding,
-                               silent=silent);
+      yum::load_and_simplify(text=text,
+                             delimiterRegEx=delimiterRegEx,
+                             select=paste0(justificationContainer,
+                                           collapse="|"),
+                             ignoreOddDelimiters=ignoreOddDelimiters,
+                             encoding=encoding,
+                             silent=silent);
   } else {
     stop("Specify either `file` or `text` to load.");
   }

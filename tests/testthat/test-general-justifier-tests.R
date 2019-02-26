@@ -21,7 +21,7 @@ testthat::test_that("reading a directory with justifications works", {
   res <- load_justifications_dir(here::here("tests",
                                             "testthat"));
 
-  testthat::expect_equal(length(res), 2);
+  testthat::expect_equal(length(res), 7);
 
 });
 

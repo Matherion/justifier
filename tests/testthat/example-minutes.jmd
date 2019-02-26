@@ -4,7 +4,7 @@ g
 gsgshshhsf
 
 ---
-justifier:
+justification:
   -
     id: decision1
     project-id: wim
@@ -22,7 +22,7 @@ en nog eentje
 En nog eentje
 
 ---
-justifier:
+justification:
   -
     id: decision2
     project-id: wim

@@ -4,7 +4,10 @@ load_justifications_dir <- function(path,
                                     recursive = TRUE,
                                     extension = "jmd",
                                     regex,
-                                    justificationContainer = "justifier",
+                                    justificationContainer = c("justification",
+                                                               "decision",
+                                                               "assertion",
+                                                               "source"),
                                     delimiterRegEx = "^---$",
                                     ignoreOddDelimiters = FALSE,
                                     encoding="UTF-8",
@@ -24,20 +27,16 @@ load_justifications_dir <- function(path,
   ### Load the YAML fragments containing the DCT specifications
   ###--------------------------------------------------------------------------
 
-  justificationList <-
-    yum::load_yaml_dir(path=path,
-                       recursive=recursive,
-                       fileRegexes = regex,
-                       select=justificationContainer,
-                       delimiterRegEx = delimiterRegEx,
-                       ignoreOddDelimiters = ignoreOddDelimiters,
-                       encoding = encoding,
-                       silent=silent);
-
-  ### Remove 'file' level
   justifications <-
-    unlist(justificationList,
-           recursive=FALSE);
+    yum::load_and_simplify_dir(path=path,
+                               recursive=recursive,
+                               fileRegexes = regex,
+                               select=paste0(justificationContainer,
+                                             collapse="|"),
+                               delimiterRegEx = delimiterRegEx,
+                               ignoreOddDelimiters = ignoreOddDelimiters,
+                               encoding = encoding,
+                               silent=silent);
 
   ###--------------------------------------------------------------------------
   ### Parse DCT specifications and return result
