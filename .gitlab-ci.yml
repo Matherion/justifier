@@ -1,4 +1,5 @@
 variables:
+  CODECOV_TOKEN: "ccd0e0ce-a5bd-4219-b6cc-c789dca79be1"
   _R_CHECK_CRAN_INCOMING_: "false"
   _R_CHECK_FORCE_SUGGESTS_: "true"
   APT_PKGS: "libcurl4-openssl-dev libssh2-1-dev libssl-dev libxml2-dev zlib1g-dev git"
@@ -25,7 +26,23 @@ devtools-check:
     - R -e 'install.packages(c("yaml"))'
     - R -e 'install.packages(c("knitr", "rmarkdown", "covr", "testthat"))'
     - R -e 'devtools::install_gitlab("r-packages/yum")'
-    - R -e 'devtools::install_github("matherion/ufs")'
+    - R -e 'devtools::install_gitlab("r-packages/ufs")'
     - R -e 'devtools::check()'
   tags:
     - docker
+
+coverage:
+  stage: deploy
+  tags:
+    - docker
+  image: rocker/tidyverse
+  when: on_success
+  only:
+    - master
+  script:
+    - R -e 'install.packages(c("data.tree", "yaml"))'
+    - R -e 'install.packages(c("devtools", "covr", "testthat", "here"))'
+    - R -e 'devtools::install_gitlab("r-packages/yum")'
+    - R -e 'devtools::install_gitlab("r-packages/ufs")'
+    - R -e 'devtools::install()'
+    - R -e 'covr::codecov(type = c("tests", "examples"), quiet = FALSE)'
