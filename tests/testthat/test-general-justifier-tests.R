@@ -12,7 +12,7 @@ testthat::test_that("reading a file with justifications works", {
 
   testthat::expect_equal(length(res), 2);
 
-}
+});
 
 ###-----------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ testthat::test_that("reading a directory with justifications works", {
 
   testthat::expect_equal(length(res), 2);
 
-}
+});
 
 ###-----------------------------------------------------------------------------
 
