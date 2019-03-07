@@ -87,7 +87,13 @@ in one (`load_justifications`) or multiple files (`load_justifications_dir`)." /
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/justifier-in-intervention-development.html">Using justifier in intervention development</a>
+      <a href="../articles/general-introduction-to-justifier.html">General introduction to justifier</a>
+    </li>
+    <li>
+      <a href="../articles/justifier-in-intervention-development.html">Using justifier in behavior change intervention development</a>
+    </li>
+    <li>
+      <a href="../articles/justifier-in-study-design.html">Using justifier in study design</a>
     </li>
   </ul>
 </li>
@@ -120,13 +126,14 @@ in one (`load_justifications`) or multiple files (`load_justifications_dir`).</p
     </div>
 
     <pre class="usage"><span class='fu'>load_justifications</span>(<span class='no'>text</span>, <span class='no'>file</span>, <span class='kw'>delimiterRegEx</span> <span class='kw'>=</span> <span class='st'>"^---$"</span>,
-  <span class='kw'>justificationContainer</span> <span class='kw'>=</span> <span class='st'>"justifier"</span>, <span class='kw'>ignoreOddDelimiters</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+  <span class='kw'>justificationContainer</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"justification"</span>, <span class='st'>"decision"</span>, <span class='st'>"assertion"</span>,
+  <span class='st'>"source"</span>), <span class='kw'>ignoreOddDelimiters</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>,
+  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>load_justifications_dir</span>(<span class='no'>path</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>extension</span> <span class='kw'>=</span> <span class='st'>"jmd"</span>,
-  <span class='no'>regex</span>, <span class='kw'>justificationContainer</span> <span class='kw'>=</span> <span class='st'>"justifier"</span>,
-  <span class='kw'>delimiterRegEx</span> <span class='kw'>=</span> <span class='st'>"^---$"</span>, <span class='kw'>ignoreOddDelimiters</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+  <span class='no'>regex</span>, <span class='kw'>justificationContainer</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"justifier"</span>, <span class='st'>"justification"</span>,
+  <span class='st'>"decision"</span>, <span class='st'>"assertion"</span>, <span class='st'>"source"</span>), <span class='kw'>delimiterRegEx</span> <span class='kw'>=</span> <span class='st'>"^---$"</span>,
+  <span class='kw'>ignoreOddDelimiters</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

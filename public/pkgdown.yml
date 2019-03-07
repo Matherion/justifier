@@ -1,5 +1,8 @@
 pandoc: 1.19.2.1
 pkgdown: 1.3.0
 pkgdown_sha: ~
-articles: []
+articles:
+  general-introduction-to-justifier: ../../../../../../B:/Data/R/justifier/vignettes/general-introduction-to-justifier.html
+  justifier-in-intervention-development: ../../../../../../B:/Data/R/justifier/vignettes/justifier-in-intervention-development.html
+  justifier-in-study-design: ../../../../../../B:/Data/R/justifier/vignettes/justifier-in-study-design.html
 

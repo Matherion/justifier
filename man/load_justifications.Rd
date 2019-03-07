@@ -9,13 +9,14 @@
 \title{Load Justifications from a file or multiple files}
 \usage{
 load_justifications(text, file, delimiterRegEx = "^---$",
-  justificationContainer = "justifier", ignoreOddDelimiters = FALSE,
-  encoding = "UTF-8", silent = TRUE)
+  justificationContainer = c("justification", "decision", "assertion",
+  "source"), ignoreOddDelimiters = FALSE, encoding = "UTF-8",
+  silent = TRUE)
 
 load_justifications_dir(path, recursive = TRUE, extension = "jmd",
-  regex, justificationContainer = "justifier",
-  delimiterRegEx = "^---$", ignoreOddDelimiters = FALSE,
-  encoding = "UTF-8", silent = TRUE)
+  regex, justificationContainer = c("justifier", "justification",
+  "decision", "assertion", "source"), delimiterRegEx = "^---$",
+  ignoreOddDelimiters = FALSE, encoding = "UTF-8", silent = TRUE)
 }
 \arguments{
 \item{text, file}{As `text` or `file`, you can specify a `file` to read with
