@@ -63,7 +63,7 @@ testthat::test_that("parsing simplified, just extracted justifications works", {
   res2 <- parse_justifications(res1);
 
 
-  testthat::expect_equal(res$supplemented$decisions$
+  testthat::expect_equal(res2$supplemented$decisions$
                            decision_to_select_behavior_1$
                            justification$justification_05$
                            assertion$assertion_nocturnal_2$
