@@ -9,9 +9,9 @@
 \title{Load Justifications from a file or multiple files}
 \usage{
 load_justifications(text, file, delimiterRegEx = "^---$",
-  justificationContainer = c("justification", "decision", "assertion",
-  "source"), ignoreOddDelimiters = FALSE, encoding = "UTF-8",
-  silent = TRUE)
+  justificationContainer = c("justifier", "justification", "decision",
+  "assertion", "source"), ignoreOddDelimiters = FALSE,
+  encoding = "UTF-8", silent = TRUE)
 
 load_justifications_dir(path, recursive = TRUE, extension = "jmd",
   regex, justificationContainer = c("justifier", "justification",

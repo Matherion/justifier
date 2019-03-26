@@ -68,7 +68,8 @@
 load_justifications <- function(text,
                                 file,
                                 delimiterRegEx = "^---$",
-                                justificationContainer = c("justification",
+                                justificationContainer = c("justifier",
+                                                           "justification",
                                                            "decision",
                                                            "assertion",
                                                            "source"),
@@ -101,6 +102,12 @@ load_justifications <- function(text,
   } else {
     stop("Specify either `file` or `text` to load.");
   }
+
+  ###--------------------------------------------------------------------------
+  ### Organise properly to remove superfluous elements
+  ###--------------------------------------------------------------------------
+
+
 
   ###--------------------------------------------------------------------------
   ### Parse justifications and return result
