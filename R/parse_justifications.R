@@ -23,10 +23,18 @@ parse_justifications <- function(x) {
   ### where id's are used as names
   justNames <- tolower(names(x));
   res$structured <-
-    list(sources = flatten_list(x[which(justNames == 'source')]),
-         assertions = flatten_list(x[which(justNames == 'assertion')]),
-         justifications = flatten_list(x[which(justNames == 'justification')]),
-         decisions = flatten_list(x[which(justNames == 'decision')]));
+    list(sources = to_specList(x[which(justNames == 'source')],
+                               types="sources",
+                               type="source"),
+         assertions = to_specList(x[which(justNames == 'assertion')],
+                                  types="assertions",
+                                  type="assertion"),
+         justifications = to_specList(x[which(justNames == 'justification')],
+                                      types="justifications",
+                                      type="justification"),
+         decisions = to_specList(x[which(justNames == 'decision')],
+                                 types="decisions",
+                                 type="decision"));
 
   ### Set names
   res$structured <- lapply(res$structured, function(elementList) {
@@ -36,7 +44,7 @@ parse_justifications <- function(x) {
                       "noID",
                       singleElement$id));
       });
-    ### Set id's for elements without an id (shouldn't happen;
+    ### Set ids for elements without an id (shouldn't happen;
     ### may want to throws an error instead)
     if (any(elementIds=="noID")) {
       warning("Some elements don't have an ID!");
@@ -56,28 +64,46 @@ parse_justifications <- function(x) {
     if (!is.null(res$structured$decisions[[i]]$justification)) {
       ### Flatten this justification, in case it is a list with a redundant level
       res$structured$decisions[[i]]$justification <-
-        flatten_list(res$structured$decisions[[i]]$justification);
+        to_specList(res$structured$decisions[[i]]$justification,
+                    types="justifications", type="justification");
       ### Process the elements one by one
       for (j in seq_along(res$structured$decisions[[i]]$justification)) {
         ### Check whether it is a specification (or one or more references)
         if (is_spec(res$structured$decisions[[i]]$justification[[j]])) {
           ### Check whether it already exists in the root
-          if (res$structured$decisions[[i]]$justification[[j]]$id %in%
-              names(res$structured$justifications)) {
+          if ((length(names(res$structured$justifications)) > 0) &&
+              res$structured$decisions[[i]]$justification[[j]]$id %in%
+                names(res$structured$justifications)) {
             ### If so, merge them and store the result in the root
             res$structured$justifications[[res$structured$decisions[[i]]$justification[[j]]$id]] <-
               merge_specs(res$structured$justifications[[res$structured$decisions[[i]]$justification[[j]]$id]],
                           res$structured$decisions[[i]]$justification[[j]]);
           } else {
             ### If not, copy this to the root
+            if (is.null(res$structured$decisions[[i]]$justification[[j]]$id)) {
+              stop("Error: no id for:\n\n",
+                   paste0(capture.output(print(res$structured$decisions[[i]]$justification[[j]])),
+                          collapse="\n"));
+            }
             res$structured$justifications[[res$structured$decisions[[i]]$justification[[j]]$id]] <-
               res$structured$decisions[[i]]$justification[[j]];
           }
         }
       }
       ### Once they are all copied and/or merged, replace them with references
-      res$structured$decisions[[i]]$justification <-
-        unname(purrr::map_chr(res$structured$decisions[[i]]$justification, "id"));
+      if (is.list(res$structured$decisions[[i]]$justification)) {
+        if (!is.null(names(res$structured$decisions[[i]]$justification)) &&
+            (length(names(res$structured$decisions[[i]]$justification)) == 1) &&
+            (names(res$structured$decisions[[i]]$justification) == "id")) {
+          res$structured$decisions[[i]]$justification <-
+            structure(res$structured$decisions[[i]]$justification$id,
+                      class="justifierRef");
+        } else {
+          res$structured$decisions[[i]]$justification <-
+            structure(unname(purrr::map_chr(res$structured$decisions[[i]]$justification, "id")),
+                      class="justifierRef");
+        }
+      }
     }
   }
 
@@ -90,13 +116,15 @@ parse_justifications <- function(x) {
     if (!is.null(res$structured$justifications[[i]]$assertion)) {
       ### Flatten this justification, in case it is a list with a redundant level
       res$structured$justifications[[i]]$assertion <-
-        flatten_list(res$structured$justifications[[i]]$assertion);
+        to_specList(res$structured$justifications[[i]]$assertion,
+                    types="assertions", type="assertion");
       ### Process the elements one by one
       for (j in seq_along(res$structured$justifications[[i]]$assertion)) {
         ### Check whether it is a specification (or one or more references)
         if (is_spec(res$structured$justifications[[i]]$assertion[[j]])) {
           ### Check whether it already exists in the root
-          if (res$structured$justifications[[i]]$assertion[[j]]$id %in%
+          if ((length(names(res$structured$assertions)) > 0) &&
+                res$structured$justifications[[i]]$assertion[[j]]$id %in%
               names(res$structured$assertions)) {
             ### If so, merge them and store the result in the root
             res$structured$assertions[[res$structured$justifications[[i]]$assertion[[j]]$id]] <-
@@ -110,8 +138,19 @@ parse_justifications <- function(x) {
         }
       }
       ### Once they are all copied and/or merged, replace them with references
-      res$structured$justifications[[i]]$assertion <-
-        unname(purrr::map_chr(res$structured$justifications[[i]]$assertion, "id"));
+      if (is.list(res$structured$justifications[[i]]$assertion)) {
+        if (!is.null(names(res$structured$justifications[[i]]$assertion)) &&
+            (length(names(res$structured$justifications[[i]]$assertion)) == 1) &&
+            (names(res$structured$justifications[[i]]$assertion) == "id")) {
+          res$structured$justifications[[i]]$assertion <-
+            structure(res$structured$justifications[[i]]$assertion$id,
+                      class="justifierRef");
+        } else {
+          res$structured$justifications[[i]]$assertion <-
+            structure(unname(purrr::map_chr(res$structured$justifications[[i]]$assertion, "id")),
+                      class="justifierRef");
+        }
+      }
     }
     ###
     ### Justifications can also contain *other* justifications. They're the only
@@ -120,13 +159,15 @@ parse_justifications <- function(x) {
     if (!is.null(res$structured$justifications[[i]]$justification)) {
       ### Flatten this justification, in case it is a list with a redundant level
       res$structured$justifications[[i]]$justification <-
-        flatten_list(res$structured$justifications[[i]]$justification);
+        to_specList(res$structured$justifications[[i]]$justification,
+                    types="justifications", type="justification");
       ### Process the elements one by one
       for (j in seq_along(res$structured$justifications[[i]]$justification)) {
         ### Check whether it is a specification (or one or more references)
         if (is_spec(res$structured$justifications[[i]]$justification[[j]])) {
           ### Check whether it already exists in the root
-          if (res$structured$justifications[[i]]$justification[[j]]$id %in%
+          if ((length(names(res$structured$justifications)) > 0) &&
+                res$structured$justifications[[i]]$justification[[j]]$id %in%
               names(res$structured$justifications)) {
             ### If so, merge them and store the result in the root
             res$structured$justifications[[res$structured$justifications[[i]]$justification[[j]]$id]] <-
@@ -140,8 +181,19 @@ parse_justifications <- function(x) {
         }
       }
       ### Once they are all copied and/or merged, replace them with references
-      res$structured$justifications[[i]]$justification <-
-        unname(purrr::map_chr(res$structured$justifications[[i]]$justification, "id"));
+      if (is.list(res$structured$justifications[[i]]$justification)) {
+        if (!is.null(names(res$structured$justifications[[i]]$justification)) &&
+            (length(names(res$structured$justifications[[i]]$justification)) == 1) &&
+            (names(res$structured$justifications[[i]]$justification) == "id")) {
+          res$structured$justifications[[i]]$justification <-
+            structure(res$structured$justifications[[i]]$justification$id,
+                      class="justifierRef");
+        } else {
+          res$structured$justifications[[i]]$justification <-
+            structure(unname(purrr::map_chr(res$structured$justifications[[i]]$justification, "id")),
+                      class="justifierRef");
+        }
+      }
     }
 
   }
@@ -151,14 +203,16 @@ parse_justifications <- function(x) {
     if (!is.null(res$structured$assertions[[i]]$source)) {
       ### Flatten this justification, in case it is a list with a redundant level
       res$structured$assertions[[i]]$source <-
-        flatten_list(res$structured$assertions[[i]]$source);
+        to_specList(res$structured$assertions[[i]]$source,
+                    types="sources", type="source");
       ### Process the elements one by one
       for (j in seq_along(res$structured$assertions[[i]]$source)) {
         ### Check whether it is a specification (or one or more references)
         if (is_spec(res$structured$assertions[[i]]$source[[j]])) {
           ### Check whether it already exists in the root
-          if (res$structured$assertions[[i]]$source[[j]]$id %in%
-              names(res$structured$sources)) {
+          if ((length(names(res$structured$sources)) > 0) &&
+              res$structured$assertions[[i]]$source[[j]]$id %in%
+                names(res$structured$sources)) {
             ### If so, merge them and store the result in the root
             res$structured$sources[[res$structured$assertions[[i]]$source[[j]]$id]] <-
               merge_specs(res$structured$sources[[res$structured$assertions[[i]]$source[[j]]$id]],
@@ -171,8 +225,19 @@ parse_justifications <- function(x) {
         }
       }
       ### Once they are all copied and/or merged, replace them with references
-      res$structured$assertions[[i]]$source <-
-        unname(purrr::map_chr(res$structured$assertions[[i]]$source, "id"));
+      if (is.list(res$structured$assertions[[i]]$source)) {
+        if (!is.null(names(res$structured$assertions[[i]]$source)) &&
+            (length(names(res$structured$assertions[[i]]$source)) == 1) &&
+            (names(res$structured$assertions[[i]]$source) == "id")) {
+          res$structured$assertions[[i]]$source <-
+            structure(res$structured$assertions[[i]]$source$id,
+                      class="justifierRef");
+        } else {
+          res$structured$assertions[[i]]$source <-
+            structure(unname(purrr::map_chr(res$structured$assertions[[i]]$source, "id")),
+                      class="justifierRef");
+        }
+      }
     }
   }
 
@@ -222,7 +287,7 @@ parse_justifications <- function(x) {
                  return(res$supplemented$justifications[[j]]);
                });
       names(res$supplemented$justifications[[i]]$justification) <-
-      justificationIds;
+        justificationIds;
     }
   }
 
@@ -237,7 +302,7 @@ parse_justifications <- function(x) {
                  return(res$supplemented$justifications[[j]]);
                });
       names(res$supplemented$decisions[[i]]$justification) <-
-      justificationIds;
+        justificationIds;
     }
   }
 

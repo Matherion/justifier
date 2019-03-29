@@ -1,6 +1,7 @@
 merge_specs <- function(x,
                         y,
                         conflictNames = NULL) {
+
   xFields <- names(x);
   yFields <-names(y);
   allFields <- union(xFields, yFields);

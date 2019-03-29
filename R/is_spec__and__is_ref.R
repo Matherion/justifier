@@ -3,6 +3,7 @@ is_spec <- function(x) {
 }
 
 is_ref <- function(x) {
-  return((length(names(x)) == 0) &&
-           (is.character(x)));
+  return(("justifierRef" %in% class(x)) ||
+           ((length(names(x)) == 0) &&
+            (is.character(x))));
 }
