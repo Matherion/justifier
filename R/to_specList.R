@@ -45,7 +45,7 @@ to_specList <- function(x,
         return(structure(lapply(seq_along(x),
                                 function(specIndex) {
                                   x[[specIndex]]$id <- ids[specIndex];
-                                  return(structure(x[specIndex],
+                                  return(structure(x[[specIndex]],
                                                    class=c("justifierSpec", type)));
                                 }),
                          names=ids,
