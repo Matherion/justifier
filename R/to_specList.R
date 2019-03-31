@@ -44,7 +44,7 @@ to_specList <- function(x,
                 "identifiers to ", ufs::vecTxtQ(ids[emptyIds]), ".");
         return(structure(lapply(seq_along(x),
                                 function(specIndex) {
-                                  x[[specIndex]]$id <- ids[specIndex];
+                                  x[[specIndex]]$id <- unname(ids[specIndex]);
                                   return(structure(x[[specIndex]],
                                                    class=c("justifierSpec", type)));
                                 }),
