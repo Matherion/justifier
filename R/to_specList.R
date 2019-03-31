@@ -42,9 +42,10 @@ to_specList <- function(x,
           paste0("id_", seq(1, sum(nchar(ids)==0)));
         warning("Some elements did not have identifiers set! I set those ",
                 "identifiers to ", ufs::vecTxtQ(ids[emptyIds]), ".");
-        return(structure(lapply(x,
-                                function(spec) {
-                                  return(structure(spec,
+        return(structure(lapply(seq_along(x),
+                                function(specIndex) {
+                                  x[[specIndex]]$id <- ids[specIndex];
+                                  return(structure(x[specIndex],
                                                    class=c("justifierSpec", type)));
                                 }),
                          names=ids,
