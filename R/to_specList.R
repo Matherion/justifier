@@ -20,7 +20,14 @@ to_specList <- function(x,
     ### have the name of the `type` argument, we can catch that case.
     if (all(unlist(lapply(x, is_spec)))) {
       ### They're all specifications; check whether they all have an id
-      ids <- purrr::map_chr(x, "id");
+      ids <-
+        purrr::map_chr(x, function(element) {
+          if (is.null(x$id)) {
+            return("");
+          } else {
+            return(x$id);
+          }
+        });
       if (all(nchar(ids) > 0)) {
         return(structure(lapply(x,
                                 function(spec) {
