@@ -332,11 +332,13 @@ parse_justifications <- function(x) {
     names(res$supplemented$decisions);
 
   res$decisionGraphs <-
-    lapply(res$decisionTrees,
-           function(decisionTree) {
-             data.tree::SetGraphStyle(decisionTree,
+    lapply(names(res$decisionTrees),
+           function(dTreeName) {
+             res <-
+               res$decisionTrees[[dTreeName]];
+             data.tree::SetGraphStyle(res,
                                       directed="false");
-             data.tree::SetGraphStyle(decisionTree,
+             data.tree::SetGraphStyle(res,
                                       rankdir = "LR");
              tryCatch({
                res <-
@@ -344,11 +346,11 @@ parse_justifications <- function(x) {
                                               direction="descend");
              }, error = function(e) {
                warning("Error issued by 'data.tree::ToDiagrammeRGraph' when converting '",
-                       decisionId, "' decision tree: ", e$message, "\n\nClass and content:\n\n",
-                       paste0(capture.output(print(class(res))),
+                       dTreeName, "' decision tree: ", e$message, "\n\nClass and content:\n\n",
+                       paste0(capture.output(print(class(res$decisionTrees[[dTreeName]]))),
                               collapse="\n"),
                        "\n",
-                       paste0(capture.output(print(res)),
+                       paste0(capture.output(print(res$decisionTrees[[dTreeName]])),
                               collapse="\n"));
              });
              if (is.null(res))
