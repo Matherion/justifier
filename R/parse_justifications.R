@@ -327,7 +327,11 @@ parse_justifications <- function(x) {
                                          nodeName=decisionId);
              return(res);
            });
-  res$decisonGraphs <-
+
+  names(res$decisionTrees) <-
+    names(res$supplemented$decisions);
+
+  res$decisionGraphs <-
     lapply(names(res$decisionTrees),
            function(decisionId) {
              res <-
@@ -344,14 +348,12 @@ parse_justifications <- function(x) {
                        decisionId, "' decision tree: ", e$message, "\n\nClass and content:\n\n",
                        paste0(capture.output(print(class(res))),
                               collapse="\n"),
+                       "\n",
                        paste0(capture.output(print(res)),
                               collapse="\n"));
              });
              return(res);
            });
-
-  names(res$decisionTrees) <-
-    names(res$supplemented$decisions);
 
   class(res) <- 'justifications';
   return(res);
