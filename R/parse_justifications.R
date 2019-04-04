@@ -329,6 +329,7 @@ parse_justifications <- function(x) {
                                       directed="false");
              data.tree::SetGraphStyle(res,
                                       rankdir = "LR");
+             return(res);
            });
   names(res$decisionTrees) <-
     names(res$supplemented$decisions);
