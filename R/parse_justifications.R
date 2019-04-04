@@ -342,10 +342,10 @@ parse_justifications <- function(x) {
              #                          rankdir = "LR");
              tryCatch({
                data.tree::Do(dTree, function(node) {
-                 SetNodeStyle(node,
-                              label = ifelse(is.null(node$label,
-                                                     node$name,
-                                                     justifier::sanitize_for_DiagrammeR(node$label))));
+                 data.tree::SetNodeStyle(node,
+                                         label = ifelse(is.null(node$label),
+                                                        node$name,
+                                                        justifier::sanitize_for_DiagrammeR(node$label)));
                });
                dTreeGraph <-
                  data.tree::ToDiagrammeRGraph(dTree);
