@@ -334,21 +334,23 @@ parse_justifications <- function(x) {
   res$decisionGraphs <-
     lapply(names(res$decisionTrees),
            function(dTreeName) {
-             res <-
+             dTree <-
                res$decisionTrees[[dTreeName]];
              # data.tree::SetGraphStyle(res,
              #                          directed="false");
              # data.tree::SetGraphStyle(res,
              #                          rankdir = "LR");
              tryCatch({
-               data.tree::Do(res, function(node) {
+               data.tree::Do(dTree, function(node) {
                  SetNodeStyle(node,
-                              label = justifier::sanitize_for_DiagrammeR(node$label));
+                              label = ifelse(is.null(node$label,
+                                                     node$name,
+                                                     justifier::sanitize_for_DiagrammeR(node$label))));
                });
-               res <-
-                 data.tree::ToDiagrammeRGraph(res);
-               res <-
-                 justifier::apply_graph_theme(dctGraph,
+               dTreeGraph <-
+                 data.tree::ToDiagrammeRGraph(dTree);
+               dTreeGraph <-
+                 justifier::apply_graph_theme(dTreeGraph,
                                               c("layout", "dot", "graph"),
                                               c("rankdir", "LR", "graph"),
                                               c("outputorder", "nodesfirst", "graph"),
@@ -362,10 +364,10 @@ parse_justifications <- function(x) {
              }, error = function(e) {
                warning("Error issued by 'data.tree::ToDiagrammeRGraph' when converting '",
                        dTreeName, "' decision tree: ", e$message, "\n\nClass and content:\n\n",
-                       paste0(capture.output(print(class(res$decisionTrees[[dTreeName]]))),
+                       paste0(capture.output(print(class(dTree))),
                               collapse="\n"),
                        "\n",
-                       paste0(capture.output(print(res$decisionTrees[[dTreeName]])),
+                       paste0(capture.output(print(dTree)),
                               collapse="\n"));
              });
              if (is.null(res))
