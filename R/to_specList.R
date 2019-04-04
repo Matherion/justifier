@@ -22,10 +22,10 @@ to_specList <- function(x,
       ### They're all specifications; check whether they all have an id
       ids <-
         purrr::map_chr(x, function(element) {
-          if (is.null(x$id)) {
+          if (is.null(element$id)) {
             return("");
           } else {
-            return(x$id);
+            return(element$id);
           }
         });
       if (all(nchar(ids) > 0)) {
@@ -37,7 +37,7 @@ to_specList <- function(x,
                          names=ids,
                          class=c("justifierSpecList", types)));
       } else {
-        emptyIds <- nchar(ids)==0;
+        emptyIds <- which(nchar(ids)==0);
         ids[emptyIds] <-
           paste0("id_", seq(1, sum(nchar(ids)==0)));
         warning("Some elements did not have identifiers set! I set those ",
