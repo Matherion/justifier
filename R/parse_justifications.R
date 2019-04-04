@@ -336,14 +336,29 @@ parse_justifications <- function(x) {
            function(dTreeName) {
              res <-
                res$decisionTrees[[dTreeName]];
-             data.tree::SetGraphStyle(res,
-                                      directed="false");
-             data.tree::SetGraphStyle(res,
-                                      rankdir = "LR");
+             # data.tree::SetGraphStyle(res,
+             #                          directed="false");
+             # data.tree::SetGraphStyle(res,
+             #                          rankdir = "LR");
              tryCatch({
+               data.tree::Do(res, function(node) {
+                 SetNodeStyle(node,
+                              label = justifier::sanitize_for_DiagrammeR(node$label));
+               });
                res <-
-                 data.tree::ToDiagrammeRGraph(res,
-                                              direction="descend");
+                 data.tree::ToDiagrammeRGraph(res);
+               res <-
+                 justifier::apply_graph_theme(dctGraph,
+                                              c("layout", "dot", "graph"),
+                                              c("rankdir", "LR", "graph"),
+                                              c("outputorder", "nodesfirst", "graph"),
+                                              c("fixedsize", "false", "node"),
+                                              c("shape", "box", "node"),
+                                              c("style", "rounded,filled", "node"),
+                                              c("color", "#000000", "node"),
+                                              c("color", "#888888", "edge"),
+                                              c("dir", "none", "edge"),
+                                              c("fillcolor", "#FFFFFF", "node"));
              }, error = function(e) {
                warning("Error issued by 'data.tree::ToDiagrammeRGraph' when converting '",
                        dTreeName, "' decision tree: ", e$message, "\n\nClass and content:\n\n",
