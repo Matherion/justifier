@@ -325,12 +325,31 @@ parse_justifications <- function(x) {
              res <-
                data.tree::FromListSimple(simpleList = res$decisionTrees[[decisionId]],
                                          nodeName=decisionId);
+             return(res);
+           });
+  res$decisonGraphs <-
+    lapply(names(res$decisionTrees),
+           function(decisionId) {
+             res <-
+               res$decisionTrees[[decisionId]];
              data.tree::SetGraphStyle(res,
                                       directed="false");
              data.tree::SetGraphStyle(res,
                                       rankdir = "LR");
+             tryCatch({
+               res <-
+                 data.tree::ToDiagrammeRGraph(res);
+             }, error = function(e) {
+               warning("Error issued by 'data.tree::ToDiagrammeRGraph' when converting '",
+                       decisionId, "' decision tree: ", e$message, "\n\nClass and content:\n\n",
+                       paste0(capture.output(print(class(res))),
+                              collapse="\n"),
+                       paste0(capture.output(print(res)),
+                              collapse="\n"));
+             });
              return(res);
            });
+
   names(res$decisionTrees) <-
     names(res$supplemented$decisions);
 
