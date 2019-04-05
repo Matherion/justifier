@@ -348,7 +348,7 @@ parse_justifications <- function(x) {
                                                         justifier::sanitize_for_DiagrammeR(node$label)));
                });
                dTreeGraph <-
-                 data.tree::ToDiagrammeRGraph(dTree);
+                 data.tree::ToDiagrammeRGraph(list(dTree));
                dTreeGraph <-
                  justifier::apply_graph_theme(dTreeGraph,
                                               c("layout", "dot", "graph"),
