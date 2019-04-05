@@ -362,17 +362,18 @@ parse_justifications <- function(x) {
                                               c("dir", "none", "edge"),
                                               c("fillcolor", "#FFFFFF", "node"));
              }, error = function(e) {
-               warning("Error issued by 'data.tree::ToDiagrammeRGraph' when converting '",
-                       dTreeName, "' decision tree: ", e$message, "\n\nClass and content:\n\n",
+               warning("Error issued when converting '",
+                       dTreeName, "' decision tree to a decision graph: ",
+                       e$message, "\n\nClass and content:\n\n",
                        paste0(capture.output(print(class(dTree))),
                               collapse="\n"),
                        "\n",
                        paste0(capture.output(print(dTree)),
                               collapse="\n"));
              });
-             if (is.null(res))
-               res <- NA;
-             return(res);
+             if (is.null(dTreeGraph))
+               dTreeGraph <- NA;
+             return(dTreeGraph);
            });
 
   names(res$decisionGraphs) <-
