@@ -341,15 +341,14 @@ parse_justifications <- function(x) {
              # data.tree::SetGraphStyle(res,
              #                          rankdir = "LR");
              tryCatch({
-               data.tree::Do(dTree, function(node) {
+               dTree$Do(function(node) {
                  data.tree::SetNodeStyle(node,
                                          label = ifelse(is.null(node$label),
                                                         node$name,
                                                         justifier::sanitize_for_DiagrammeR(node$label)));
                });
-               print(class(dTree));
-               # dTreeGraph <-
-               #   data.tree::ToDiagrammeRGraph(dTree);
+               dTreeGraph <-
+                 data.tree::ToDiagrammeRGraph(dTree);
                dTreeGraph <-
                  justifier::apply_graph_theme(dTreeGraph,
                                               c("layout", "dot", "graph"),
