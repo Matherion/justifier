@@ -320,8 +320,8 @@ parse_justifications <- function(x) {
                         j$children <-
                           lapply(j$children,
                                  function(a) {
-                                   a$children <- a$sources;
-                                   a$sources <- NULL;
+                                   a$children <- a$source;
+                                   a$source <- NULL;
                                    return(a);
                                  });
                         return(j);
@@ -348,10 +348,6 @@ parse_justifications <- function(x) {
            function(dTreeName) {
              dTree <-
                res$decisionTrees[[dTreeName]];
-             # data.tree::SetGraphStyle(res,
-             #                          directed="false");
-             # data.tree::SetGraphStyle(res,
-             #                          rankdir = "LR");
              tryCatch({
                dTree$Do(function(node) {
                  lbl <-
@@ -376,6 +372,7 @@ parse_justifications <- function(x) {
                                               c("shape", "box", "node"),
                                               c("style", "rounded,filled", "node"),
                                               c("color", "#000000", "node"),
+                                              c("margin", "0.2,0.2", "node"),
                                               c("color", "#888888", "edge"),
                                               c("dir", "none", "edge"),
                                               c("fillcolor", "#FFFFFF", "node"));
