@@ -310,13 +310,23 @@ parse_justifications <- function(x) {
   res$decisionTrees <-
     lapply(res$supplemented$decisions,
            function(d) {
-             return(lapply(d$justification,
-                           function(j) {
-                             return(lapply(j$assertion,
-                                             function(a) {
-                                               return(a$source);
-                                             }));
-                           }));
+             d$children <- d$justification;
+             d$justification <- NULL;
+             d$children <-
+               lapply(d$children,
+                      function(j) {
+                        j$children <- j$assertion;
+                        j$assertion <- NULL;
+                        j$children <-
+                          lapply(j$children,
+                                 function(a) {
+                                   a$children <- a$sources;
+                                   a$sources <- NULL;
+                                   return(a);
+                                 });
+                        return(j);
+                      });
+             return(d);
            });
 
   res$decisionTrees <-
@@ -342,10 +352,16 @@ parse_justifications <- function(x) {
              #                          rankdir = "LR");
              tryCatch({
                dTree$Do(function(node) {
+                 lbl <-
+                   ifelse(is.null(node$label),
+                                  node$name,
+                                  node$label)
+                 lbl <-
+                   justifier::sanitize_for_DiagrammeR(lbl);
+                 lbl <-
+                   paste0(strwrap(lbl, 40), collapse="\n");
                  data.tree::SetNodeStyle(node,
-                                         label = ifelse(is.null(node$label),
-                                                        node$name,
-                                                        justifier::sanitize_for_DiagrammeR(node$label)));
+                                         label = lbl);
                });
                dTreeGraph <-
                  data.tree::ToDiagrammeRGraph(dTree);
