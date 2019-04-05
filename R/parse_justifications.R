@@ -372,7 +372,7 @@ parse_justifications <- function(x) {
                                               c("shape", "box", "node"),
                                               c("style", "rounded,filled", "node"),
                                               c("color", "#000000", "node"),
-                                              c("margin", "0.2,0.2", "node"),
+                                              c("margin", "0.2,0.6", "node"),
                                               c("color", "#888888", "edge"),
                                               c("dir", "none", "edge"),
                                               c("fillcolor", "#FFFFFF", "node"));
