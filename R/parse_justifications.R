@@ -333,8 +333,10 @@ parse_justifications <- function(x) {
     lapply(names(res$decisionTrees),
            function(decisionId) {
              res <-
-               data.tree::FromListSimple(simpleList = res$decisionTrees[[decisionId]],
-                                         nodeName=decisionId);
+               data.tree::FromListExplicit(simpleList = res$decisionTrees[[decisionId]],
+                                           nameName="id",
+                                           childrenName="children",
+                                           nodeName=decisionId);
              return(res);
            });
 
