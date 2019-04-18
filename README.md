@@ -33,10 +33,10 @@ install.packages("justifier");
 ```
 
 You can install the development version of `justifier` from
-[GitHub](https://github.com) with:
+[GitLab](https://gitlab.com) with:
 
 ``` r
-devtools::install_github("academy-of-behavior-change/justifier");
+devtools::install_gitlab("r-packages/justifier");
 ```
 
 (assuming you have `devtools` installed; otherwise, install that first
