@@ -10,7 +10,7 @@ status](https://ci.appveyor.com/api/projects/status/github/academy-of-behavior-c
 [![Coverage
 status](https://codecov.io/gh/academy-of-behavior-change/justifier/branch/master/graph/badge.svg)](https://codecov.io/github/academy-of-behavior-change/justifier?branch=master)
 
-# justifier: Human and machine-readable justifications and justified decisions based on YAML <img src='img/justifier-logo.png' align="right" height="200" />
+# <img src='img/justifier-logo.png' align="right" height="200" /> justifier: Human and machine-readable justifications and justified decisions based on YAML
 
 The goal of `justifier` is to provide a simple human- and
 machine-readable standard for documenting justifications for decisions.

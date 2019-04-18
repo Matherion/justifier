@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# justifier: Human and machine-readable justifications and justified decisions based on YAML <img src='img/justifier-logo.png' align="right" height="200" />
+# <img src='img/justifier-logo.png' align="right" height="200" /> justifier: Human and machine-readable justifications and justified decisions based on YAML
 
 The goal of `justifier` is to provide a simple human- and machine-readable standard for documenting justifications for decisions. `justifier` was primarily developed to enable documenting teh development of behavior change interventions and the planning and execution of scientific studies, but it can also be used to document decisions in organisations, enabling accumulation of decisions and types of justifications over time.
 
