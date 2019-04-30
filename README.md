@@ -23,7 +23,12 @@ decisions in organisations, enabling accumulation of decisions and types
 of justifications over time.
 
 The pkgdown website for this project is located at
-<https://r-packages.gitlab.io/justifier>
+<https://r-packages.gitlab.io/justifier>, and three vignettes (in
+progress) are located at:
+
+  - <https://r-packages.gitlab.io/justifier/articles/general-introduction-to-justifier.html>
+  - <https://r-packages.gitlab.io/justifier/articles/justifier-in-study-design.html>
+  - <https://r-packages.gitlab.io/justifier/articles/justifier-in-intervention-development.html>
 
 This meets the increasing demand for accountability of professionals
 (see e.g. <doi:10.1386/jots.9.3.271_1>).
