@@ -22,6 +22,9 @@ execution of scientific studies, but it can also be used to document
 decisions in organisations, enabling accumulation of decisions and types
 of justifications over time.
 
+The pkgdown website for this project is located at
+<https://r-packages.gitlab.io/justifier>
+
 This meets the increasing demand for accountability of professionals
 (see e.g. <doi:10.1386/jots.9.3.271_1>).
 
