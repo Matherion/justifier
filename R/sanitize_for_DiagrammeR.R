@@ -10,7 +10,7 @@
 #' @return The sanitized character vector
 #' @export
 #'
-#' @examples justifier::sanitize_for_DiagrammeR("This is or isn't problematic');
+#' @examples justifier::sanitize_for_DiagrammeR("This is or isn't problematic");
 sanitize_for_DiagrammeR <- function(x,
                                     regExReplacements = list(c("\\\"", "`"),
                                                              c("\\'", "`"),

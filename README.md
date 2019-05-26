@@ -31,7 +31,7 @@ progress) are located at:
   - <https://r-packages.gitlab.io/justifier/articles/justifier-in-intervention-development.html>
 
 This meets the increasing demand for accountability of professionals
-(see e.g. <doi:10.1386/jots.9.3.271_1>).
+(see e.g. Van Woerkum & Aarts, 2012).
 
 ## Installation
 
@@ -51,3 +51,9 @@ devtools::install_gitlab("r-packages/justifier");
 
 (assuming you have `devtools` installed; otherwise, install that first
 using the `install.packages` function)
+
+## References
+
+van Woerkum, C. and Aarts, N. (2012), ‘Accountability: New challenges,
+new forms’, *Journal of Organizational Transformation & Social Change*,
+9, pp. 271–283, .

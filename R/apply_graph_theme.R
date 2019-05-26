@@ -36,7 +36,7 @@
 #' justifications <-
 #'   load_justifications(text=exampleJustifier);
 #' miniGraph_original <-
-#'   data.tree::ToDiagrammeRGraph(justifications$fullTree$decisions);
+#'   justifications$decisionGraphs[[1]];
 #' miniGraph <-
 #'   apply_graph_theme(miniGraph_original,
 #'                     c("color", "#0000AA", "node"),

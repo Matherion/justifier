@@ -79,7 +79,35 @@ decision:
 
 ## Sample size
 
-Once the method is clear, for empirical research, it becomes possible to   
+Once the method is clear, for empirical research, it becomes possible to plan the required sample size. For example, in this example study, we aim to map the importance of a series of behavioral determinants to then inform intervention development. That means we desire sufficiently accurate estimates of determinants' relevance. 
+
+```
+decision: 
+  context: global_study_method
+  value: 400
+  id: study_sample_size
+  label: "We aim to recruit around 400 participants."
+  justification:
+    -
+      id: enough_known_about_testing_determinants
+      label: "We have enough information available to develop a questionnaire that is likely to measure the most important determinants and sub-determinants of XTC testing."
+      assertion:
+        -
+          id: testing_xtc_is_reasoned
+          source: phd_peters_2008
+          label: "Previous research indicates that getting one's ecstasy tested (or not) is largely a reasoned behavior"
+        -
+          id: there_is_qualitative_research_about_testing
+          source: phd_peters_2008
+          label: "There exists qualitative research about why people get their ecstasy tested"
+    -
+      id: limited_time
+      label: "We have to produce the ultimate intervention before the end of 2019."
+      source:
+        id: project_propoal
+        label: "The original proposal for this project as funded by our funder."
+```
+
 
 ## Preregistration
 

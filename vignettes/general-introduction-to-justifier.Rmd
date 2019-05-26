@@ -35,16 +35,9 @@ To this end, `justifier` work with the concept of `justification frameworks`. Th
 
 For example, imagine a social activity committee at a faculty at a university somewhere in the world. Since social cohesion is an important factor in staff happiness, it would make sense that such a vital organ as the social activity committee would decide to document their minutes using `justifier`, after all. In a meeting, they could decide to organise the next annual faculty outing as a bowling match, and to not include dinner, but include lunch. The underying reasoning could be that last year, there was a non-sporty activity, and the dinner got quite out of hand. These choices therefore cater to people's perceived need for variation and hopefully avoid embarrassing (but fun) scenarios like those witnessed last year.
 
-By imposing a `justification framework`, one could, for example, attach a 'decision quality' value to these decisions. Imagine a framework for a faculty that values democracy very highly. In this framework, decisions' justifications pertaining to the context of 'activity' have to have one of three values: 'survey under staff', 'discussion at staff meeting', or 'internally generated'. Decisions within th e
-
-pertaining to deciding on where to go with an annual faculty outing could have two justification contexts: 'activity' and 'sustenance'. The first could contain 
-
-could
-
-
+By imposing a `justification framework`, one could, for example, attach a 'decision quality' value to these decisions. Imagine a framework for a faculty that values democracy very highly. In this framework, decisions' justifications pertaining to the context of 'activity' have to have one of three values: 'survey under staff', 'discussion at staff meeting', or 'internally generated'. It is then possible to easily generate overview of types of justifications in different meetings. For example, it could, hypothetically, turn out to be the case that decision bodies at higher levels make more internally generated decisions, whereas decisions at lower levels are more often based on discussions with staff members.
 
 Two examples of such frameworks are provided in the 'justifier in behavior change intervention development' and 'justifier in study design' vignettes. 
-
 
 For example, when designing an empirical study, some form of data will often be gathered. In the design phase, therefore, decisions are taken as to the amount of data that will be required. These decisions share a role in the study design process, and once such context is clear, further specification of the decisions becomes possible. For example, for quantitative studies in psychology, a decision could pertain to whether sample size calculations are based on a frequentist approach, such as on null hpothesis significance testing, accuracy in parameter estimation, or a Bayesian approach.
 

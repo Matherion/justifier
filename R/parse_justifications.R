@@ -1,5 +1,10 @@
 #' Parsing justifications
 #'
+#' This function is normally called by [load_justifications()]; however,
+#' sometimes it may be desirable to parse justifications embedded in more
+#' complex objects, for example as provided by [yum::load_and_simplify()].
+#' Therefore, this function can also be called directly.
+#'
 #' While there is some flexibility in how justifications can be specified,
 #' they are most easily processed further if they all follow the same
 #' conventions. This function ensures this. The convention is as follows:
@@ -9,12 +14,57 @@
 #' - all references to other elements are indeed only references to the other
 #'   elements' id's in these 'flat lists'
 #'
-#' @param x The `justifier` object that has just been loaded by `load_justifications`.
+#' @param x An object resulting from a call to [yum::load_and_simplify()].
 #'
 #' @return The parsed `justifier` object
-#' @export
 #'
-#' @examples
+#' @examples ### Specify an example text
+#' exampleMinutes <- 'This is an example of minutes that include
+#' a source, an assertion, and a justification. For example, in
+#' the meeting, we can discuss the assertion that sleep deprivation
+#' affects decision making. We could quickly enter this assertion in
+#' a machine-readable way in this manner:
+#'
+#' ---
+#' assertion:
+#'   -
+#'     id: assertion_SD_decision
+#'     label: Sleep deprivation affects the decision making proces.
+#'     source:
+#'       id: source_Harrison
+#' ---
+#'
+#' Because it is important to refer to sources, we cite a source as well.
+#' We have maybe specified that source elsewhere, for example in the
+#' minutes of our last meeting. That specification may have looked
+#' like this:
+#'
+#' ---
+#' source:
+#'   -
+#'     id: source_Harrison
+#'     label: "Harrison & Horne (2000) The impact of sleep deprivation on decision making: A review."
+#'     xdoi: "doi:10.1037/1076-898x.6.3.236"
+#'     type: "Journal article"
+#' ---
+#'
+#' We can now refer to these two specifications later on, for
+#' example to justify decisions we take.
+#' ';
+#'
+#' ### Load it with yum::load_and_simplify()
+#' loadedMinutes <- yum::load_and_simplify(exampleMinutes);
+#'
+#' ### Show contents
+#' names(loadedMinutes);
+#'
+#' ### Parse 'manually'
+#' parsedJustifications <- justifier::parse_justifications(loadedMinutes);
+#'
+#' ### Show contents
+#' names(parsedJustifications);
+#'
+#' @export
 parse_justifications <- function(x) {
 
   res <- list(raw = x);
@@ -82,7 +132,7 @@ parse_justifications <- function(x) {
             ### If not, copy this to the root
             if (is.null(res$structured$decisions[[i]]$justification[[j]]$id)) {
               stop("Error: no id for:\n\n",
-                   paste0(capture.output(print(res$structured$decisions[[i]]$justification[[j]])),
+                   paste0(utils::capture.output(print(res$structured$decisions[[i]]$justification[[j]])),
                           collapse="\n"));
             }
             res$structured$justifications[[res$structured$decisions[[i]]$justification[[j]]$id]] <-
@@ -380,10 +430,10 @@ parse_justifications <- function(x) {
                warning("Error issued when converting '",
                        dTreeName, "' decision tree to a decision graph: ",
                        e$message, "\n\nClass and content:\n\n",
-                       paste0(capture.output(print(class(dTree))),
+                       paste0(utils::capture.output(print(class(dTree))),
                               collapse="\n"),
                        "\n",
-                       paste0(capture.output(print(dTree)),
+                       paste0(utils::capture.output(print(dTree)),
                               collapse="\n"));
              });
              if (is.null(dTreeGraph))

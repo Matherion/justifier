@@ -1,13 +1,13 @@
 Package: justifier
-Title: Human and machine-readable justifications and justified decisions based on YAML
-Version: 0.0.1
+Title: Human and Machine-Readable Justifications and Justified Decisions Based on YAML
+Version: 0.1.0
 Authors@R: 
     person(given = "Gjalt-Jorn Ygram",
            family = "Peters",
            role = c("aut", "cre"),
            email = "gjalt-jorn@behaviorchange.eu")
-Maintainer: Gjalt-Jorn Peters <gjalt-jorn@behaviorchange.eu>
-Description: This package leverages the 'yum' package to
+Maintainer: Gjalt-Jorn Ygram Peters <gjalt-jorn@behaviorchange.eu>
+Description: Leverages the 'yum' package to
              implement a 'YAML' standard for documenting
              justifications, such as for decisions taken during the
              planning, execution and analysis of a study or during the
@@ -26,7 +26,9 @@ Suggests:
     testthat
 Imports: 
     data.tree (>= 0.7.8),
+    DiagrammeR (>= 1.0.0),
     purrr (>= 0.3.0),
+    ufs (>= 0.1.0),
     yum (>= 0.0.1)
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1

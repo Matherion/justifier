@@ -6,9 +6,10 @@ context("general justifier tests")
 
 testthat::test_that("reading a file with justifications works", {
 
-  res <- load_justifications(here::here("tests",
-                                        "testthat",
-                                        "example-minutes.jmd"));
+  examplePath <- file.path(system.file(package="justifier"), 'extdata');
+
+  res <- justifier::load_justifications(file.path(examplePath,
+                                                  "example-minutes.jmd"));
 
   testthat::expect_equal(length(res$raw), 2);
 
@@ -18,10 +19,11 @@ testthat::test_that("reading a file with justifications works", {
 
 testthat::test_that("reading a directory with justifications works", {
 
-  res <- load_justifications_dir(here::here("tests",
-                                            "testthat"));
+  examplePath <- file.path(system.file(package="justifier"), 'extdata');
 
-  testthat::expect_equal(length(res), 4);
+  res <- load_justifications_dir(examplePath);
+
+  testthat::expect_equal(length(res), 5);
 
 });
 
@@ -29,9 +31,10 @@ testthat::test_that("reading a directory with justifications works", {
 
 testthat::test_that("parsing justifications works", {
 
-  res <- load_justifications(here::here("tests",
-                                        "testthat",
-                                        "pp19.1-target-behavior-selection.jmd"));
+  examplePath <- file.path(system.file(package="justifier"), 'extdata');
+
+  res <- load_justifications(file.path(examplePath,
+                                       "pp19.1-target-behavior-selection.jmd"));
 
   testthat::expect_equal(res$supplemented$decisions$
                            decision_to_select_behavior_1$
@@ -54,14 +57,14 @@ testthat::test_that("parsing justifications works", {
 
 ###-----------------------------------------------------------------------------
 
-testthat::test_that("parsing simplified, just extracted justifications works", {
+testthat::test_that("parsing simplified, just extracted justifications from yum works", {
 
-  res1 <- yum::load_and_simplify(here::here("tests",
-                                            "testthat",
-                                            "pp19.1-target-behavior-selection.jmd"));
+  examplePath <- file.path(system.file(package="justifier"), 'extdata');
 
-  res2 <- parse_justifications(res1);
+  res1 <- yum::load_and_simplify(file.path(examplePath,
+                                           "pp19.1-target-behavior-selection.jmd"));
 
+  res2 <- justifier::parse_justifications(res1);
 
   testthat::expect_equal(res2$supplemented$decisions$
                            decision_to_select_behavior_1$

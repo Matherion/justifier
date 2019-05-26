@@ -7,12 +7,18 @@
 parse_justifications(x)
 }
 \arguments{
-\item{x}{The `justifier` object that has just been loaded by `load_justifications`.}
+\item{x}{An object resulting from a call to [yum::load_and_simplify()].}
 }
 \value{
 The parsed `justifier` object
 }
 \description{
+This function is normally called by [load_justifications()]; however,
+sometimes it may be desirable to parse justifications embedded in more
+complex objects, for example as provided by [yum::load_and_simplify()].
+Therefore, this function can also be called directly.
+}
+\details{
 While there is some flexibility in how justifications can be specified,
 they are most easily processed further if they all follow the same
 conventions. This function ensures this. The convention is as follows:
@@ -21,4 +27,52 @@ conventions. This function ensures this. The convention is as follows:
 - all elements have  a unique identifier
 - all references to other elements are indeed only references to the other
   elements' id's in these 'flat lists'
+}
+\examples{
+### Specify an example text
+exampleMinutes <- 'This is an example of minutes that include
+a source, an assertion, and a justification. For example, in
+the meeting, we can discuss the assertion that sleep deprivation
+affects decision making. We could quickly enter this assertion in
+a machine-readable way in this manner:
+
+---
+assertion:
+  -
+    id: assertion_SD_decision
+    label: Sleep deprivation affects the decision making proces.
+    source:
+      id: source_Harrison
+---
+
+Because it is important to refer to sources, we cite a source as well.
+We have maybe specified that source elsewhere, for example in the
+minutes of our last meeting. That specification may have looked
+like this:
+
+---
+source:
+  -
+    id: source_Harrison
+    label: "Harrison & Horne (2000) The impact of sleep deprivation on decision making: A review."
+    xdoi: "doi:10.1037/1076-898x.6.3.236"
+    type: "Journal article"
+---
+
+We can now refer to these two specifications later on, for
+example to justify decisions we take.
+';
+
+### Load it with yum::load_and_simplify()
+loadedMinutes <- yum::load_and_simplify(exampleMinutes);
+
+### Show contents
+names(loadedMinutes);
+
+### Parse 'manually'
+parsedJustifications <- justifier::parse_justifications(loadedMinutes);
+
+### Show contents
+names(parsedJustifications);
+
 }

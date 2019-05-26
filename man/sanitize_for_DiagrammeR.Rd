@@ -20,3 +20,6 @@ The sanitized character vector
 Basically a wrapper for [base::gsub()] to sanitize a string for
 DiagrammeR
 }
+\examples{
+justifier::sanitize_for_DiagrammeR("This is or isn't problematic");
+}

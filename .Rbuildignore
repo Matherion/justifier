@@ -2,6 +2,7 @@
 ^LICENSE\.md$
 ^\.travis\.yml$
 ^\.gitlab-ci\.yml$
+^appveyor\.yml$
 ^_pkgdown\.yml$
 ^README\.Rmd$
 \.Rproj$

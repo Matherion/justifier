@@ -16,10 +16,10 @@ remove_nameless_levels <- function(x,
         return(x);
       } else {
         x[indicesOfLists] <-
-          lapplyl(x[indicesOfLists],
-                  remove_nameless_levels,
-                  newNames = newNames,
-                  errorOnMissingNewName = errorOnMissingNewName);
+          lapply(x[indicesOfLists],
+                 remove_nameless_levels,
+                 newNames = newNames,
+                 errorOnMissingNewName = errorOnMissingNewName);
         return(x);
       }
     } else {
