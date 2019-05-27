@@ -7,26 +7,28 @@
 parse_justifications(x)
 }
 \arguments{
-\item{x}{An object resulting from a call to [yum::load_and_simplify()].}
+\item{x}{An object resulting from a call to \code{\link[yum:load_and_simplify]{yum::load_and_simplify()}}.}
 }
 \value{
-The parsed `justifier` object
+The parsed \code{justifier} object
 }
 \description{
-This function is normally called by [load_justifications()]; however,
+This function is normally called by \code{\link[=load_justifications]{load_justifications()}}; however,
 sometimes it may be desirable to parse justifications embedded in more
-complex objects, for example as provided by [yum::load_and_simplify()].
+complex objects, for example as provided by \code{\link[yum:load_and_simplify]{yum::load_and_simplify()}}.
 Therefore, this function can also be called directly.
 }
 \details{
 While there is some flexibility in how justifications can be specified,
 they are most easily processed further if they all follow the same
 conventions. This function ensures this. The convention is as follows:
-- all specifications are provided in four 'flat' lists, named after the
-  types of elements they contain;
-- all elements have  a unique identifier
-- all references to other elements are indeed only references to the other
-  elements' id's in these 'flat lists'
+\itemize{
+\item all specifications are provided in four 'flat' lists, named after the
+types of elements they contain;
+\item all elements have  a unique identifier
+\item all references to other elements are indeed only references to the other
+elements' id's in these 'flat lists'
+}
 }
 \examples{
 ### Specify an example text

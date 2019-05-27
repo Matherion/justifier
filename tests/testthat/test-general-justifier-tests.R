@@ -77,4 +77,23 @@ testthat::test_that("parsing simplified, just extracted justifications from yum 
 
 ###-----------------------------------------------------------------------------
 
+testthat::test_that("the intervention development justification from the vignette is parsed correctly", {
+
+  exampleFile <-
+    system.file("doc",
+                "justifier-in-intervention-development.Rmd",
+                package="justifier");
+
+  res1 <- yum::load_and_simplify(exampleFile);
+
+  res2 <- justifier::parse_justifications(res1);
+
+  testthat::expect_equal(res2$supplemented$decisions$
+                           decision_to_select_behavior_1$
+                           justification$justification_05$
+                           assertion$assertion_nocturnal_2$
+                           source$source_Lange$xdoi,
+                         "doi:10.1111/j.1749-6632.2009.05300.x");
+
+});
 

@@ -17,7 +17,7 @@ should be the elemnet to search, and the second element, the replacement.}
 The sanitized character vector
 }
 \description{
-Basically a wrapper for [base::gsub()] to sanitize a string for
+Basically a wrapper for \code{\link[base:gsub]{base::gsub()}} to sanitize a string for
 DiagrammeR
 }
 \examples{

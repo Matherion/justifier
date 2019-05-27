@@ -7,14 +7,14 @@
 apply_graph_theme(graph, ...)
 }
 \arguments{
-\item{graph}{The [DiagrammeR::DiagrammeR] graph to apply the attributes to.}
+\item{graph}{The \link[DiagrammeR:DiagrammeR]{DiagrammeR::DiagrammeR} graph to apply the attributes to.}
 
 \item{...}{One or more character vectors of length three, where the first element is
-the attribute, the second the value, and the third, the attribute type (`graph`,
-`node`, or `edge`).}
+the attribute, the second the value, and the third, the attribute type (\code{graph},
+\code{node}, or \code{edge}).}
 }
 \value{
-The [DiagrammeR::DiagrammeR] graph.
+The \link[DiagrammeR:DiagrammeR]{DiagrammeR::DiagrammeR} graph.
 }
 \description{
 Apply multiple DiagrammeR global graph attributes

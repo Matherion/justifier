@@ -19,19 +19,19 @@ load_justifications_dir(path, recursive = TRUE, extension = "jmd",
   ignoreOddDelimiters = FALSE, encoding = "UTF-8", silent = TRUE)
 }
 \arguments{
-\item{text, file}{As `text` or `file`, you can specify a `file` to read with
-encoding `encoding`, which will then be read using [base::readLines()]. If the
-argument is named `text`, whether it is the path to an existing file is checked
-first, and if it is, that file is read. If the argument is named `file`, and it
+\item{text, file}{As \code{text} or \code{file}, you can specify a \code{file} to read with
+encoding \code{encoding}, which will then be read using \code{\link[base:readLines]{base::readLines()}}. If the
+argument is named \code{text}, whether it is the path to an existing file is checked
+first, and if it is, that file is read. If the argument is named \code{file}, and it
 does not point to an existing file, an error is produced (useful if calling
-from other functions). A `text` should be a character vector where every
-element is a line of the original source (like provided by [base::readLines()]);
-although if a character vector of one element *and* including at least one
-newline character (`\\n`) is provided as `text`, it is split at the newline
-characters using [base::strsplit()]. Basically, this behavior means that the
+from other functions). A \code{text} should be a character vector where every
+element is a line of the original source (like provided by \code{\link[base:readLines]{base::readLines()}});
+although if a character vector of one element \emph{and} including at least one
+newline character (\code{\\n}) is provided as \code{text}, it is split at the newline
+characters using \code{\link[base:strsplit]{base::strsplit()}}. Basically, this behavior means that the
 first argument can be either a character vector or the path to a file; and if
 you're specifying a file and you want to be certain that an error is thrown if
-it doesn't exist, make sure to name it `file`.}
+it doesn't exist, make sure to name it \code{file}.}
 
 \item{delimiterRegEx}{The regular expression used to locate YAML
 fragments}
@@ -45,38 +45,38 @@ without interfering with the parsing of the justifications.}
 delete the last delimiter (TRUE) if an odd number of delimiters is
 encountered.}
 
-\item{encoding}{The encoding to use when calling [readLines()]. Set to
-NULL to let [readLines()] guess.}
+\item{encoding}{The encoding to use when calling \code{\link[=readLines]{readLines()}}. Set to
+NULL to let \code{\link[=readLines]{readLines()}} guess.}
 
 \item{silent}{Whether to be silent (TRUE) or informative (FALSE).}
 
 \item{path}{The path containing the files to read.}
 
-\item{recursive}{Whether to also process subdirectories (`TRUE`)
-or not (`FALSE`).}
+\item{recursive}{Whether to also process subdirectories (\code{TRUE})
+or not (\code{FALSE}).}
 
 \item{extension}{The extension of the files to read; files with other extensions will
-be ignored. Multiple extensions can be separated by a pipe (`|`).}
+be ignored. Multiple extensions can be separated by a pipe (\code{|}).}
 
 \item{regex}{Instead of specifing an extension, it's also possible to specify a regular
-expression; only files matching this regular expression are read. If specified, `regex`
-takes precedece over `extension`,}
+expression; only files matching this regular expression are read. If specified, \code{regex}
+takes precedece over \code{extension},}
 }
 \value{
-An object with the [ggplot2::ggplot] graph stored
-in `output$graph` and the overview in `output$overview`.
+An object with the \link[ggplot2:ggplot]{ggplot2::ggplot} graph stored
+in \code{output$graph} and the overview in \code{output$overview}.
 }
 \description{
 These function load justifications from the YAML fragments
-in one (`load_justifications`) or multiple files (`load_justifications_dir`).
+in one (\code{load_justifications}) or multiple files (\code{load_justifications_dir}).
 }
 \details{
-`load_justifications_dir` simply identifies all files and then calls
-`load_justifications` for each of them. `load_justifications` loads the
+\code{load_justifications_dir} simply identifies all files and then calls
+\code{load_justifications} for each of them. \code{load_justifications} loads the
 YAML fragments containing the justifications using
-[yum::load_yaml_fragments()] and then parses the justifications
+\code{\link[yum:load_yaml_fragments]{yum::load_yaml_fragments()}} and then parses the justifications
 into a visual representation as a
-[ggplot2::ggplot] graph and Markdown documents with
+\link[ggplot2:ggplot]{ggplot2::ggplot} graph and Markdown documents with
 overviews.
 }
 \examples{

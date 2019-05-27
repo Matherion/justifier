@@ -51,32 +51,64 @@ Justification frameworks can be specified in three ways. First, using YAML store
 
 In justification frameworks, common metadata specifications are the following:
 
-- exhaustive lists of values
+- types of sources, assertions, justifications, and decisions
+- exhaustive lists of potential values
 - scores, weights, or ranks attached to these values
 
-These specifications can pertain either to `justifier` specifications within a given domain, but they can also hold for all `justifier` specifications. For example, it is possible to specify that all `sources` must have a `type`, and that that type must always be `team belief`, `expert consensus`, `target group consultation`, `qualitative study`, `quantitative study`, or `research synthesis`.
+These specifications can pertain either to `justifier` specifications within a given domain, but they can also hold for all `justifier` specifications that are loaded in a project. For example, it is possible to specify that all `sources` must have a `type`, and that that type must always be `team belief`, `expert consensus`, `target group consultation`, `qualitative study`, `quantitative study`, or `research synthesis`. `justifier` will then flag deviations.
 
 ## Efficient specification and scope
 
-When specifying something for multiple justifications, the eponymous `justifier` element can be used, making that the fifth `justifier` element. Contents of a `justifier` element pertain to all other elements in a file (`scope: local`), or in a directory (`scope: global`), or all files that are read by the `justifier` package (`scope: universal`).
+When specifying something for multiple justifications, the eponymous `justifier` element can be used, making that the fifth `justifier` element. Contents of a `justifier` element pertain to all other elements in a file (`scope: local`), or in a project directory (`scope: global`), or all files that are read by the `justifier` package in a project (`scope: universal`).
 
 For example, to specify that the `justification framework` is stored in file `justifier-framework-specification.jfs`, and that this framework should be applied to all justifications in this directory that do not have another framework attached:
 
 ```
+---
 justifier:
   framework: justifier-framework-specification.jfs
   scope: global
+---
 ```
 
-To specify that all justificiations in this file are produced at date the sixth of March 2019:
+To specify that all justifications in this file are produced at date the sixth of March 2019:
 
 ```
+---
 justifier:
   date: 2019-03-06
   scope: local
+---
 ```
 
+The `type` metadata can be used to impose more constraints by providing conditions. For example, to specify that all decisions in the project of the type "global_design" must have either "experimental" or "observational" as value, one would use:
 
+```
+---
+justifier:
+  scope: universal
+  condition:
+    element: decision
+    type: global_method
+    values: ["experimental", "observational"]
+---
+```
+
+`justifier` will then the `type` of all decisions in the project. If a decision has the type "global_design", `justifier` will check whether whether it has a value and whether the value is "experimental" or "observational"; if not, `justifier` will indicate this.
+
+It is also possible to attach additional attributes to these values, such as scores or weights, by including another vector:
+
+```
+---
+justifier:
+  scope: universal
+  condition:
+    element: decision
+    type: global_method
+    values: ["experimental", "observational"]
+    scores: [1, 2]
+---
+```
 
 
 

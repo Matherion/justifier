@@ -32,31 +32,18 @@ To justify choosing a target behavior,
 
 ```
 ---
-justifier:
-  -
-    label: Selection of target behavior
-    description: Because risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic).
-    date: 2019-09-03
-    justification:
-      type: expert opinion
-
+decision:
+  id: target_behavior_selection
+  label: "Selection of target behavior"
+  description: "Because risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."
+  date: 2019-09-03
+  justification:
+    id: bla
 ---
 ```
 
 To justify choosing a sub-behavior, 
 
-```
----
-justifier:
-  -
-    label: 
-    description: 
-    date: 2019-09-03
-    justification:
-      type: 
-
----
-```
 
 
 To justify choosing a determinant for a sub-behavior,
