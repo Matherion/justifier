@@ -88,12 +88,8 @@ testthat::test_that("the intervention development justification from the vignett
 
   res2 <- justifier::parse_justifications(res1);
 
-  testthat::expect_equal(res2$supplemented$decisions$
-                           decision_to_select_behavior_1$
-                           justification$justification_05$
-                           assertion$assertion_nocturnal_2$
-                           source$source_Lange$xdoi,
-                         "doi:10.1111/j.1749-6632.2009.05300.x");
+  testthat::expect_equal(res2$supplemented$decisions$target_behavior_selection$type,
+                         "selection_target_behavior");
 
 });
 
