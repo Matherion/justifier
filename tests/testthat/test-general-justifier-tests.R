@@ -97,3 +97,5 @@ testthat::test_that("the intervention development justification from the vignett
 
 });
 
+#remotes::install_gitlab("r-packages/justifier", upgrade = "never", build_opts = c());
+

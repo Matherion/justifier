@@ -22,15 +22,9 @@ The Intervention Mapping protocol is one such tool. It can be used for intervent
 
 In theory, each of these development processes are underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, despite Intervention Mapping's highly systematic nature, the decisions that are taken and their justifications are poorly documented. This is not unique to interventions based on Intervention Mapping. In fact, the poor state of 
 
+To include the decision to select a target behavior, the following fragment can be used:
 
-
-
-
-
-
-To justify choosing a target behavior, 
-
-```
+```{r echo=TRUE, eval=FALSE}
 ---
 decision:
   id: target_behavior_selection
