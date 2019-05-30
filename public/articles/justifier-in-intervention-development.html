@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">justifier</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
       <h1>Using justifier in behavior change intervention development</h1>
                         <h4 class="author">Gjalt-Jorn Peters</h4>
             
-            <h4 class="date">2019-03-07</h4>
+            <h4 class="date">2019-05-30</h4>
       
       
       <div class="hidden name"><code>justifier-in-intervention-development.Rmd</code></div>
@@ -91,28 +91,23 @@
 <p>Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process.</p>
 <p>The Intervention Mapping protocol is one such tool. It can be used for intervention development, analysis (and potentially improvement or adaptation) of existing interventions, and for description of the intervention development process or products. It is extremely comprehensive, which is at once one or its core strengths and main weaknesses. On the one hand, if one follows the Intervention Mapping protocol, one is assured of a very thorough development process, where all decisions are solidly informed by theory and evidence. On the other hand, exactly because of this, Intervention Mapping is often perceived as unwieldy and too slow to follow in practice. Nonetheless, Intervention Mapping has been used for the development of a large number of interventions (<a href="https://interventionmapping.com/references" class="uri">https://interventionmapping.com/references</a> lists around 1000 articles describing around 300 interventions).</p>
 <p>In theory, each of these development processes are underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, despite Intervention Mapping’s highly systematic nature, the decisions that are taken and their justifications are poorly documented. This is not unique to interventions based on Intervention Mapping. In fact, the poor state of</p>
-<p>To justify choosing a target behavior,</p>
-<pre><code>---
-justifier:
-  -
-    label: Selection of target behavior
-    description: Because risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic).
-    date: 2019-09-03
-    justification:
-      type: expert opinion
-
----</code></pre>
+<p>To include the decision to select a target behavior, the following fragment can be used:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb1-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>target_behavior_selection</a>
+<a class="sourceLine" id="cb1-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_target_behavior</a>
+<a class="sourceLine" id="cb1-5" title="5">  label<span class="op">:</span><span class="st"> "The target behavior is getting ecstasy tested"</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  description<span class="op">:</span><span class="st"> "Room for more explanation about this decision."</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>importance_of_knowing_pill_contents</a>
+<a class="sourceLine" id="cb1-10" title="10">    label<span class="op">:</span><span class="st"> "Knowing pill contents is important"</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    description<span class="op">:</span><span class="st"> "Risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."</span></a>
+<a class="sourceLine" id="cb1-12" title="12">    source<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>example_source_<span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-14" title="14">      label<span class="op">:</span><span class="st"> "Some example source"</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="op">---</span></a></code></pre></div>
 <p>To justify choosing a sub-behavior,</p>
-<pre><code>---
-justifier:
-  -
-    label: 
-    description: 
-    date: 2019-09-03
-    justification:
-      type: 
-
----</code></pre>
 <p>To justify choosing a determinant for a sub-behavior,</p>
 <p>To justify choosing a sub-determinant underlying a determinant</p>
 <p>To justify choosing a behavior change principle</p>

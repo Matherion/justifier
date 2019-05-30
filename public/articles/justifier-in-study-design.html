@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">justifier</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
       <h1>Using justifier in study design</h1>
                         <h4 class="author">Gjalt-Jorn Peters</h4>
             
-            <h4 class="date">2019-03-07</h4>
+            <h4 class="date">2019-05-30</h4>
       
       
       <div class="hidden name"><code>justifier-in-study-design.Rmd</code></div>
@@ -96,12 +96,12 @@
 <p>In fact, a recent blog post called upon researchers in psychology to #JustifyEverything.</p>
 <!--- ADD LINK and quote!!!! -->
 <p>And indeed, if researchers would justify all their decisions, this has the potential of yielding a wealth of benefits. First, researchers may become more aware of the decisions they take, enabling them to take those decisons more deliberately. This would decrease the much-lamented unquestioning reliance on defaults in the used software. Second, review of study proposals has the potential to become much more efficient, if the decisions that were taken and their justifications can be extracted and parsed automatically. Third, once justifing everything becomes common practice, analysing these decisions and their justifications can be very insightful, for example showing where training of researchers may be most beneficial (i.e. areas where decisions and their justifications are based on outdated assumptions).</p>
-<p>However, for this potential to be realised, justifications need to be documented in a uniform format. Ideally, this is a format that is simultaneously userfriendly enough to be used by humans as they document their meeting minutes or notes, and structured enough to be machine-readable so as to enable automatic extraction and parsing. The <code>justifier</code> package provides this format. The basic introduction of <code>justifier</code> is in the general introduction vignette, and this vignette presents a simple justification framework for planning psychological studies.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>However, for this potential to be realised, justifications need to be documented in a uniform format. Ideally, this is a format that is simultaneously userfriendly enough to be used by humans as they document their meeting minutes or notes, and structured enough to be machine-readable so as to enable automatic extraction and parsing. The <code>justifier</code> package provides this format. The basic introduction of <code>justifier</code> is in the general introduction vignette, and this vignette presents a simple justification framework for planning psychological studies.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 </div>
 <div id="study-design-decisions" class="section level1">
 <h1 class="hasAnchor">
 <a href="#study-design-decisions" class="anchor"></a>Study design decisions</h1>
-<p>In this example framework, we will limit ourselves to four decisions that a researcher always takes for any study they undertake. The first is to establish the research question or questions, or if appropriate, hypothesis or hypothesis. The second is to determine which method wil be used. The third is deciding how many data points need to be sampled (for example, how many participants will be recruited). The fourth is whether to preregister the study.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>In this example framework, we will limit ourselves to four decisions that a researcher always takes for any study they undertake. The first is to establish the research question or questions, or if appropriate, hypothesis or hypothesis. The second is to determine which method wil be used. The third is deciding how many data points need to be sampled (for example, how many participants will be recruited). The fourth is whether to preregister the study.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>The example study is an applied study into the social-cognitive determinants of getting one’s ecstasy pills tested. In the Netherlands, there are drug test labs where once can bring drugs to anonymously get those tested and find out the ingredients and their dose. Ectasy pills ideally contain only one active ingredient: 3,4-methylenedioxymethamphetamin (MDMA). However, pills can contains varying doses of MDMA (in 2017, the mean MDMA dose was 187mg of MDMA; 1% of the pills had a dose under 35mg of MDMA and 70% over 140mg of mDMA). In addition, pills can contain contaminants (in 2017, 87.6% of the pills tested in the Netherlands contained only MDMA as active ingrdient).</p>
 <p>This example is chosen for two reasons. First, it’s my topic, so this way I don’t have to learn about another domain to write it :-) Second, it’s the same example as the one used in the intervention development vignette, so that readers won’t have to familiarize themselves with two scenarios.</p>
 <div id="research-question" class="section level2">
@@ -143,7 +143,31 @@
 <div id="sample-size" class="section level2">
 <h2 class="hasAnchor">
 <a href="#sample-size" class="anchor"></a>Sample size</h2>
-<p>Once the method is clear, for empirical research, it becomes possible to</p>
+<p>Once the method is clear, for empirical research, it becomes possible to plan the required sample size. For example, in this example study, we aim to map the importance of a series of behavioral determinants to then inform intervention development. That means we desire sufficiently accurate estimates of determinants’ relevance.</p>
+<pre><code>decision: 
+  context: global_study_method
+  value: 400
+  id: study_sample_size
+  label: "We aim to recruit around 400 participants."
+  justification:
+    -
+      id: enough_known_about_testing_determinants
+      label: "We have enough information available to develop a questionnaire that is likely to measure the most important determinants and sub-determinants of XTC testing."
+      assertion:
+        -
+          id: testing_xtc_is_reasoned
+          source: phd_peters_2008
+          label: "Previous research indicates that getting one's ecstasy tested (or not) is largely a reasoned behavior"
+        -
+          id: there_is_qualitative_research_about_testing
+          source: phd_peters_2008
+          label: "There exists qualitative research about why people get their ecstasy tested"
+    -
+      id: limited_time
+      label: "We have to produce the ultimate intervention before the end of 2019."
+      source:
+        id: project_propoal
+        label: "The original proposal for this project as funded by our funder."</code></pre>
 </div>
 <div id="preregistration" class="section level2">
 <h2 class="hasAnchor">
@@ -158,8 +182,8 @@
 <div class="footnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Note that this framework is intended as an <em>example</em>, not as an authoritative framework that should be relied on in the wild.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Again, this is a gross oversimplification; these are not the most important decisions, but they have been chosen because they cover different kinds of decisions, with different kinds of evidence available.<a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p>Note that this framework is intended as an <em>example</em>, not as an authoritative framework that should be relied on in the wild.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Again, this is a gross oversimplification; these are not the most important decisions, but they have been chosen because they cover different kinds of decisions, with different kinds of evidence available.<a href="#fnref2" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
   </div>

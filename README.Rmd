@@ -17,8 +17,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/academy-of-behavior-change/justifier?branch=master&svg=true)](https://ci.appveyor.com/project/academy-of-behavior-change/justifier)
-[![Coverage status](https://codecov.io/gh/academy-of-behavior-change/justifier/branch/master/graph/badge.svg)](https://codecov.io/github/academy-of-behavior-change/justifier?branch=master)
+<!-- [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/academy-of-behavior-change/justifier?branch=master&svg=true)](https://ci.appveyor.com/project/academy-of-behavior-change/justifier) -->
+<!-- [![Coverage status](https://codecov.io/gh/academy-of-behavior-change/justifier/branch/master/graph/badge.svg)](https://codecov.io/github/academy-of-behavior-change/justifier?branch=master) -->
 
 <!-- badges: end -->
 
@@ -43,10 +43,10 @@ install.packages("justifier");
 You can install the development version of `justifier` from [GitLab](https://gitlab.com) with:
 
 ``` r
-devtools::install_gitlab("r-packages/justifier");
+remotes::install_gitlab("r-packages/justifier");
 ```
 
-(assuming you have `devtools` installed; otherwise, install that first using the `install.packages` function)
+(assuming you have `remotes` installed; otherwise, install that first using the `install.packages` function)
 
 ## References
 

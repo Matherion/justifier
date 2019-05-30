@@ -1,12 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# <img src='img/justifier-logo.png' align="right" height="200" /> justifier: Human and machine-readable justifications and justified decisions based on YAML
+# <img src='img/justifier-logo.png' align="right" height="200" /> justifier: Human and Machine-Readable Justifications and Justified Decisions Based on YAML
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.org/academy-of-behavior-change/justifier.svg?branch=master)](https://travis-ci.org/academy-of-behavior-change/justifier)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/academy-of-behavior-change/justifier?branch=master&svg=true)](https://ci.appveyor.com/project/academy-of-behavior-change/justifier)
 [![Coverage
@@ -16,7 +14,7 @@ status](https://codecov.io/gh/academy-of-behavior-change/justifier/branch/master
 
 The goal of `justifier` is to provide a simple human- and
 machine-readable standard for documenting justifications for decisions.
-`justifier` was primarily developed to enable documenting teh
+`justifier` was primarily developed to enable documenting the
 development of behavior change interventions and the planning and
 execution of scientific studies, but it can also be used to document
 decisions in organisations, enabling accumulation of decisions and types
@@ -39,6 +37,7 @@ You can install the released version of `justifier` from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+stop("Not ran");
 install.packages("justifier");
 ```
 
