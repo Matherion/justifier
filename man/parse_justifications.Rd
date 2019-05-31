@@ -37,6 +37,9 @@ exampleFile <-
               "simple-example.jmd",
               package="justifier");
 
+### Show contents
+cat(readLines(exampleFile), sep="\\n");
+
 ### Load it with yum::load_and_simplify()
 loadedMinutes <- yum::load_and_simplify(exampleFile);
 
