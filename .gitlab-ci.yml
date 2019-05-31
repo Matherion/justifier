@@ -24,7 +24,7 @@ devtools-check:
   stage: test
   image: rocker/tidyverse
   script:
-    - R -e 'install.packages(c("yaml", "data.tree", "purrr"))'
+    - R -e 'install.packages(c("yaml", "data.tree", "purrr", "DiagrammeR"))'
     - R -e 'install.packages(c("knitr", "rmarkdown", "covr", "testthat"))'
     - R -e 'devtools::install_gitlab("r-packages/yum")'
     - R -e 'devtools::install_gitlab("r-packages/ufs")'
