@@ -1,6 +1,6 @@
 #' Sanitize for DiagrammeR
 #'
-#' Basically a wrapper for [base::gsub()] to sanitize a string for
+#' Basically a wrapper for [gsub()]  to sanitize a string for
 #' DiagrammeR
 #'
 #' @param x The string or vector

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sanitize for DiagrammeR — sanitize_for_DiagrammeR • justifier</title>
+<title>Producing a list of specifications — to_specList • justifier</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,11 @@
 
 
 
-<meta property="og:title" content="Sanitize for DiagrammeR — sanitize_for_DiagrammeR" />
+<meta property="og:title" content="Producing a list of specifications — to_specList" />
 
-<meta property="og:description" content="Basically a wrapper for gsub()  to sanitize a string for
-DiagrammeR" />
+<meta property="og:description" content="This function is for internal use, but has been exported in
+case it's useful for people working 'manually' with
+lists of justifications." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -113,42 +114,98 @@ DiagrammeR" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Sanitize for DiagrammeR</h1>
+    <h1>Producing a list of specifications</h1>
     
-    <div class="hidden name"><code>sanitize_for_DiagrammeR.Rd</code></div>
+    <div class="hidden name"><code>to_specList.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Basically a wrapper for <code><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub()</a></code>  to sanitize a string for
-DiagrammeR</p>
+    <p>This function is for internal use, but has been exported in
+case it's useful for people working 'manually' with
+lists of justifications.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>sanitize_for_DiagrammeR</span>(<span class='no'>x</span>,
-  <span class='kw'>regExReplacements</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"\\\""</span>, <span class='st'>"`"</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"\\'"</span>, <span class='st'>"`"</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"\\\\"</span>, <span class='st'>"/"</span>)))</pre>
+    <pre class="usage"><span class='fu'>to_specList</span>(<span class='no'>x</span>, <span class='no'>types</span>, <span class='no'>type</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The string or vector</p></td>
+      <td><p>The list to parse.</p></td>
     </tr>
     <tr>
-      <th>regExReplacements</th>
-      <td><p>A list of two-element character vectors; first element
-should be the elemnet to search, and the second element, the replacement.</p></td>
+      <th>types</th>
+      <td><p>The class to assign to the specification
+list (the <code>justifierSpecList</code> object to return).</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>The class to assign to each specification
+(in addition to <code>justifierSpec</code>).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The sanitized character vector</p>
+    <p>A list of classes <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("justifierSpecList", types)</a></code> where
+each element is a specification of class
+<code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("justifierSpec", type)</a></code>.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/justifier/topics/sanitize_for_DiagrammeR'>sanitize_for_DiagrammeR</a></span>(<span class='st'>"This is or isn't problematic"</span>);</div><div class='output co'>#&gt; [1] "This is or isn`t problematic"</div></pre>
+    <pre class="examples"><div class='input'><span class='co'>### Specify an example text</span>
+<span class='no'>exampleFile</span> <span class='kw'>&lt;-</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/system.file'>system.file</a></span>(<span class='st'>"extdata"</span>,
+              <span class='st'>"simple-example.jmd"</span>,
+              <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"justifier"</span>);
+
+<span class='co'>### Load it with yum::load_and_simplify()</span>
+<span class='no'>loadedMinutes</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>yum</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/yum/topics/load_and_simplify'>load_and_simplify</a></span>(<span class='no'>exampleFile</span>);
+
+<span class='co'>### Show contents</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>loadedMinutes</span>);</div><div class='output co'>#&gt; [1] "assertion" "source"   </div><div class='input'>
+<span class='co'>### Show classes</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/class'>class</a></span>(<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>]);</div><div class='output co'>#&gt; [1] "list"</div><div class='input'>
+<span class='co'>### Convert to specification list</span>
+<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>to_specList</span>(<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>],
+                   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"assertion"</span>,
+                   <span class='kw'>types</span><span class='kw'>=</span><span class='st'>"assertions"</span>);
+<span class='co'>### Show classes</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/class'>class</a></span>(<span class='no'>res</span>);</div><div class='output co'>#&gt; [1] "justifierSpecList" "assertions"       </div><div class='input'>
+<span class='co'>### Show original and parsed objects</span>
+<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>];</div><div class='output co'>#&gt; $assertion
+#&gt; $assertion$id
+#&gt; [1] "assertion_SD_decision"
+#&gt; 
+#&gt; $assertion$label
+#&gt; [1] "Sleep deprivation affects the decision making proces."
+#&gt; 
+#&gt; $assertion$source
+#&gt; $assertion$source$id
+#&gt; [1] "source_Harrison"
+#&gt; 
+#&gt; 
+#&gt; </div><div class='input'><span class='no'>res</span>;</div><div class='output co'>#&gt; $assertion_SD_decision
+#&gt; $id
+#&gt; [1] "assertion_SD_decision"
+#&gt; 
+#&gt; $label
+#&gt; [1] "Sleep deprivation affects the decision making proces."
+#&gt; 
+#&gt; $source
+#&gt; $source$id
+#&gt; [1] "source_Harrison"
+#&gt; 
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "justifierSpec" "assertion"    
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "justifierSpecList" "assertions"       </div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

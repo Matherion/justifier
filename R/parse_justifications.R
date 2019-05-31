@@ -19,41 +19,13 @@
 #' @return The parsed `justifier` object
 #'
 #' @examples ### Specify an example text
-#' exampleMinutes <- 'This is an example of minutes that include
-#' a source, an assertion, and a justification. For example, in
-#' the meeting, we can discuss the assertion that sleep deprivation
-#' affects decision making. We could quickly enter this assertion in
-#' a machine-readable way in this manner:
-#'
-#' ---
-#' assertion:
-#'   -
-#'     id: assertion_SD_decision
-#'     label: Sleep deprivation affects the decision making proces.
-#'     source:
-#'       id: source_Harrison
-#' ---
-#'
-#' Because it is important to refer to sources, we cite a source as well.
-#' We have maybe specified that source elsewhere, for example in the
-#' minutes of our last meeting. That specification may have looked
-#' like this:
-#'
-#' ---
-#' source:
-#'   -
-#'     id: source_Harrison
-#'     label: "Harrison & Horne (2000) The impact of sleep deprivation on decision making: A review."
-#'     xdoi: "doi:10.1037/1076-898x.6.3.236"
-#'     type: "Journal article"
-#' ---
-#'
-#' We can now refer to these two specifications later on, for
-#' example to justify decisions we take.
-#' ';
+#' exampleFile <-
+#'   system.file("extdata",
+#'               "simple-example.jmd",
+#'               package="justifier");
 #'
 #' ### Load it with yum::load_and_simplify()
-#' loadedMinutes <- yum::load_and_simplify(exampleMinutes);
+#' loadedMinutes <- yum::load_and_simplify(exampleFile);
 #'
 #' ### Show contents
 #' names(loadedMinutes);

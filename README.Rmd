@@ -4,27 +4,63 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r setup, include = FALSE}
+```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+# install.packages('pkgnet');
+
+packagename <- 'justifier';
+packageSubtitle <- "Human and Machine-Readable Justifications and Justified Decisions Based on 'YAML'";
+
+gitLab_ci_badge <-
+  paste0("https://gitlab.com/r-packages/", packagename, "/badges/master/pipeline.svg");
+gitLab_ci_url <-
+  paste0("https://gitlab.com/r-packages/", packagename, "/commits/master");
+
+codecov_badge <-
+  paste0("https://codecov.io/gl/r-packages/", packagename, "/branch/master/graph/badge.svg");
+codecov_url <-
+  paste0("https://codecov.io/gl/r-packages/", packagename, "?branch=master");
+
+dependency_badge <-
+  paste0("https://tinyverse.netlify.com/badge/", packagename);
+dependency_url <-
+  paste0("https://CRAN.R-project.org/package=", packagename);
+
+pkgdown_url <-
+  paste0("https://r-packages.gitlab.io/", packagename);
+
 ```
 
-# <img src='img/justifier-logo.png' align="right" height="200" /> justifier: Human and Machine-Readable Justifications and Justified Decisions Based on YAML
+# <img src='img/hex-logo.png' align="right" height="200" /> `r paste(packagename, "\U1F4E6")`
+
+## `r packageSubtitle`
 
 <!-- badges: start -->
 
-<!-- [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/academy-of-behavior-change/justifier?branch=master&svg=true)](https://ci.appveyor.com/project/academy-of-behavior-change/justifier) -->
-<!-- [![Coverage status](https://codecov.io/gh/academy-of-behavior-change/justifier/branch/master/graph/badge.svg)](https://codecov.io/github/academy-of-behavior-change/justifier?branch=master) -->
+[![Pipeline status](`r gitLab_ci_badge`)](`r gitLab_ci_url`)
+
+[![Coverage status](`r codecov_badge`)](`r codecov_url`)
+
+<!-- [![Dependency status](`r dependency_badge`)](`r dependency_url`) -->
 
 <!-- badges: end -->
 
-The goal of `justifier` is to provide a simple human- and machine-readable standard for documenting justifications for decisions. `justifier` was primarily developed to enable documenting the development of behavior change interventions and the planning and execution of scientific studies, but it can also be used to document decisions in organisations, enabling accumulation of decisions and types of justifications over time.
+The pkgdown website for this project is located at `r pkgdown_url`.
 
-The pkgdown website for this project is located at https://r-packages.gitlab.io/justifier, and three vignettes (in progress) are located at:
+<!--------------------------------------------->
+<!-- Start of a custom bit for every package -->
+<!--------------------------------------------->
+
+The goal of `justifier` is to provide a simple human- and machine-readable standard for documenting justifications for decisions. `justifier` was primarily developed to enable documenting the development of behavior change interventions and the planning and execution of scientific studies, but it can also be used to document decisions in organisations, enabling deriving insights in decision processes from the accumulation of decisions and types of justifications over time.
+
+Three vignettes (in progress) are located at:
 
 - https://r-packages.gitlab.io/justifier/articles/general-introduction-to-justifier.html
 - https://r-packages.gitlab.io/justifier/articles/justifier-in-study-design.html
@@ -32,23 +68,38 @@ The pkgdown website for this project is located at https://r-packages.gitlab.io/
 
 This meets the increasing demand for accountability of professionals (see e.g. Van Woerkum & Aarts, 2012).
 
+<!--------------------------------------------->
+<!--  End of a custom bit for every package  -->
+<!--------------------------------------------->
+
 ## Installation
 
-You can install the released version of `justifier` from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of ``r packagename`` from [CRAN](https://CRAN.R-project.org) with:
 
-``` r
-install.packages("justifier");
+```{r echo=FALSE, comment="", results="asis"}
+cat(paste0("``` r
+install.packages('", packagename, "');
+```"));
 ```
 
-You can install the development version of `justifier` from [GitLab](https://gitlab.com) with:
+You can install the development version of ``r packagename`` from [GitLab](https://gitlab.com) with:
 
-``` r
-remotes::install_gitlab("r-packages/justifier");
+```{r echo=FALSE, comment="", results="asis"}
+cat(paste0("``` r
+remotes::install_gitlab('r-packages/", packagename, "');
+```"));
 ```
 
 (assuming you have `remotes` installed; otherwise, install that first using the `install.packages` function)
+
+<!--------------------------------------------->
+<!-- Start of a custom bit for every package -->
+<!--------------------------------------------->
 
 ## References
 
 van Woerkum, C. and Aarts, N. (2012), ‘Accountability: New challenges, new forms’, *Journal of Organizational Transformation & Social Change*, 9, pp. 271–283, \doi{10.1386/jots.9.3.271_1}.
 
+<!--------------------------------------------->
+<!--  End of a custom bit for every package  -->
+<!--------------------------------------------->

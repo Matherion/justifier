@@ -1,3 +1,46 @@
+#' Producing a list of specifications
+#'
+#' This function is for internal use, but has been exported in
+#' case it's useful for people working 'manually' with
+#' lists of justifications.
+#'
+#' @param x The list to parse.
+#' @param types The class to assign to the specification
+#' list (the `justifierSpecList` object to return).
+#' @param type The class to assign to each specification
+#' (in addition to `justifierSpec`).
+#'
+#' @return A list of classes `c("justifierSpecList", types)` where
+#' each element is a specification of class
+#' `c("justifierSpec", type)`.
+#'
+#' @examples ### Specify an example text
+#' exampleFile <-
+#'   system.file("extdata",
+#'               "simple-example.jmd",
+#'               package="justifier");
+#'
+#' ### Load it with yum::load_and_simplify()
+#' loadedMinutes <- yum::load_and_simplify(exampleFile);
+#'
+#' ### Show contents
+#' names(loadedMinutes);
+#'
+#' ### Show classes
+#' class(loadedMinutes["assertion"]);
+#'
+#' ### Convert to specification list
+#' res <- to_specList(loadedMinutes["assertion"],
+#'                    type="assertion",
+#'                    types="assertions");
+#' ### Show classes
+#' class(res);
+#'
+#' ### Show original and parsed objects
+#' loadedMinutes["assertion"];
+#' res;
+#'
+#' @export
 to_specList <- function(x,
                         types,
                         type) {
@@ -51,10 +94,13 @@ to_specList <- function(x,
                          names=ids,
                          class=c("justifierSpecList", types)));
       }
-    } else {
+    } else if (all(unlist(lapply(x, is_ref)))) {
       ### One or more elements are references. We have to figure out which ones
       ### are the references, convert those to specifications, and return
       ### the result.
+    } else {
+      ### This is an odd object; throw an error.
+      stop("You provided an object I cannot parse, sorry!");
     }
   } else {
     ### Names are set, so this is a specification of a single element; or it
