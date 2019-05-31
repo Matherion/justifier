@@ -41,7 +41,7 @@ coverage:
   only:
     - master
   script:
-    - R -e 'install.packages(c("data.tree", "yaml", "purrr"))'
+    - R -e 'install.packages(c("data.tree", "yaml", "purrr", "DiagrammeR"))'
     - R -e 'install.packages(c("devtools", "covr", "testthat", "here"))'
     - R -e 'devtools::install_gitlab("r-packages/yum")'
     - R -e 'devtools::install_gitlab("r-packages/ufs")'
