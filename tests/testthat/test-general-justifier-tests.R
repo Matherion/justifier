@@ -104,5 +104,18 @@ testthat::test_that("odd objects provided to to_specList throw an error", {
 
 });
 
+###-----------------------------------------------------------------------------
+
+# testthat::test_that("nested specifications load properly", {
+#
+#   testthat::expect_error(
+#
+#     a<-load_justifications(file=here::here('inst', 'extdata', 'complex-example.jmd'))
+#
+#     );
+#
+# });
+
+
 #remotes::install_gitlab("r-packages/justifier", upgrade = "never", build_opts = c());
 

@@ -57,14 +57,36 @@ to_specList <- function(x,
     ### No justifier element, just return it
     return(x);
     ### That also means that after this point we only have lists with nonzero lengths
-  } else if (is.null(names(x)) ||
-             (length(unique(names(x))) == 1) && (unique(names(x)) == type)) {
+  }
+
+  xRefs <-
+    unlist(lapply(x, is_ref));
+  xSpecs <-
+    unlist(lapply(x, is_spec));
+  xNesteds <-
+    unlist(lapply(x, is_nested));
+
+  ### First process any child specifications there may be
+  # if (has_child_specs(x)) {
+  #   childSpecIndices <- which_child_specs(x);
+  #   childSpecType <- names(x)[childSpecIndices];
+  #   childSpecTypes <- paste0(childSpecType, 's');
+  #   x[which_child_specs(x)] <-
+  #     mapply(to_specList,
+  #            x[childSpecIndices],
+  #            type = childSpecType,
+  #            types = childSpecTypes,
+  #            SIMPLIFY=FALSE);
+  # }
+
+  if (is.null(names(x)) || ((length(unique(names(x))) == 1) && (all(unique(names(x)) == type)))) {
     ### In this case, one or more elements were specified. The absence of names
     ### suggests that these are specifications, not references. Because the
     ### `load_and_simplify` function in `yum` provides names as well (but
     ### always uses the name of the element), by checking whether all elements
     ### have the name of the `type` argument, we can catch that case.
-    if (all(unlist(lapply(x, is_spec)))) {
+
+    if (all(xSpecs)) {
       ### They're all specifications; check whether they all have an id
       ids <-
         purrr::map_chr(x, function(element) {
@@ -87,7 +109,7 @@ to_specList <- function(x,
         ids[emptyIds] <-
           paste0("id_", seq(1, sum(nchar(ids)==0)));
         warning("Some elements did not have identifiers set! I set those ",
-                "identifiers to ", ufs::vecTxtQ(ids[emptyIds]), ".");
+                "identifiers to ", vecTxtQ(ids[emptyIds]), ".");
         return(structure(lapply(seq_along(x),
                                 function(specIndex) {
                                   x[[specIndex]]$id <- unname(ids[specIndex]);
@@ -97,13 +119,17 @@ to_specList <- function(x,
                          names=ids,
                          class=c("justifierSpecList", types)));
       }
-    } else if (all(unlist(lapply(x, is_ref)))) {
+    } else if (all(xRefs)) {
       ### One or more elements are references. We have to figure out which ones
       ### are the references, convert those to specifications, and return
       ### the result.
+      message("All references!");
+    } else if (all(xNesteds)) {
+      message("All nested!");
     } else {
       ### This is an odd object; throw an error.
-      stop("You provided an object I cannot parse, sorry!");
+      stop("You provided an object I cannot parse, sorry! It looks like:\n\n",
+           paste0(capture.output(print(x)), collapse="\n"));
     }
   } else {
     ### Names are set, so this is a specification of a single element; or it
