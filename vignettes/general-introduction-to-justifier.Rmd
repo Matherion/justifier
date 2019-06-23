@@ -94,7 +94,7 @@ justifier:
 ---
 ```
 
-`justifier` will then the `type` of all decisions in the project. If a decision has the type "global_design", `justifier` will check whether whether it has a value and whether the value is "experimental" or "observational"; if not, `justifier` will indicate this.
+`justifier` will then check the `type` of all decisions in the project. If a decision has the type "global_design", `justifier` will check whether whether it has a value and whether the value is "experimental" or "observational"; if not, `justifier` will indicate this.
 
 It is also possible to attach additional attributes to these values, such as scores or weights, by including another vector:
 

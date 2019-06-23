@@ -3,7 +3,7 @@
 load_justifications_dir <- function(path,
                                     recursive = TRUE,
                                     extension = "jmd",
-                                    regex,
+                                    regex = NULL,
                                     justificationContainer = c("justifier",
                                                                "justification",
                                                                "decision",
@@ -20,7 +20,7 @@ load_justifications_dir <- function(path,
          "' does not exist!");
   }
 
-  if (missing(regex)) {
+  if (is.null(regex)) {
     regex <- paste0("^(.*)\\.", extension, "$");
   }
 
