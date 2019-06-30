@@ -66,7 +66,8 @@ parse_justifications <- function(x) {
                                  type="decision"),
          justifier = to_specList(x[which(justNames == 'justifier')],
                                  types="justifiers",
-                                 type="justifier"));
+                                 type="justifier",
+                                 idsRequired=FALSE));
 
   ### Set names
   res$structured <- lapply(res$structured, function(elementList) {

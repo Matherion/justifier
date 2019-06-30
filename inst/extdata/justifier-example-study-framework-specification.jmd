@@ -1,0 +1,27 @@
+---
+justifier:
+  id: justifier-example-study-framework-specification
+  label: "Justifier example: Study framework specification"
+  description: "This framework is an example of how different decisions in the planning of a psychological study could be contextualized."
+  context:
+    -
+      id: global_planning
+    -
+      id: design
+    -
+      id: sample_size
+    -
+      id: operationalisations
+  condition:
+    -
+      id: global_method_specification
+      type: global_method_specification
+      label: "Any psychological study is either empirical, in which case it is a qualitative study, a quantitative study, or a mixed methods study, or it is a literature synthesis."
+      element: decision
+      type: global_study_method
+      values: ["synthesis", "qualitative", "quantitative", "mixed"]
+    -
+      id: study_sample_size
+      type: study_sample_size
+
+---

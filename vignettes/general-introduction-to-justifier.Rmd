@@ -61,12 +61,12 @@ These specifications can pertain either to `justifier` specifications within a g
 
 When specifying something for multiple justifications, the eponymous `justifier` element can be used, making that the fifth `justifier` element. Contents of a `justifier` element pertain to all other elements in a file (`scope: local`), or in a project directory (`scope: global`), or all files that are read by the `justifier` package in a project (`scope: universal`).
 
-For example, to specify that the `justification framework` is stored in file `justifier-framework-specification.jfs`, and that this framework should be applied to all justifications in this directory that do not have another framework attached:
+For example, to specify that the `justification framework` is stored in file `justifier-framework-specification.jmd`, and that this framework should be applied to all justifications in this directory that do not have another framework attached:
 
 ```
 ---
 justifier:
-  framework: justifier-framework-specification.jfs
+  framework: justifier-framework-specification.jmd
   scope: global
 ---
 ```

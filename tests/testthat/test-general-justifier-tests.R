@@ -106,6 +106,19 @@ testthat::test_that("odd objects provided to to_specList throw an error", {
 
 ###-----------------------------------------------------------------------------
 
+testthat::test_that("reading the example study jmd file works", {
+
+  examplePath <- file.path(system.file(package="justifier"), 'extdata');
+
+  res <- justifier::load_justifications(file=file.path(examplePath,
+                                                       "study-example.jmd"));
+
+  testthat::expect_equal(length(res$raw), 2);
+
+});
+
+###-----------------------------------------------------------------------------
+
 # testthat::test_that("nested specifications load properly", {
 #
 #   testthat::expect_error(
