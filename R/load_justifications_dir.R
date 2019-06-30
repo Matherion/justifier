@@ -52,7 +52,7 @@ load_justifications_dir <- function(path,
                        silent=silent);
 
   ### Store filename in every list
-  justifications2 <- lapply(seq_along(justifications),
+  justifications <- lapply(seq_along(justifications),
                             function(i) {
                               ### This is a file; it has several YAML fragments
                               res <- lapply(seq_along(justifications[[i]]),
@@ -113,9 +113,7 @@ load_justifications_dir <- function(path,
                               return(res);
                             });
 
-  class(justifications2) <- c("yumFromDir", "list");
-
-  justifications <- justifications2;
+  class(justifications) <- c("yumFromDir", "list");
 
   ### Remove names like we do in yum::load_and_simplify_dir
   names(justifications) <- NULL;
