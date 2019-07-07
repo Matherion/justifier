@@ -79,7 +79,7 @@
       <h1>General introduction to justifier</h1>
                         <h4 class="author">Gjalt-Jorn Peters</h4>
             
-            <h4 class="date">2019-05-31</h4>
+            <h4 class="date">2019-07-07</h4>
       
       
       <div class="hidden name"><code>general-introduction-to-justifier.Rmd</code></div>
@@ -129,10 +129,10 @@
 <h2 class="hasAnchor">
 <a href="#efficient-specification-and-scope" class="anchor"></a>Efficient specification and scope</h2>
 <p>When specifying something for multiple justifications, the eponymous <code>justifier</code> element can be used, making that the fifth <code>justifier</code> element. Contents of a <code>justifier</code> element pertain to all other elements in a file (<code>scope: local</code>), or in a project directory (<code>scope: global</code>), or all files that are read by the <code>justifier</code> package in a project (<code>scope: universal</code>).</p>
-<p>For example, to specify that the <code>justification framework</code> is stored in file <code>justifier-framework-specification.jfs</code>, and that this framework should be applied to all justifications in this directory that do not have another framework attached:</p>
+<p>For example, to specify that the <code>justification framework</code> is stored in file <code>justifier-framework-specification.jmd</code>, and that this framework should be applied to all justifications in this directory that do not have another framework attached:</p>
 <pre><code>---
 justifier:
-  framework: justifier-framework-specification.jfs
+  framework: justifier-framework-specification.jmd
   scope: global
 ---</code></pre>
 <p>To specify that all justifications in this file are produced at date the sixth of March 2019:</p>
@@ -150,7 +150,7 @@ justifier:
     type: global_method
     values: ["experimental", "observational"]
 ---</code></pre>
-<p><code>justifier</code> will then the <code>type</code> of all decisions in the project. If a decision has the type “global_design”, <code>justifier</code> will check whether whether it has a value and whether the value is “experimental” or “observational”; if not, <code>justifier</code> will indicate this.</p>
+<p><code>justifier</code> will then check the <code>type</code> of all decisions in the project. If a decision has the type “global_design”, <code>justifier</code> will check whether whether it has a value and whether the value is “experimental” or “observational”; if not, <code>justifier</code> will indicate this.</p>
 <p>It is also possible to attach additional attributes to these values, such as scores or weights, by including another vector:</p>
 <pre><code>---
 justifier:

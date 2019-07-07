@@ -96,8 +96,8 @@
 #' load_justifications_dir(path=examplePath);
 #'
 #' @export
-load_justifications <- function(text,
-                                file,
+load_justifications <- function(text = NULL,
+                                file = NULL,
                                 delimiterRegEx = "^---$",
                                 justificationContainer = c("justifier",
                                                            "justification",
@@ -112,7 +112,7 @@ load_justifications <- function(text,
   ### Load the YAML fragments containing the justifications
   ###--------------------------------------------------------------------------
 
-  if (!missing(file)) {
+  if (!is.null(file)) {
     justifications <-
       yum::load_and_simplify(file=file,
                              delimiterRegEx=delimiterRegEx,
@@ -121,7 +121,7 @@ load_justifications <- function(text,
                              ignoreOddDelimiters=ignoreOddDelimiters,
                              encoding=encoding,
                              silent=silent);
-  } else if (!missing(text)) {
+  } else if (!is.null(text)) {
     justifications <-
       yum::load_and_simplify(text=text,
                              delimiterRegEx=delimiterRegEx,
@@ -130,6 +130,7 @@ load_justifications <- function(text,
                              ignoreOddDelimiters=ignoreOddDelimiters,
                              encoding=encoding,
                              silent=silent);
+    file <- "none"
   } else {
     stop("Specify either `file` or `text` to load.");
   }
@@ -145,7 +146,9 @@ load_justifications <- function(text,
   ###--------------------------------------------------------------------------
 
   res <-
-    parse_justifications(justifications);
+    parse_justifications(justifications,
+                         fromFile = file,
+                         silent=silent);
 
   return(res);
 

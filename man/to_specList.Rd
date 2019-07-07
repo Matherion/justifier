@@ -4,7 +4,7 @@
 \alias{to_specList}
 \title{Producing a list of specifications}
 \usage{
-to_specList(x, types, type)
+to_specList(x, types, type, idsRequired = TRUE, silent = TRUE)
 }
 \arguments{
 \item{x}{The list to parse.}

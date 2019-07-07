@@ -110,8 +110,8 @@ testthat::test_that("reading the example study jmd file works", {
 
   examplePath <- file.path(system.file(package="justifier"), 'extdata');
 
-  res <- justifier::load_justifications(file=file.path(examplePath,
-                                                       "study-example.jmd"));
+  res <- load_justifications(file=file.path(examplePath,
+                             "study-example.jmd"));
 
   testthat::expect_equal(length(res$raw), 2);
 

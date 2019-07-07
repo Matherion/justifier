@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • justifier</title>
+<title>Concatenate to screen without spaces — cat0 • justifier</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Concatenate to screen without spaces — cat0" />
+
+<meta property="og:description" content="The cat0 function is to cat what paste0 is to paste; it
+simply makes concatenating many strings without a separator easier." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -47,7 +51,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -107,84 +111,53 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Concatenate to screen without spaces</h1>
+    
+    <div class="hidden name"><code>cat0.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>The cat0 function is to cat what paste0 is to paste; it
+simply makes concatenating many strings without a separator easier.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="apply_graph_theme.html">apply_graph_theme()</a></code> </p>
-        </td>
-        <td><p>Apply multiple DiagrammeR global graph attributes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cat0.html">cat0()</a></code> </p>
-        </td>
-        <td><p>Concatenate to screen without spaces</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="load_justifications.html">load_justifications()</a></code> <code><a href="load_justifications.html">load_justifications_dir()</a></code> </p>
-        </td>
-        <td><p>Load Justifications from a file or multiple files</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parsing_justifications.html">parse_justifications()</a></code> <code><a href="parsing_justifications.html">print(<i>&lt;justifierDecisionGraph&gt;</i>)</a></code> <code><a href="parsing_justifications.html">plot(<i>&lt;justifierDecisionGraph&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Parsing justifications</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="repeatStr.html">repeatStr()</a></code> </p>
-        </td>
-        <td><p>Repeat a string a number of times</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="sanitize_for_DiagrammeR.html">sanitize_for_DiagrammeR()</a></code> </p>
-        </td>
-        <td><p>Sanitize for DiagrammeR</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="to_specList.html">to_specList()</a></code> </p>
-        </td>
-        <td><p>Producing a list of specifications</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="vecTxt.html">vecTxt()</a></code> <code><a href="vecTxt.html">vecTxtQ()</a></code> </p>
-        </td>
-        <td><p>Easily parse a vector into a character value</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>cat0</span>(<span class='no'>...</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>The character vector(s) to print; passed to <a href='https://www.rdocumentation.org/packages/base/topics/cat'>cat</a>.</p></td>
+    </tr>
+    <tr>
+      <th>sep</th>
+      <td><p>The separator to pass to <a href='https://www.rdocumentation.org/packages/base/topics/cat'>cat</a>, of course, <code>""</code> by default.</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>Nothing (invisible <code>NULL</code>, like <a href='https://www.rdocumentation.org/packages/base/topics/cat'>cat</a>).</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>cat0</span>(<span class='st'>"The first variable is '"</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>mtcars</span>)[<span class='fl'>1</span>], <span class='st'>"'."</span>);</div><div class='output co'>#&gt; The first variable is 'mpg'.</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

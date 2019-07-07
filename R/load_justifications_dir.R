@@ -128,7 +128,7 @@ load_justifications_dir <- function(path,
     justifications <- list();
   }
 
-  class(res) <-
+  class(justifications) <-
     c("simplifiedYum", "list");
 
   ###--------------------------------------------------------------------------
@@ -136,7 +136,8 @@ load_justifications_dir <- function(path,
   ###--------------------------------------------------------------------------
 
   res <-
-    parse_justifications(justifications);
+    parse_justifications(justifications,
+                         path=path);
 
   return(res);
 

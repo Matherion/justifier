@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Producing a list of specifications — to_specList • justifier</title>
+<title>Parsing justifications — parse_justifications • justifier</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,11 +30,12 @@
 
 
 
-<meta property="og:title" content="Producing a list of specifications — to_specList" />
+<meta property="og:title" content="Parsing justifications — parse_justifications" />
 
-<meta property="og:description" content="This function is for internal use, but has been exported in
-case it's useful for people working 'manually' with
-lists of justifications." />
+<meta property="og:description" content="This function is normally called by load_justifications(); however,
+sometimes it may be desirable to parse justifications embedded in more
+complex objects, for example as provided by yum::load_and_simplify().
+Therefore, this function can also be called directly." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -114,45 +115,71 @@ lists of justifications." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Producing a list of specifications</h1>
+    <h1>Parsing justifications</h1>
     
-    <div class="hidden name"><code>to_specList.Rd</code></div>
+    <div class="hidden name"><code>parsing_justifications.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This function is for internal use, but has been exported in
-case it's useful for people working 'manually' with
-lists of justifications.</p>
+    <p>This function is normally called by <code><a href='load_justifications.html'>load_justifications()</a></code>; however,
+sometimes it may be desirable to parse justifications embedded in more
+complex objects, for example as provided by <code><a href='https://www.rdocumentation.org/packages/yum/topics/load_and_simplify'>yum::load_and_simplify()</a></code>.
+Therefore, this function can also be called directly.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>to_specList</span>(<span class='no'>x</span>, <span class='no'>types</span>, <span class='no'>type</span>, <span class='kw'>idsRequired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>parse_justifications</span>(<span class='no'>x</span>, <span class='kw'>justifierFields</span> <span class='kw'>=</span> <span class='st'>"^date$|^framework$"</span>,
+  <span class='kw'>fromFile</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># S3 method for justifierDecisionGraph</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for justifierDecisionGraph</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The list to parse.</p></td>
+      <td><p>An object resulting from a call to <code><a href='https://www.rdocumentation.org/packages/yum/topics/load_and_simplify'>yum::load_and_simplify()</a></code>.</p></td>
     </tr>
     <tr>
-      <th>types</th>
-      <td><p>The class to assign to the specification
-list (the <code>justifierSpecList</code> object to return).</p></td>
+      <th>justifierFields</th>
+      <td><p>Which fields to copy from <code>justifier</code> metadata to
+the elements within the specified scope.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>The class to assign to each specification
-(in addition to <code>justifierSpec</code>).</p></td>
+      <th>fromFile</th>
+      <td><p>The file from which the <code>justifier</code> specifications were read.</p></td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td><p>The path holding these <code>justifier</code> specifications (not necessary
+if <code>fromFile</code> is provided).</p></td>
+    </tr>
+    <tr>
+      <th>silent</th>
+      <td><p>Whether to be chatty or quiet.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list of classes <code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("justifierSpecList", types)</a></code> where
-each element is a specification of class
-<code><a href='https://www.rdocumentation.org/packages/base/topics/c'>c("justifierSpec", type)</a></code>.</p>
+    <p>The parsed <code>justifier</code> object.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>While there is some flexibility in how justifications can be specified,
+they are most easily processed further if they all follow the same
+conventions. This function ensures this. The convention is as follows:</p><ul>
+<li><p>all specifications are provided in four 'flat' lists, named after the
+types of elements they contain;</p></li>
+<li><p>all elements have  a unique identifier</p></li>
+<li><p>all references to other elements are indeed only references to the other
+elements' id's in these 'flat lists'</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -199,44 +226,12 @@ each element is a specification of class
 
 <span class='co'>### Show contents</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>loadedMinutes</span>);</div><div class='output co'>#&gt; [1] "assertion" "source"   </div><div class='input'>
-<span class='co'>### Show classes</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/class'>class</a></span>(<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>]);</div><div class='output co'>#&gt; [1] "list"</div><div class='input'>
-<span class='co'>### Convert to specification list</span>
-<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>to_specList</span>(<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>],
-                   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"assertion"</span>,
-                   <span class='kw'>types</span><span class='kw'>=</span><span class='st'>"assertions"</span>);
-<span class='co'>### Show classes</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/class'>class</a></span>(<span class='no'>res</span>);</div><div class='output co'>#&gt; [1] "justifierSpecList" "assertions"       </div><div class='input'>
-<span class='co'>### Show original and parsed objects</span>
-<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>];</div><div class='output co'>#&gt; $assertion
-#&gt; $assertion$id
-#&gt; [1] "assertion_SD_decision"
-#&gt; 
-#&gt; $assertion$label
-#&gt; [1] "Sleep deprivation affects the decision making proces."
-#&gt; 
-#&gt; $assertion$source
-#&gt; $assertion$source$id
-#&gt; [1] "source_Harrison"
-#&gt; 
-#&gt; 
-#&gt; </div><div class='input'><span class='no'>res</span>;</div><div class='output co'>#&gt; $assertion_SD_decision
-#&gt; $id
-#&gt; [1] "assertion_SD_decision"
-#&gt; 
-#&gt; $label
-#&gt; [1] "Sleep deprivation affects the decision making proces."
-#&gt; 
-#&gt; $source
-#&gt; $source$id
-#&gt; [1] "source_Harrison"
-#&gt; 
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "justifierSpec" "assertion"    
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "justifierSpecList" "assertions"       </div><div class='input'>
+<span class='co'>### Parse 'manually'</span>
+<span class='no'>parsedJustifications</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/justifier/topics/parsing_justifications'>parse_justifications</a></span>(<span class='no'>loadedMinutes</span>);
+
+<span class='co'>### Show contents</span>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>parsedJustifications</span>);</div><div class='output co'>#&gt; [1] "raw"            "structured"     "logging"        "frameworks"    
+#&gt; [5] "fwApplications" "supplemented"   "decisionTrees"  "decisionGraphs"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -245,6 +240,8 @@ each element is a specification of class
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

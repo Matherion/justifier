@@ -6,22 +6,47 @@ justifier:
   context:
     -
       id: global_planning
+      sequence: 1
     -
       id: design
+      sequence: 2
     -
       id: sample_size
+      sequence: 3
     -
-      id: operationalisations
+      id: operationalizations
+      sequence: 4
   condition:
     -
       id: global_method_specification
+      contextId: global_planning
       type: global_method_specification
-      label: "Any psychological study is either empirical, in which case it is a qualitative study, a quantitative study, or a mixed methods study, or it is a literature synthesis."
       element: decision
-      type: global_study_method
+      label: "Any psychological study is either empirical, in which case it is a qualitative study, a quantitative study, or a mixed methods study, or it is a literature synthesis."
       values: ["synthesis", "qualitative", "quantitative", "mixed"]
     -
       id: study_sample_size
+      contextId: sample_size
       type: study_sample_size
-
+      element: decision
+      verifications: "is.numeric(THIS_SPECIFICATION$value)"
+    -
+      id: included_variables
+      contextid: design
+      type: included_variables
+      element: decision
+    -
+      id: source_types
+      element: source
+      field: evidence_type
+      values: ["team opinion", "external expert opinion", "external expert consensus", "theory", "empirical study", "evidence synthesis"]
+      scores: [1, 2, 3, 4, 5, 6]
+      verifications: "is.null(THIS_SPECIFICATION$evidence_type) || (THIS_SPECIFICATION$evidence_type %in% THIS_CONDITION$values)"
+    -
+      id: source_year
+      element: source
+      field: year
+      verifications: ["is.null(THIS_SPECIFICATION$year) || all(grepl('^[0-9]{4}$', THIS_SPECIFICATION$year) & (nchar(THIS_SPECIFICATION$year)==4))"]
+      verificationMsgs: ["The year you specify in a source must consist of exactly four digits."]
 ---
+

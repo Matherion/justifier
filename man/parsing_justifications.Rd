@@ -2,15 +2,32 @@
 % Please edit documentation in R/parse_justifications.R
 \name{parse_justifications}
 \alias{parse_justifications}
+\alias{print.justifierDecisionGraph}
+\alias{plot.justifierDecisionGraph}
 \title{Parsing justifications}
 \usage{
-parse_justifications(x)
+parse_justifications(x, justifierFields = "^date$|^framework$",
+  fromFile = NULL, path = NULL, silent = TRUE)
+
+\method{print}{justifierDecisionGraph}(x, ...)
+
+\method{plot}{justifierDecisionGraph}(x, ...)
 }
 \arguments{
 \item{x}{An object resulting from a call to \code{\link[yum:load_and_simplify]{yum::load_and_simplify()}}.}
+
+\item{justifierFields}{Which fields to copy from \code{justifier} metadata to
+the elements within the specified scope.}
+
+\item{fromFile}{The file from which the \code{justifier} specifications were read.}
+
+\item{path}{The path holding these \code{justifier} specifications (not necessary
+if \code{fromFile} is provided).}
+
+\item{silent}{Whether to be chatty or quiet.}
 }
 \value{
-The parsed \code{justifier} object
+The parsed \code{justifier} object.
 }
 \description{
 This function is normally called by \code{\link[=load_justifications]{load_justifications()}}; however,

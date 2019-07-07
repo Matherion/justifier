@@ -47,15 +47,25 @@
 to_specList <- function(x,
                         types,
                         type,
-                        idsRequired=TRUE) {
+                        idsRequired=TRUE,
+                        silent=TRUE) {
   if ("justifierSpecList" %in% class(x)) {
+    if (!silent) {
+      cat0("\nIn converting to a specification list, I found that the class of provided object is `justifierSpecList`: immediately returning it as is.");
+    }
     return(x);
   } else if ("justifierSpec" %in% class(x)) {
+    if (!silent) {
+      cat0("\nIn converting to a specification list, I found that the class of provided object is `justifierSpec`: wrapping it in a `justifierSpecList` and immediately returning it.");
+    }
     return(structure(list(x),
                      names=x$id,
                      class=c("justifierSpecList", types)));
   } else if (!is.list(x) || (length(x) == 0)) {
     ### No justifier element, just return it
+    if (!silent) {
+      cat0("\nIn converting to a specification list, I found that the provided object is not a list or has length 0. Immediately returning it as is.");
+    }
     return(x);
     ### That also means that after this point we only have lists with nonzero lengths
   }
@@ -66,6 +76,30 @@ to_specList <- function(x,
     unlist(lapply(x, is_spec));
   xNesteds <-
     unlist(lapply(x, is_nested));
+
+  if (!silent) {
+    cat0("\nProcessing a specification of type '",
+         type, "' (list type '", types, "') where identifiers ",
+         ifelse(idsRequired, "are", "aren't"), " required.");
+    cat0("\nThis specification contains ", length(x),
+         ifelse(is.null(names(x)), " unnamed elements.",
+                paste0(" elements with names ", vecTxtQ(names(x)), ".")));
+    cat0(ifelse(all(xRefs),
+                "\nAll of these elements are references.",
+                ifelse(all(!xRefs),
+                       "\nNone of these elements are references.",
+                       paste0("Elements ", vecTxt(which(xRefs)), " are references."))));
+    cat0(ifelse(all(xSpecs),
+                "\nAll of these elements are specifications.",
+                ifelse(all(!xSpecs),
+                       "\nNone of these elements are specifications.",
+                       paste0("Elements ", vecTxt(which(xSpecs)), " are specifications."))));
+    cat0(ifelse(all(xNesteds),
+                "\nAll of these elements are recursive (i.e. contain other specifications or objects).",
+                ifelse(all(!xNesteds),
+                       "\nNone of these elements are recursive (i.e. contain other specifications or objects).",
+                       paste0("Elements ", vecTxt(which(xNesteds)), " are recursive (i.e. contain other specifications or objects)."))));
+  }
 
   ### First process any child specifications there may be
   # if (has_child_specs(x)) {
@@ -98,6 +132,10 @@ to_specList <- function(x,
           }
         });
       if (all(nchar(ids) > 0)) {
+        if (!silent) {
+          cat0("\nAll elements are specifications, and they all have a valid id (",
+               vecTxtQ(ids), "). Returning it as is, with class `justifierSpec` and within a list with class `justifierSpecList`.\n");
+        }
         return(structure(lapply(x,
                                 function(spec) {
                                   return(structure(spec,
@@ -106,6 +144,10 @@ to_specList <- function(x,
                          names=ids,
                          class=c("justifierSpecList", types)));
       } else {
+        if (!silent) {
+          cat0("\nAll elements are specifications, but they don't all have valid identifiers (",
+               vecTxtQ(ids), "). Adding identifiers if needed, then returning it with class `justifierSpec` and within a list with class `justifierSpecList`.\n");
+        }
         if (idsRequired) {
           emptyIds <- which(nchar(ids)==0);
           ids[emptyIds] <-
@@ -126,9 +168,19 @@ to_specList <- function(x,
       ### One or more elements are references. We have to figure out which ones
       ### are the references, convert those to specifications, and return
       ### the result.
-      message("All references!");
+      message("This functionality has not been developed yet! (All references)");
+      cat0("Length: ", length(x));
+      cat0("\nNames: ", vecTxtQ(names(x)));
+      #cat0("\nObjects: ");
+      #print(x);
+      cat0("\n--- Terminating processing this element.\n");
     } else if (all(xNesteds)) {
-      message("All nested!");
+      message("This functionality has not been developed yet! (All nested)");
+      cat0("Length: ", length(x));
+      cat0("\nNames: ", vecTxtQ(names(x)));
+      #cat0("\nObjects: ");
+      #print(x);
+      cat0("\n--- Terminating processing this element.\n");
     } else {
       ### This is an odd object; throw an error.
       stop("You provided an object I cannot parse, sorry! It looks like:\n\n",
@@ -139,6 +191,9 @@ to_specList <- function(x,
     ### is a list of specifications that has already been processed. In the latter
     ### case, the class 'justifierSpec' has been set.
     if (all(unlist(lapply(x, is_spec)))) {
+      if (!silent) {
+        cat0("\nBecause all elements are specifications, simply returning them within a list with class `justifierSpecList`.\n");
+      }
       ### All specifications; return without doing anything
       return(structure(x,
                        class=c("justifierSpecList", types)));
@@ -148,6 +203,9 @@ to_specList <- function(x,
       ### whether 'id' is the only name; if so, 'unvectorize' if needed, structure
       ### as specification(s), and return.
       if ((length(unique(names(x)))==1) && (unique(names(x)) == "id")) {
+        if (!silent) {
+          cat0("\nThis specification contains multiple named filds; returning it as is, with class `justifierSpec`, within a list with class `justifierSpecList`.\n");
+        }
         ids <- x$id;
         return(structure(lapply(ids,
                                 function(id) {
@@ -157,8 +215,11 @@ to_specList <- function(x,
                          names=ids,
                          class=c("justifierSpecList", types)));
       } else {
-        ### More than one namee, so it should be a single specification.
+        ### More than one name, so it should be a single specification.
         ### Structure it as specification and return it.
+        if (!silent) {
+          cat0("\nThis specification contains multiple named filds; returning it as is, with class `justifierSpec`, within a list with class `justifierSpecList`.\n");
+        }
         return(structure(list(structure(x,
                                         class=c("justifierSpec", type))),
                          names=x$id,
