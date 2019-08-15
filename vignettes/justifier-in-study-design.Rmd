@@ -69,7 +69,7 @@ In this section, the decisions explained above are shows in the `justifier` form
 
 In one of the 'justified markdown' files, for example meeting minutes, researchers would specify the framework to use. In this case, this specification would look like this:
 
-```
+```{r echo=TRUE, eval=FALSE}
 ---
 justifier:
   -
@@ -85,7 +85,7 @@ This justifier fragment contains two bits of metadata, the first applying to all
 
 ## Research question
 
-```
+```{r echo=TRUE, eval=FALSE}
 ---
 decision:
 
@@ -129,7 +129,7 @@ decision:
 
 ## Method
 
-```
+```{r echo=TRUE, eval=FALSE}
 ---
 decision:
 
@@ -177,7 +177,7 @@ decision:
 
 ## Sample size
 
-```
+```{r echo=TRUE, eval=FALSE}
 ---
 decision:
   id: study_sample_size
@@ -213,7 +213,7 @@ decision:
 
 ## Pregistrations
 
-```
+```{r echo=TRUE, eval=FALSE}
 ---
 decision:
   id: preregistration

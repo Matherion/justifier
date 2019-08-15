@@ -52,7 +52,7 @@ Justification frameworks can be specified in three ways. First, using YAML store
 In justification frameworks, common metadata specifications are the following:
 
 - types of sources, assertions, justifications, and decisions
-- exhaustive lists of potential values
+- exhaustive lists of potential values (and optionally, validations)
 - scores, weights, or ranks attached to these values
 
 These specifications can pertain either to `justifier` specifications within a given domain, but they can also hold for all `justifier` specifications that are loaded in a project. For example, it is possible to specify that all `sources` must have a `type`, and that that type must always be `team belief`, `expert consensus`, `target group consultation`, `qualitative study`, `quantitative study`, or `research synthesis`. `justifier` will then flag deviations.

@@ -77,9 +77,9 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Using justifier in behavior change intervention development</h1>
-                        <h4 class="author">Gjalt-Jorn Peters</h4>
+                        <h4 class="author">Gjalt-Jorn Peters &amp; Marta Mqrques</h4>
             
-            <h4 class="date">2019-07-07</h4>
+            <h4 class="date">2019-08-15</h4>
       
       
       <div class="hidden name"><code>justifier-in-intervention-development.Rmd</code></div>
@@ -88,35 +88,224 @@
 
     
     
-<p>Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process.</p>
-<p>The Intervention Mapping protocol is one such tool. It can be used for intervention development, analysis (and potentially improvement or adaptation) of existing interventions, and for description of the intervention development process or products. It is extremely comprehensive, which is at once one or its core strengths and main weaknesses. On the one hand, if one follows the Intervention Mapping protocol, one is assured of a very thorough development process, where all decisions are solidly informed by theory and evidence. On the other hand, exactly because of this, Intervention Mapping is often perceived as unwieldy and too slow to follow in practice. Nonetheless, Intervention Mapping has been used for the development of a large number of interventions (<a href="https://interventionmapping.com/references" class="uri">https://interventionmapping.com/references</a> lists around 1000 articles describing around 300 interventions).</p>
-<p>In theory, each of these development processes are underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, despite Intervention Mapping’s highly systematic nature, the decisions that are taken and their justifications are poorly documented. This is not unique to interventions based on Intervention Mapping. In fact, the poor state of</p>
-<p>To include the decision to select a target behavior, the following fragment can be used:</p>
+<div id="background" class="section level1">
+<h1 class="hasAnchor">
+<a href="#background" class="anchor"></a>Background</h1>
+<p>Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process. This vignette shows how decisions taken when applying two such tools can be documented using <code>justifier</code>: Intervention Mapping and the Behavior Change Wheel.</p>
+<p>In theory, each of these development processes is underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, the decisions that are taken and their justifications are poorly documented. This prohibits learning</p>
+<div id="intervention-mapping" class="section level2">
+<h2 class="hasAnchor">
+<a href="#intervention-mapping" class="anchor"></a>Intervention Mapping</h2>
+<p>The first tool is the Intervention Mapping protocol. It can be used for intervention development, analysis (and potentially improvement or adaptation) of existing interventions, and for description of the intervention development process or products. It is extremely comprehensive, which is at once one or its core strengths and main weaknesses. On the one hand, if one follows the Intervention Mapping protocol, one is assured of a very thorough development process, where all decisions are solidly informed by theory and evidence. On the other hand, exactly because of this, Intervention Mapping is often perceived as unwieldy and too slow to follow in practice. Nonetheless, Intervention Mapping has been used for the development of a large number of interventions (<a href="https://interventionmapping.com/references" class="uri">https://interventionmapping.com/references</a> lists around 1000 articles describing around 300 interventions).</p>
+<p>A very rough picture of the structure of Intervention Mapping can be painted by the six ‘steps’ that are iteratively and nonlinearly applied:</p>
+<ol style="list-style-type: decimal">
+<li>Needs assessment: obtaining a comprehensive overview of the problem, needs, and capacities</li>
+<li>Logic model of the behavior: mapping the determinants and environmental conditions determining the behavior</li>
+<li>Logic model of change: selecting methods of behavior change and translate to applications</li>
+<li>Program development: combine applications into a coherent program, pretest, and produce</li>
+<li>Implementation: anticipate on implementation of the program</li>
+<li>Evaluation: evaluate the program and optimize where necessary</li>
+</ol>
+<p>Of these six steps, steps 2 and 3 will be used to illustrate how to use <code>justifier</code> when developing intervention using the Intervention Mapping protocol. There are two reasons for this.</p>
+<p>First, these two steps will be the most familiar to psychologists involved in behavior change intervention development. The determinant studies conducted in step 2 have been part and parcel of health promotion and education efforts for decades, long before the term ‘behavior change science’ gained popularity. Similarly, studies into behavior change principles (called ‘methods for behavior change’ in Intervention Mapping, and called ‘behavior change techniques’ in the Behavior Change Wheel) have been conducted for decades within various subfields of psychology (see e.g. Leventhal, 1970).</p>
+<p>Second, a tool has been developed that conveniently captures and makes explicit a number of important products of steps 2 and 3: the Acyclic Behavior Change Diagram (ABCD). The ABCD generates a visualisation of the full logic model of change, showing many of the structural and causal assumptions underlying an intervention. This diagram is generated on the basis of a matrix (the ABCD matrix), which has seven columns, each of which represents a series of decisions in the intervention development process. As such, justifying each of these decisions comprises a substantial proportion of the justification of the entire intervention development process.</p>
+</div>
+<div id="behavior-change-wheel" class="section level2">
+<h2 class="hasAnchor">
+<a href="#behavior-change-wheel" class="anchor"></a>Behavior Change Wheel</h2>
+<p>This introduction will be added later.</p>
+</div>
+</div>
+<div id="example-1-intervention-mapping-acyclic-behavior-change-diagrams" class="section level1">
+<h1 class="hasAnchor">
+<a href="#example-1-intervention-mapping-acyclic-behavior-change-diagrams" class="anchor"></a>Example 1: Intervention Mapping (Acyclic Behavior Change Diagrams)</h1>
+<p>This first example follows parts of steps 2 and 3 of the Intervention Mapping protocol at the hand of the seven columns of the Acyclic Behavior Change Diagram matrix.</p>
+<!----------------------------------------------------------------------------->
+<div id="justifying-the-selected-target-behavior" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-the-selected-target-behavior" class="anchor"></a>Justifying the selected target behavior</h2>
+<p>Before it is possible to analyse why target population members exhibit a behavior they exhibit, selecting such a target behavior is necessary. Behavior change interventions do, after all, need a target behavior.</p>
+<p>To include the decision to select a target behavior, a fragment like this can be used:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="op">---</span></a>
 <a class="sourceLine" id="cb1-2" title="2">decision<span class="op">:</span></a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>target_behavior_selection</a>
 <a class="sourceLine" id="cb1-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_target_behavior</a>
-<a class="sourceLine" id="cb1-5" title="5">  label<span class="op">:</span><span class="st"> "The target behavior is getting ecstasy tested"</span></a>
-<a class="sourceLine" id="cb1-6" title="6">  description<span class="op">:</span><span class="st"> "Room for more explanation about this decision."</span></a>
-<a class="sourceLine" id="cb1-7" title="7">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
-<a class="sourceLine" id="cb1-8" title="8">  justification<span class="op">:</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>importance_of_knowing_pill_contents</a>
-<a class="sourceLine" id="cb1-10" title="10">    label<span class="op">:</span><span class="st"> "Knowing pill contents is important"</span></a>
-<a class="sourceLine" id="cb1-11" title="11">    description<span class="op">:</span><span class="st"> "Risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."</span></a>
-<a class="sourceLine" id="cb1-12" title="12">    source<span class="op">:</span></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>example_source_<span class="dv">1</span></a>
-<a class="sourceLine" id="cb1-14" title="14">      label<span class="op">:</span><span class="st"> "Some example source"</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="op">---</span></a></code></pre></div>
-<p>To justify choosing a sub-behavior,</p>
-<p>To justify choosing a determinant for a sub-behavior,</p>
+<a class="sourceLine" id="cb1-5" title="5">  </a>
+<a class="sourceLine" id="cb1-6" title="6">  label<span class="op">:</span><span class="st"> "The target behavior is getting ecstasy tested"</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  </a>
+<a class="sourceLine" id="cb1-8" title="8">  description<span class="op">:</span><span class="st"> "Room for more explanation about this decision."</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  </a>
+<a class="sourceLine" id="cb1-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  </a>
+<a class="sourceLine" id="cb1-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>importance_of_knowing_pill_contents</a>
+<a class="sourceLine" id="cb1-14" title="14">    label<span class="op">:</span><span class="st"> "Knowing pill contents is important"</span></a>
+<a class="sourceLine" id="cb1-15" title="15">    description<span class="op">:</span><span class="st"> "Risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."</span></a>
+<a class="sourceLine" id="cb1-16" title="16">    assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>adulterants_can_be_toxic</a>
+<a class="sourceLine" id="cb1-18" title="18">      label<span class="op">:</span><span class="st"> "Adulterated MDMA can contain toxic substances."</span></a>
+<a class="sourceLine" id="cb1-19" title="19">      source<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>expert_interview_<span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-21" title="21">        label<span class="op">:</span><span class="st"> "Expert interview in document 'exp_interview_1.docx'."</span></a>
+<a class="sourceLine" id="cb1-22" title="22">        type<span class="op">:</span><span class="st"> "external expert opinion"</span></a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="op">---</span></a></code></pre></div>
+<p>Every <code>justifier</code> element must have a unique identifier (<code>id</code>), and in addition, can optionally have a type. Specifying a type for a decision will enable automatic processing when a framework is applied. Frameworks specify, for decisons of given types, how to organise them relative to each other (e.g. the order of the decisisons in a procedure), what acceptable values for the decisions are (if any), and allow some validation to check for those values.</p>
+<p>In addition, to an <code>id</code>, all <code>justifier</code> elements can have a <code>label</code> and a <code>description</code>. A <code>label</code> is a human-readable short title for the element, and a <code>description</code> allows for more details. The <code>date</code> field allows specifying when the decision was taken.</p>
+<p>In <code>justifier</code>, every <code>decision</code> has a <code>justification</code>. Each <code>justification</code> is based on one or more <code>assertion</code>s, which are each based on one or more <code>source</code>s. A <code>source</code> can be an academic article, an unpublished report, the result of a consensus meeting with experts, the opinion of the planning group (an Intervention Mapping term), or even the opinion of one individual. The explicit definition of <code>source</code>s makes it possible to trace back the origins of <code>assertion</code>s. An <code>assertion</code> is an assumption or statement of fact. This is loosely based on assertions as defined in nanopublications (see <a href="http://nanopub.org" class="uri">http://nanopub.org</a>; in this sense, a <code>source</code> can be considered a very rough specification of an <code>assertion</code>s provenance). Thus, a list of all <code>assertion</code>s documented in an interventions justification shows what the intervention developers knew about, or believed to be true about, the world (and a list of the sources shows where that knowledge or those assumptions came from).</p>
+<p>The <code>justification</code>s combine one or more <code>assertion</code>s into coherent reasoning supporting a <code>decision</code>. A <code>decision</code> can have multiple <code>justification</code>s (but the entire justification can also be formulated within one <code>justification</code> element; so the number of <code>justification</code>s on which a decision is based is not necessarily a proxy for how well-supported a decision is).</p>
+<p>Any <code>source</code>, <code>assertion</code>, and <code>justification</code> can be re-used; they have, after all, unique identifiers. In addition, these elements can be specified on their own, or within their parent elements. For example, the following constitutes a valid <code>source</code> definition:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb2-2" title="2">source<span class="op">:</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>west_development_<span class="dv">2019</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  label<span class="op">:</span><span class="st"> "West, R., Godinho, C. A., Bohlen, L. C., Carey, R. N., Hastings, J., Lefevre, C. E., &amp; Michie, S. (2019). Development of a formal system for representing behaviour-change theories. Nature human behaviour, 3(5), 526. doi:10.1038/s41562-019-0561-2"</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  doi<span class="op">:</span><span class="st"> "10.1038/s41562-019-0561-2"</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="op">---</span></a></code></pre></div>
+<p>This source can then be used in assertions elsewhere.</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="justifying-selected-sub-behaviors" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-selected-sub-behaviors" class="anchor"></a>Justifying selected sub-behaviors</h2>
+<p>Once the target behavior is clear, Intervention Mapping prompts identification of all sub-behaviors that make up the target behavior (called ‘performance objectives’ in IM vocabulary). Sub-behaviors are distinguished by having different psychological determinants and/or environmental conditions. Not all sub-behaviors are selected for intervention. Resource constraints often necesitate selection.</p>
+<p>To justify choosing or not choosing a sub-behavior, a fragment like the following can be used:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb3-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>sub_behavior_selection</a>
+<a class="sourceLine" id="cb3-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_sub_behavior</a>
+<a class="sourceLine" id="cb3-5" title="5">  </a>
+<a class="sourceLine" id="cb3-6" title="6">  label<span class="op">:</span><span class="st"> "The sub-behavior 'delivering pill to testing centre' is selected."</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  </a>
+<a class="sourceLine" id="cb3-8" title="8">  description<span class="op">:</span><span class="st"> "This is a necessary sub-behavior; without, the target behavior can impossibly be completed."</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  </a>
+<a class="sourceLine" id="cb3-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb3-11" title="11">  </a>
+<a class="sourceLine" id="cb3-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_only_pills_delivered_to_testing_centres_are_tested</a>
+<a class="sourceLine" id="cb3-14" title="14">    label<span class="op">:</span><span class="st"> "Only ectsasy pills delivered to a testing centre are tested."</span></a>
+<a class="sourceLine" id="cb3-15" title="15">    description<span class="op">:</span><span class="st"> "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."</span></a>
+<a class="sourceLine" id="cb3-16" title="16">    assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>only_pills_delivered_to_testing_centres_are_tested</a>
+<a class="sourceLine" id="cb3-18" title="18">      label<span class="op">:</span><span class="st"> "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."</span></a>
+<a class="sourceLine" id="cb3-19" title="19">      source<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>drug_testing_conditions</a>
+<a class="sourceLine" id="cb3-21" title="21">        label<span class="op">:</span><span class="st"> "Conditions for getting drugs tested"</span></a>
+<a class="sourceLine" id="cb3-22" title="22">        url<span class="op">:</span><span class="st"> "https://www.drugs-test.nl/voorwaarden"</span></a>
+<a class="sourceLine" id="cb3-23" title="23"><span class="op">---</span></a></code></pre></div>
+<p>As can be seen here, there is no real difference between the justification and assertion; for such simple facts, there is not much reasoning required to tie it into a decision.</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="justifying-selected-determinants" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-selected-determinants" class="anchor"></a>Justifying selected determinants</h2>
+<p>Ideally, for every performance objective, the determinants are mapped (as are the enviromental conditions and the environmental agents who control those, but ABCDs deal only with behavior change within target population individuals). From this full overview of potentially relevant determinants, resource constraints will often necessitate selection of a subset of determinants to target in an intervention.</p>
+<p>To justify choosing or not choosing a determinant for a sub-behavior, a fragment like the following can be used:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb4-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>determinants_selection</a>
+<a class="sourceLine" id="cb4-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_determinant</a>
+<a class="sourceLine" id="cb4-5" title="5">  </a>
+<a class="sourceLine" id="cb4-6" title="6">  label<span class="op">:</span><span class="st"> "The determinant 'habit' is not selected."</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  </a>
+<a class="sourceLine" id="cb4-8" title="8">  description<span class="op">:</span><span class="st"> "We will not spend resources on targeting 'habit'"</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  </a>
+<a class="sourceLine" id="cb4-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb4-11" title="11">  </a>
+<a class="sourceLine" id="cb4-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_habit_not_important_for_testing</a>
+<a class="sourceLine" id="cb4-14" title="14">    label<span class="op">:</span><span class="st"> "Habit is not relevant."</span></a>
+<a class="sourceLine" id="cb4-15" title="15">    description<span class="op">:</span><span class="st"> "Getting ecstasy tested is an infrequently performed behaviorThis is a necessary sub-behavior; without, the target behavior can impossibly be completed."</span></a>
+<a class="sourceLine" id="cb4-16" title="16">    assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>assertion_habit_not_important_for_testing</a>
+<a class="sourceLine" id="cb4-18" title="18">      label<span class="op">:</span><span class="st"> "Getting ecstasy tested is an infrequently performed behaviorThis is a necessary sub-behavior; without, the target behavior can impossibly be completed."</span></a>
+<a class="sourceLine" id="cb4-19" title="19">      source<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>planning_group_meeting_<span class="dv">20190816</span></a>
+<a class="sourceLine" id="cb4-21" title="21">        label<span class="op">:</span><span class="st"> "Minutes of the planning group meeting at the 16th of August 2019"</span></a>
+<a class="sourceLine" id="cb4-22" title="22"><span class="op">---</span></a></code></pre></div>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="justifying-selected-sub-determinants" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-selected-sub-determinants" class="anchor"></a>Justifying selected sub-determinants</h2>
 <p>To justify choosing a sub-determinant underlying a determinant</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="justifying-selected-behavior-change-principles" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-selected-behavior-change-principles" class="anchor"></a>Justifying selected behavior change principles</h2>
 <p>To justify choosing a behavior change principle</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="justifying-applications" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-applications" class="anchor"></a>Justifying applications</h2>
 <p>To justify choosing an application</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="justifying-conditions-for-effectiveness" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-conditions-for-effectiveness" class="anchor"></a>Justifying conditions for effectiveness</h2>
 <p>To justify the conditions for effectiveness</p>
+<!----------------------------------------------------------------------------->
 <p>There are many more choices to make during intervention development, but two are obviously omitted here and so deserve mentioning. Both capture those factors that contribute to behavior that are not part of the target population’s psychology: their environment. First, the environmental conditions themselves; and second, the environmental agent(s) under whose control those enviromental condition(s) are. These are not included in this vignette because this vignette is based on acyclic behavior change diagrams (ABCDs), which are a tool to work with behavior change efforts that directly target individuals; other tools exist for other aspects of intervention development.</p>
+<!----------------------------------------------------------------------------->
+</div>
+</div>
+<div id="example-2-the-behavior-change-wheel" class="section level1">
+<h1 class="hasAnchor">
+<a href="#example-2-the-behavior-change-wheel" class="anchor"></a>Example 2: the Behavior Change Wheel</h1>
+<div id="justifying" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying" class="anchor"></a>Justifying …</h2>
+</div>
+<div id="justifying-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-1" class="anchor"></a>Justifying …</h2>
+</div>
+<div id="justifying-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#justifying-2" class="anchor"></a>Justifying …</h2>
+<!----------------------------------------------------------------------------->
+</div>
+</div>
+<div id="references" class="section level1">
+<h1 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h1>
+<p>Leventhal, H. (1970) Findings and Theory in the Study of Fear Communications. <em>Advances in Experimental Social Psychology, 5</em>, pp. 119-186. <a href="doi:%5B10.1016/S0065-2601(08)60091-X" class="uri">doi:[10.1016/S0065-2601(08)60091-X</a>](<a href="https://doi.org/10.1016/S0065-2601(08)60091-X" class="uri">https://doi.org/10.1016/S0065-2601(08)60091-X</a>).</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li>
+<a href="#background">Background</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#intervention-mapping">Intervention Mapping</a></li>
+      <li><a href="#behavior-change-wheel">Behavior Change Wheel</a></li>
+      </ul>
+</li>
+      <li>
+<a href="#example-1-intervention-mapping-acyclic-behavior-change-diagrams">Example 1: Intervention Mapping (Acyclic Behavior Change Diagrams)</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#justifying-the-selected-target-behavior">Justifying the selected target behavior</a></li>
+      <li><a href="#justifying-selected-sub-behaviors">Justifying selected sub-behaviors</a></li>
+      <li><a href="#justifying-selected-determinants">Justifying selected determinants</a></li>
+      <li><a href="#justifying-selected-sub-determinants">Justifying selected sub-determinants</a></li>
+      <li><a href="#justifying-selected-behavior-change-principles">Justifying selected behavior change principles</a></li>
+      <li><a href="#justifying-applications">Justifying applications</a></li>
+      <li><a href="#justifying-conditions-for-effectiveness">Justifying conditions for effectiveness</a></li>
+      </ul>
+</li>
+      <li>
+<a href="#example-2-the-behavior-change-wheel">Example 2: the Behavior Change Wheel</a><ul class="nav nav-pills nav-stacked">
+<li><a href="#justifying">Justifying …</a></li>
+      <li><a href="#justifying-1">Justifying …</a></li>
+      <li><a href="#justifying-2">Justifying …</a></li>
+      </ul>
+</li>
+      <li><a href="#references">References</a></li>
+      </ul>
+</div>
       </div>
 
 </div>
