@@ -351,6 +351,10 @@ At the same time, experienced intervention developers often did develop implicit
 
 Application of `justifier` makes it possible to map the decisions that are taken and identify patterns. In addition, it makes it possible for the intervention developers themselves to identify the weak links in their intervention development process: for example, the points where they take their decisions with weaker justifications.
 
+Because `justifier` is a very general-purpose justification standard, it does not require an a priori specified list of intervention development decisions. Frameworks can be applied to systematically process decisions and justifications, but without frameworks, `justifier` still allows intervention developers an easy way to document their decisions and justifications in a format that can later easily be procesessed.
+
+This means that it is feasible to employ `justifier` even in processes that are entirely new. This means that process evaluations can be thorough even for aspects of a process that could not be specified a priori, and no important information is lost. Decisions and justifications can be automatically imported and categorized to facilitate efficient processing.
+
 <!----------------------------------------------------------------------------->
 
 # References
