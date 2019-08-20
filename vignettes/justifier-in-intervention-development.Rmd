@@ -198,7 +198,7 @@ decision:
   date: 2019-09-03
   
   justification:
-    id: 
+    id: justification_subdeterminants_select_memory
     label: "People simultaneously want to remember more, but realise they remember less if they use a higher dose."
     description: "This inconsistency can be used in an intervention."
     assertion:
@@ -237,7 +237,7 @@ decision:
   date: 2019-09-03
   
   justification:
-    - id: 
+    - id: justification_bcps_select_persuasivecomm
       label: "Persuasive communication and self-reevaluation are both BCPs that can target attitudinal beliefs."
       assertion:
         - id: assertion_persuasivecomm_can_target_attitude
@@ -248,8 +248,7 @@ decision:
             doi: "10.1080/17437199.2015.1077155"
         - id: assertion_selfReeval_can_target_attitude
           label: "Self-reevaluation can be used to target attitudinal beliefs."
-          source:
-            id: kok_taxonomy_2016
+          source: kok_taxonomy_2016
 
 ---
 ```
@@ -275,15 +274,14 @@ decision:
   date: 2019-09-03
   
   justification:
-    - id: 
+    - id: justification_application_factsheet
       label: "The intervention source's rapport with the target population means that a factsheet fits well with the target population's expectations, and they are likely to take the information seriously."
       assertion:
         - id: assertion_source_organisation_considered_reliable
           label: "The organisation that will be the intervention's source is considered reliable by the target population."
           source:
-            id: year_report
-            label: "The year report of the organisation that will be the intervention's source"
-
+            - id: year_report
+              label: "The year report of the organisation that will be the intervention's source"
 ---
 ```
 
@@ -306,13 +304,12 @@ decision:
   date: 2019-09-03
   
   justification:
-    - id: 
+    - id: justification_conditions_persuasivecomm
       label: "The parameters for effectiveness for persuasive communication, as listed in the IM list of methods, are 'Messages need to be relevant and not too discrepant from the beliefs of the individual; can be stimulated by surprise and repetition. Will include arguments.'."
       assertion:
-        - id: assertion_source_organisation_considered_reliable
+        - id: assertion_parameters_persuasivecomm
           label: "The parameters for effectiveness for persuasive communication are that messages need to be relevant and not too discrepant from the beliefs of the individual; and persuasive communication can be stimulated by surprise and repetition. The message should include one or more arguments."
           source: kok_taxonomy_2016
-
 ---
 ```
 
@@ -357,12 +354,40 @@ This means that it is feasible to employ `justifier` even in processes that are 
 
 <!----------------------------------------------------------------------------->
 
+# Processing justifications
+
+The justifications in this file can be processed with this command:
+
+```{r processing}
+
+processedJustifications <-
+  justifier::load_justifications(here::here("vignettes",
+                                            "justifier-in-intervention-development.Rmd"),
+                                 silent=TRUE);
+
+```
+
+The resulting object then contains the specified decision trees:
+
+```{r decision-tree-example}
+processedJustifications$decisionTrees$bcps_select_persuasivecomm
+```
+
+These can also be displayed as a graph:
+
+```{r decision-graph-example, results="asis"}
+cat("\n\n", processedJustifications$decisionGraphsSvg$bcps_select_persuasivecomm, "\n\n", sep="");
+cat(processedJustifications$decisionGraphsSvg$subdeterminants_select_memory, "\n\n", sep="");
+```
+
+<!----------------------------------------------------------------------------->
+
 # References
 
 Crutzen, R., Peters, G.-J. Y., & Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. *Frontiers in Public Health, 5*, 165. doi:10.3389/fpubh.2017.00165
 
-Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. *Health Psychology Review, 10*, 297-312. doi:[10.1080/17437199.2015.1077155](https://doi.org/10.1080/17437199.2015.1077155)
+Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. *Health Psychology Review, 10*, 297-312. doi:10.1080/17437199.2015.1077155
 
-Leventhal, H. (1970) Findings and Theory in the Study of Fear Communications. *Advances in Experimental Social Psychology, 5*, 119-186. doi:(10.1016/S0065-2601(08)60091-X)[https://doi.org/10.1016/S0065-2601(08)60091-X].
+Leventhal, H. (1970) Findings and Theory in the Study of Fear Communications. *Advances in Experimental Social Psychology, 5*, 119-186. doi:10.1016/S0065-2601(08)60091-X
 
 

@@ -1081,6 +1081,22 @@ parse_justifications <- function(x,
     cat0("\nCreated decision graphs.");
   }
 
+  res$decisionGraphsSvg <-
+    lapply(res$decisionGraphs,
+           function(graph) {
+             dot_code <- DiagrammeR::generate_dot(graph);
+             graphSvg <-
+               DiagrammeRsvg::export_svg(DiagrammeR::grViz(dot_code));
+             graphSvg <-
+               sub(".*\n<svg ", "<svg ", graphSvg);
+             return(graphSvg);
+           })
+  names(res$decisionGraphsSvg) <-
+    names(res$supplemented$decisions);
+
+  if (!silent) {
+    cat0("\nStored decision graphs as svg.");
+  }
   ###---------------------------------------------------------------------------
   ### Show verification results
   ###---------------------------------------------------------------------------
