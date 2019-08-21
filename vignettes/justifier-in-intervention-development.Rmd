@@ -377,23 +377,10 @@ These can also be displayed as a graph. In this fragment, we generate the graph 
 
 ```{r decision-graph-example, results="asis"}
 
-### Get Scalable Vector Graphics
-svg1 <- processedJustifications$decisionGraphsSvg$bcps_select_persuasivecomm;
-svg2 <- processedJustifications$decisionGraphsSvg$subdeterminants_select_memory;
-
-### Remove width and height to enable easy scaling
-svg1 <- gsub('<svg width=\"[0-9]+pt\" height=\"[0-9]+pt\"\n viewBox=',
-             '<svg viewBox=',
-             svg1);
-svg2 <- gsub('<svg width=\"[0-9]+pt\" height=\"[0-9]+pt\"\n viewBox=',
-             '<svg viewBox=',
-             svg2);
-
-### Show the SVGs
-cat("\n\n<div style='width:700px'>",
-    svg1,
-    "</div>\n\n<div style='width:700px'>",
-    svg2,
+cat("\n\n<div style='width:800px'>",
+    processedJustifications$decisionGraphsSvg$bcps_select_persuasivecomm,
+    "</div>\n\n<div style='width:800px'>",
+    processedJustifications$decisionGraphsSvg$subdeterminants_select_memory,
     "</div>\n\n", sep="");
 
 ```
