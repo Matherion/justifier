@@ -1089,6 +1089,9 @@ parse_justifications <- function(x,
                DiagrammeRsvg::export_svg(DiagrammeR::grViz(dot_code));
              graphSvg <-
                sub(".*\n<svg ", "<svg ", graphSvg);
+             graphSvg <- gsub('<svg width=\"[0-9]+pt\" height=\"[0-9]+pt\"\n viewBox=',
+                              '<svg viewBox=',
+                              graphSvg);
              return(graphSvg);
            })
   names(res$decisionGraphsSvg) <-

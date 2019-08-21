@@ -79,7 +79,7 @@
       <h1>Using justifier in behavior change intervention development</h1>
                         <h4 class="author">Gjalt-Jorn Peters &amp; Marta Marques</h4>
             
-            <h4 class="date">2019-08-20</h4>
+            <h4 class="date">2019-08-21</h4>
       
       
       <div class="hidden name"><code>justifier-in-intervention-development.Rmd</code></div>
@@ -398,9 +398,28 @@
 <a class="sourceLine" id="cb10-6" title="6"><span class="co">#&gt; 4      ¦   °--kok_taxonomy_2016                       </span></a>
 <a class="sourceLine" id="cb10-7" title="7"><span class="co">#&gt; 5      °--assertion_selfReeval_can_target_attitude    </span></a>
 <a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt; 6          °--kok_taxonomy_2016</span></a></code></pre></div>
-<p>These can also be displayed as a graph:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat</a></span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>, processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>bcps_select_persuasivecomm, <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>, <span class="dt">sep=</span><span class="st">""</span>);</a></code></pre></div>
-<svg width="1111pt" height="466pt" viewbox="0.00 0.00 1110.50 466.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 462.4)"><title>
+<p>These can also be displayed as a graph. In this fragment, we generate the graph but add a bit of HTML to make it small enough to fit in this vignette:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co">### Get Scalable Vector Graphics</span></a>
+<a class="sourceLine" id="cb11-3" title="3">svg1 &lt;-<span class="st"> </span>processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>bcps_select_persuasivecomm;</a>
+<a class="sourceLine" id="cb11-4" title="4">svg2 &lt;-<span class="st"> </span>processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>subdeterminants_select_memory;</a>
+<a class="sourceLine" id="cb11-5" title="5"></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="co">### Remove width and height to enable easy scaling</span></a>
+<a class="sourceLine" id="cb11-7" title="7">svg1 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">'&lt;svg width=</span><span class="ch">\"</span><span class="st">[0-9]+pt</span><span class="ch">\"</span><span class="st"> height=</span><span class="ch">\"</span><span class="st">[0-9]+pt</span><span class="ch">\"\n</span><span class="st"> viewBox='</span>,</a>
+<a class="sourceLine" id="cb11-8" title="8">             <span class="st">'&lt;svg viewBox='</span>,</a>
+<a class="sourceLine" id="cb11-9" title="9">             svg1);</a>
+<a class="sourceLine" id="cb11-10" title="10">svg2 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">'&lt;svg width=</span><span class="ch">\"</span><span class="st">[0-9]+pt</span><span class="ch">\"</span><span class="st"> height=</span><span class="ch">\"</span><span class="st">[0-9]+pt</span><span class="ch">\"\n</span><span class="st"> viewBox='</span>,</a>
+<a class="sourceLine" id="cb11-11" title="11">             <span class="st">'&lt;svg viewBox='</span>,</a>
+<a class="sourceLine" id="cb11-12" title="12">             svg2);</a>
+<a class="sourceLine" id="cb11-13" title="13"></a>
+<a class="sourceLine" id="cb11-14" title="14"><span class="co">### Show the SVGs</span></a>
+<a class="sourceLine" id="cb11-15" title="15"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat</a></span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">&lt;div style='width:700px'&gt;"</span>,</a>
+<a class="sourceLine" id="cb11-16" title="16">    svg1,</a>
+<a class="sourceLine" id="cb11-17" title="17">    <span class="st">"&lt;/div&gt;</span><span class="ch">\n\n</span><span class="st">&lt;div style='width:700px'&gt;"</span>,</a>
+<a class="sourceLine" id="cb11-18" title="18">    svg2,</a>
+<a class="sourceLine" id="cb11-19" title="19">    <span class="st">"&lt;/div&gt;</span><span class="ch">\n\n</span><span class="st">"</span>, <span class="dt">sep=</span><span class="st">""</span>);</a></code></pre></div>
+<div style="width:700px">
+<svg viewbox="0.00 0.00 1110.50 466.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 462.4)"><title>
 %0
 </title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-462.4 1106.504,-462.4 1106.504,4 -4,4"></polygon><!-- 1 --><g id="node1" class="node"><title>
@@ -436,8 +455,10 @@
 <path fill="none" stroke="#888888" d="M791.1046,-333.2964C803.8435,-334.3805 816.877,-335.4897 829.8019,-336.5897"></path></g><!-- 5&#45;&gt;6 --><g id="edge5" class="edge"><title>
 5-&gt;6
 </title>
-<path fill="none" stroke="#888888" d="M794.0719,-139.5022C805.91,-137.4872 817.974,-135.4338 829.9436,-133.3965"></path></g></g></svg><div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat</a></span>(processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>subdeterminants_select_memory, <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>, <span class="dt">sep=</span><span class="st">""</span>);</a></code></pre></div>
-<svg width="1107pt" height="332pt" viewbox="0.00 0.00 1106.63 332.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328.2)"><title>
+<path fill="none" stroke="#888888" d="M794.0719,-139.5022C805.91,-137.4872 817.974,-135.4338 829.9436,-133.3965"></path></g></g></svg>
+</div>
+<div style="width:700px">
+<svg viewbox="0.00 0.00 1106.63 332.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328.2)"><title>
 %0
 </title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-328.2 1102.633,-328.2 1102.633,4 -4,4"></polygon><!-- 1 --><g id="node1" class="node"><title>
@@ -473,7 +494,9 @@
 <path fill="none" stroke="#888888" d="M809.1476,-217.2429C820.8929,-217.6156 832.8319,-217.9944 844.6329,-218.3688"></path></g><!-- 5&#45;&gt;6 --><g id="edge5" class="edge"><title>
 5-&gt;6
 </title>
-<path fill="none" stroke="#888888" d="M807.9136,-60.6378C821.6733,-59.8616 835.7153,-59.0696 849.5047,-58.2918"></path></g></g></svg><!----------------------------------------------------------------------------->
+<path fill="none" stroke="#888888" d="M807.9136,-60.6378C821.6733,-59.8616 835.7153,-59.0696 849.5047,-58.2918"></path></g></g></svg>
+</div>
+<!----------------------------------------------------------------------------->
 </div>
 <div id="references" class="section level1">
 <h1 class="hasAnchor">

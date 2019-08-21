@@ -373,11 +373,29 @@ The resulting object then contains the specified decision trees:
 processedJustifications$decisionTrees$bcps_select_persuasivecomm
 ```
 
-These can also be displayed as a graph:
+These can also be displayed as a graph. In this fragment, we generate the graph but add a bit of HTML to make it small enough to fit in this vignette:
 
 ```{r decision-graph-example, results="asis"}
-cat("\n\n", processedJustifications$decisionGraphsSvg$bcps_select_persuasivecomm, "\n\n", sep="");
-cat(processedJustifications$decisionGraphsSvg$subdeterminants_select_memory, "\n\n", sep="");
+
+### Get Scalable Vector Graphics
+svg1 <- processedJustifications$decisionGraphsSvg$bcps_select_persuasivecomm;
+svg2 <- processedJustifications$decisionGraphsSvg$subdeterminants_select_memory;
+
+### Remove width and height to enable easy scaling
+svg1 <- gsub('<svg width=\"[0-9]+pt\" height=\"[0-9]+pt\"\n viewBox=',
+             '<svg viewBox=',
+             svg1);
+svg2 <- gsub('<svg width=\"[0-9]+pt\" height=\"[0-9]+pt\"\n viewBox=',
+             '<svg viewBox=',
+             svg2);
+
+### Show the SVGs
+cat("\n\n<div style='width:700px'>",
+    svg1,
+    "</div>\n\n<div style='width:700px'>",
+    svg2,
+    "</div>\n\n", sep="");
+
 ```
 
 <!----------------------------------------------------------------------------->
