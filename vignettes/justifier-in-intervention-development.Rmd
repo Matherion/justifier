@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+<!----------------------------------------------------------------------------->
+
 # Background
 
 Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process. This vignette shows how decisions taken when applying two such tools can be documented using `justifier`: Intervention Mapping and the Behavior Change Wheel.
@@ -25,6 +27,8 @@ In theory, each of these development processes is underlied by a wealth of insig
 The `justifier` package offers a solution to this situation. It provides a standard for documenting decisions and their justifications using a format that can easily be integrated in text files, such as meeting minutes. The format is simultaneously human-readable and machine readable. The latter enables automatically reading all justifications in a project into a software package for further processing.
 
 By applying justification frameworks, the decisions and underlying justifications can be categorized, enabling automatically extracting all decisions and justifications that are relevant to, for example, a given phase in intervention development. This facilitates learning from intervention development in practice without first requiring coding of, for example, minutes.
+
+<!----------------------------------------------------------------------------->
 
 ## Intervention Mapping
 
@@ -45,9 +49,13 @@ First, these two steps will be the most familiar to psychologists involved in be
 
 Second, a tool has been developed that conveniently captures and makes explicit a number of important products of steps 2 and 3: the Acyclic Behavior Change Diagram (ABCD). The ABCD generates a visualisation of the full logic model of change, showing many of the structural and causal assumptions underlying an intervention. This diagram is generated on the basis of a matrix (the ABCD matrix), which has seven columns, each of which represents a series of decisions in the intervention development process. As such, justifying each of these decisions comprises a substantial proportion of the justification of the entire intervention development process.
 
+<!----------------------------------------------------------------------------->
+
 ## Behavior Change Wheel
 
 This introduction will be added later.
+
+<!----------------------------------------------------------------------------->
 
 # Example 1: Intervention Mapping (Acyclic Behavior Change Diagrams)
 

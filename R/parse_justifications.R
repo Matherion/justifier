@@ -490,15 +490,26 @@ parse_justifications <- function(x,
 
   if (length(res$structured$justifier) > 0) {
 
-    ### Get scopes
-    justifierScopes <-
-      purrr::map_chr(res$structured$justifier, 'scope');
+    # ### Get scopes
+    # justifierScopes <-
+    #   purrr::map_chr(res$structured$justifier, 'scope');
+    #
+    # ### Set to local if not set
+    # justifierScopes <-
+    #   ifelse(unlist(lapply(justifierScopes, is.null)),
+    #          "local",
+    #          justifierScopes);
 
-    ### Set to local if not set
+    ### Corrected the above old code; couldn't deal with non-specified scopes
     justifierScopes <-
-      ifelse(unlist(lapply(justifierScopes, is.null)),
-             "local",
-             justifierScopes);
+      unlist(lapply(res$structured$justifier,
+                     function(x) {
+                       if ("scope" %in% names(x)) {
+                         return(x$scope);
+                       } else {
+                         return("local");
+                       }
+                     }));
 
     ### Convert all to lower case - one never knows
     justifierScopes <- tolower(justifierScopes);
