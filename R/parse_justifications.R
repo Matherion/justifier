@@ -51,6 +51,7 @@ parse_justifications <- function(x,
                                  justifierFields="^date$|^framework$",
                                  fromFile=NULL,
                                  path=NULL,
+                                 storeDecisionGraphSvg = FALSE,
                                  silent=TRUE) {
 
   res <- list(raw = x);
@@ -486,10 +487,10 @@ parse_justifications <- function(x,
                     function(x) {
                       return(x$id);
                     }));
-    names(res$frameworks$parsed)[length(res$frameworks$parsed)] <-
-      ifelse(is.null(frameworkIds),
-             names(res$frameworks$loaded),
-             frameworkIds);
+    names(res$frameworks$parsed) <-
+      ifelse(nchar(frameworkIds) > 0,
+             frameworkIds,
+             names(res$frameworks$loaded));
 
   } else {
     if (!silent) {
@@ -653,7 +654,7 @@ parse_justifications <- function(x,
                                                    fieldScoring = data.frame());
 
     if (!silent) {
-      cat0("\nStarting to evaluate framework specifications for framework '",
+      cat0("\n\n\nStarting to evaluate framework specifications for framework '",
            res$frameworks$parsed[[currentFramework]]$label, "' (id: '",
            res$frameworks$parsed[[currentFramework]]$id, "').\n");
     }
@@ -769,10 +770,33 @@ parse_justifications <- function(x,
                   });
 
                   if (tmpRes == "FAILED!") {
+
                     if (!is.null(THIS_CONDITION$verificationMsgs) &&
                         (currentVerificationIndex <= length(currentVerificationIndex))) {
                       tmpRes <- THIS_CONDITION$verificationMsgs[currentVerificationIndex];
                     }
+                  }
+
+                  ### Replace placeholders; first find them
+                  placeHolderMatches <-
+                    gregexpr("\\[\\[([^][]+)\\]\\]", tmpRes);
+
+                  if (!(unlist((placeHolderMatches)) == -1)) {
+                    placeHolderContents <-
+                      unlist(regmatches(tmpRes, placeHolderMatches));
+                    placeHolderObjectNames <-
+                      gsub("\\[\\[([^][]+)\\]\\]", "\\1", placeHolderContents);
+                    retrievedObjects <-
+                      unlist(lapply(placeHolderObjectNames,
+                                    function(x) {
+                                      res <- eval(parse(text=x));
+                                      if (is.null(res) || is.na(res)) {
+                                        return("Unspecified");
+                                      } else {
+                                        return(vecTxtQ(res));
+                                      }
+                                    }));
+                    regmatches(tmpRes, placeHolderMatches) <- retrievedObjects;
                   }
 
                   res$fwApplications[[currentFramework]]$verifications <-
@@ -1105,38 +1129,49 @@ parse_justifications <- function(x,
     cat0("\nCreated decision graphs.");
   }
 
-  res$decisionGraphsSvg <-
-    lapply(res$decisionGraphs,
-           function(graph) {
-             dot_code <- DiagrammeR::generate_dot(graph);
-             graphSvg <-
-               DiagrammeRsvg::export_svg(DiagrammeR::grViz(dot_code));
-             graphSvg <-
-               sub(".*\n<svg ", "<svg ", graphSvg);
-             graphSvg <- gsub('<svg width=\"[0-9]+pt\" height=\"[0-9]+pt\"\n viewBox=',
-                              '<svg viewBox=',
-                              graphSvg);
-             return(graphSvg);
-           })
-  names(res$decisionGraphsSvg) <-
-    names(res$supplemented$decisions);
+  if (storeDecisionGraphSvg) {
 
-  if (!silent) {
-    cat0("\nStored decision graphs as svg.");
+    res$decisionGraphsSvg <-
+      lapply(res$decisionGraphs,
+             function(graph) {
+               dot_code <- DiagrammeR::generate_dot(graph);
+               graphSvg <-
+                 DiagrammeRsvg::export_svg(DiagrammeR::grViz(dot_code));
+               graphSvg <-
+                 sub(".*\n<svg ", "<svg ", graphSvg);
+               graphSvg <- gsub('<svg width=\"[0-9]+pt\" height=\"[0-9]+pt\"\n viewBox=',
+                                '<svg viewBox=',
+                                graphSvg);
+               return(graphSvg);
+             })
+    names(res$decisionGraphsSvg) <-
+      names(res$supplemented$decisions);
+
+    if (!silent) {
+      cat0("\nBecause `storeDecisionGraphSvg` was set to `TRUE`, ",
+           "I stored the decision graphs as svg.");
+    }
+
+  } else {
+    if (!silent) {
+      cat0("\nBecause `storeDecisionGraphSvg` was set to `FALSE`, ",
+           "I did not store the decision graphs as svg.");
+    }
   }
+
   ###---------------------------------------------------------------------------
   ### Show verification results
   ###---------------------------------------------------------------------------
 
   for (currentFramework in names(res$frameworks$parsed)) {
     if (all(res$fwApplications[[currentFramework]]$verifications$result == "OK")) {
-      cat0("\n\nAll specification of decisions, justifications, assertions, and sources ",
+      cat0("\n\nAll specifications of decisions, justifications, assertions, and sources ",
            "successfully passed all verifications for framework '", currentFramework, "'.");
     } else {
-      cat0("\n\nNot all specification of decisions, justifications, assertions, and sources ",
+      cat0("\n\nNot all specifications of decisions, justifications, assertions, and sources ",
            "successfully passed all verifications for framework '", currentFramework, "':\n");
       for (i in which(res$fwApplications[[currentFramework]]$verifications$result != "OK")) {
-        cat0("- In the ",
+        cat0("\n- In the ",
              res$fwApplications[[currentFramework]]$verifications[i, c('element')],
              " with identifier '",
              res$fwApplications[[currentFramework]]$verifications[i, c('id')],
@@ -1148,7 +1183,6 @@ parse_justifications <- function(x,
       }
     }
   }
-
 
   class(res) <- 'justifications';
   return(res);

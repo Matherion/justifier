@@ -137,7 +137,8 @@ load_justifications_dir <- function(path,
 
   res <-
     parse_justifications(justifications,
-                         path=path);
+                         path=path,
+                         silent=silent);
 
   return(res);
 
