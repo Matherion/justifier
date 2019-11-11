@@ -414,7 +414,7 @@ parse_justifications <- function(x,
   }
 
   ###---------------------------------------------------------------------------
-  ### Extract any framework specifications
+  ### Extract any references to framework specifications
   ###---------------------------------------------------------------------------
 
   res$frameworks <- list(specs = list(),
@@ -454,6 +454,19 @@ parse_justifications <- function(x,
                                  yum::load_yaml_fragments(fileToLoad));
       names(res$frameworks$loaded)[length(res$frameworks$loaded)] <-
         i;
+    }
+  }
+
+  ###---------------------------------------------------------------------------
+  ### Extract any direct framework specifications
+  ###---------------------------------------------------------------------------
+
+  if (length(res$structured$justifier) > 0) {
+    for (currentJustifierSpec in res$structured$justifier) {
+      if (!is.null(currentJustifierSpec$id)) {
+        res$frameworks$loaded <- c(res$frameworks$loaded,
+                                   list(list(justifier = currentJustifierSpec)));
+      }
     }
   }
 
