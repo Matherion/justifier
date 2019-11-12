@@ -1166,20 +1166,22 @@ parse_justifications <- function(x,
   for (currentFramework in names(res$frameworks$parsed)) {
     if (all(res$fwApplications[[currentFramework]]$verifications$result == "OK")) {
       cat0("\n\nAll specifications of decisions, justifications, assertions, and sources ",
-           "successfully passed all verifications for framework '", currentFramework, "'.");
+           "successfully passed all verifications for framework '",
+           res$fwApplications[[currentFramework]]$label, "'.");
     } else {
       cat0("\n\nNot all specifications of decisions, justifications, assertions, and sources ",
-           "successfully passed all verifications for framework '", currentFramework, "':\n");
+           "successfully passed all verifications for framework '",
+           res$fwApplications[[currentFramework]]$label, "':\n");
       for (i in which(res$fwApplications[[currentFramework]]$verifications$result != "OK")) {
         cat0("\n- In the ",
              res$fwApplications[[currentFramework]]$verifications[i, c('element')],
-             " with identifier '",
+             " with identifier `",
              res$fwApplications[[currentFramework]]$verifications[i, c('id')],
-             "', when applying a verification in framework condition '",
+             "`, when applying a verification in framework condition `",
              res$fwApplications[[currentFramework]]$verifications[i, c('condition')],
-             "', it failed with message: '",
+             "`, it failed with message: \"",
              res$fwApplications[[currentFramework]]$verifications[i, c('result')],
-             "'.\n");
+             "\".\n");
       }
     }
   }
