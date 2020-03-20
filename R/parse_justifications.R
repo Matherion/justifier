@@ -811,7 +811,7 @@ parse_justifications <- function(x,
 
                   if (!silent) {
                     cat0("\n        Verification result: ",
-                         tail(res$fwApplications[[currentFramework]]$verifications$result, 1));
+                         utils::tail(res$fwApplications[[currentFramework]]$verifications$result, 1));
                   }
 
                 }
@@ -1197,7 +1197,7 @@ parse_justifications <- function(x,
 #' @export
 #' @rdname parsing_justifications
 print.justifierDecisionGraph <- function(x, ...) {
-  print(plot(x, ...));
+  print(graphics::plot(x, ...));
 }
 
 #' @method plot justifierDecisionGraph

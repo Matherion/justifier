@@ -184,7 +184,7 @@ to_specList <- function(x,
     } else {
       ### This is an odd object; throw an error.
       stop("You provided an object I cannot parse, sorry! It looks like:\n\n",
-           paste0(capture.output(print(x)), collapse="\n"));
+           paste0(utils::capture.output(print(x)), collapse="\n"));
     }
   } else {
     ### Names are set, so this is a specification of a single element; or it

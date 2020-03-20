@@ -23,7 +23,7 @@ testthat::test_that("reading a directory with justifications works", {
 
   res <- load_justifications_dir(examplePath);
 
-  testthat::expect_equal(length(res), 5);
+  testthat::expect_equal(length(res), 8);
 
 });
 
@@ -113,7 +113,7 @@ testthat::test_that("reading the example study jmd file works", {
   res <- load_justifications(file=file.path(examplePath,
                              "study-example.jmd"));
 
-  testthat::expect_equal(length(res$raw), 2);
+  testthat::expect_equal(length(res$raw), 6);
 
 });
 

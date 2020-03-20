@@ -19,11 +19,7 @@ generate_id <- function(type,
                         stopOnIllegalChars = FALSE) {
 
   if (length(prefix) > 1) {
-    warning("Use `generate_ids` to generate multiple ids at once; ",
-            "calling it for you now and returning the result.");
-    return(generate_ids(prefix,
-                        type=type,
-                        stopOnIllegalChars=stopOnIllegalChars));
+    stop("Use `generate_ids` to generate multiple ids at once.");
   }
 
   type <- toupper(type);
