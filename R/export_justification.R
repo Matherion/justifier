@@ -1,8 +1,34 @@
-
-# a<-justifier::load_justifications(strsplit(export_justification(asrt("assertion", source=c(srce('bla'), srce('bla2'))), file=NULL), "\n")[[1]])
-
+#' Export justification as YAML
+#'
+#' @param x The justification, either loaded from one or more files or
+#' programmatically constructed. This can be one or more decisions,
+#' justifications, assertions, or sources.
+#' @param file If specified, the file to export the justification to.
+#' @param encoding The encoding to use when writing the file.
+#' @param append Whether to append to the file, or replace its contents.
+#' @param preventOverwriting Whether to prevent overwriting an existing file.
+#'
+#' @return The generated YAML, invisibly, unless file is NULL.
+#' @export
+#'
+#' @examples ### Programmatically create a simple justification object
+#' justifierObject <-
+#'   justifier::asrt(
+#'     "assertion",
+#'     source = c(
+#'       justifier::srce('source1'),
+#'       justifier::srce('source2')));
+#'
+#' ### Export to YAML
+#' justifierYAML <-
+#'   justifier::export_justification(
+#'     justifierObject,
+#'     file=NULL);
+#'
+#' ### Show YAML
+#' cat(justifierYAML, sep="\n");
 export_justification <- function(x,
-                                 file,
+                                 file = NULL,
                                  encoding = "UTF-8",
                                  append = TRUE,
                                  preventOverwriting = TRUE) {

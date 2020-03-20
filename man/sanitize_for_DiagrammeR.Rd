@@ -4,8 +4,10 @@
 \alias{sanitize_for_DiagrammeR}
 \title{Sanitize for DiagrammeR}
 \usage{
-sanitize_for_DiagrammeR(x,
-  regExReplacements = list(c("\\\\\\"", "`"), c("\\\\'", "`"), c("\\\\\\\\", "/")))
+sanitize_for_DiagrammeR(
+  x,
+  regExReplacements = list(c("\\\\\\"", "`"), c("\\\\'", "`"), c("\\\\\\\\", "/"))
+)
 }
 \arguments{
 \item{x}{The string or vector}

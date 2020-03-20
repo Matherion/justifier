@@ -26,6 +26,7 @@ devtools-check:
   script:
     - R -e 'install.packages(c("yaml", "data.tree", "purrr", "DiagrammeR"))'
     - R -e 'install.packages(c("knitr", "rmarkdown", "covr", "testthat"))'
+    - R -e 'install.packages(c("here"))'
     - R -e 'devtools::install_gitlab("r-packages/yum")'
     - R -e 'devtools::install_gitlab("r-packages/ufs")'
     - R -e 'devtools::check()'

@@ -986,7 +986,9 @@ parse_justifications <- function(x,
         cat0("\n    Processing decision '", currentDecision, "'.");
       }
 
-      res$decisionTrees[[currentDecision]]$scores <- list();
+      if (is.null(res$decisionTrees[[currentDecision]]$scores)) {
+        res$decisionTrees[[currentDecision]]$scores <- list();
+      }
 
       ### Collect scores per field
       for (currentField in fieldScoreTypes) {

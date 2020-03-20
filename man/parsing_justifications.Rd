@@ -6,8 +6,14 @@
 \alias{plot.justifierDecisionGraph}
 \title{Parsing justifications}
 \usage{
-parse_justifications(x, justifierFields = "^date$|^framework$",
-  fromFile = NULL, path = NULL, silent = TRUE)
+parse_justifications(
+  x,
+  justifierFields = "^date$|^framework$",
+  fromFile = NULL,
+  path = NULL,
+  storeDecisionGraphSvg = FALSE,
+  silent = TRUE
+)
 
 \method{print}{justifierDecisionGraph}(x, ...)
 
@@ -55,7 +61,7 @@ exampleFile <-
               package="justifier");
 
 ### Show contents
-cat(readLines(exampleFile), sep="\\n");
+cat(readLines(exampleFile), sep="\n");
 
 ### Load it with yum::load_and_simplify()
 loadedMinutes <- yum::load_and_simplify(exampleFile);
