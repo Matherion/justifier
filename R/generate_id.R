@@ -4,10 +4,10 @@
 #' sources, assertions, justifications, and decisions.
 #'
 #' @param prefix An identifier prefix.
-#' @param x A vector of identifier prefixes.
+#' @param type The type of the justifier object; `D`, `J`, `A` or `S`.
 #' @param stopOnIllegalChars Whether to [base::stop()] or produce a [base::warning()]
-#'        when encountering illegal characters (i.e. anything other than a letter or
-#'        underscore).
+#' when encountering illegal characters (i.e. anything other than a letter or
+#' underscore).
 #'
 #' @return A character vector containing the identifier(s).
 #' @examples generate_id('example');

@@ -30,6 +30,15 @@ specified.}
 \item{id}{The identifier (randomly generated if omitted).}
 
 \item{...}{Additional fields and values to store in the element.}
+
+\item{source}{In assertions, the source (or sources) that the assertion
+is based on can be specified using \code{srce()}.}
+
+\item{assertion}{In justifications, the assertion (or assertions) that
+the justification is based on can be specified using \code{asrt()}.}
+
+\item{justification}{In decisions, the justification (or justifications)
+that the decision is based on can be specified using \code{jstf()}.}
 }
 \value{
 The generated object.

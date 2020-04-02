@@ -7,6 +7,7 @@
 #' @param encoding The encoding to use when writing the file.
 #' @param append Whether to append to the file, or replace its contents.
 #' @param preventOverwriting Whether to prevent overwriting an existing file.
+#' @param silent Whether to be silent or chatty.
 #'
 #' @return The generated YAML, invisibly, unless file is NULL.
 #' @export
@@ -31,7 +32,8 @@ export_justification <- function(x,
                                  file = NULL,
                                  encoding = "UTF-8",
                                  append = TRUE,
-                                 preventOverwriting = TRUE) {
+                                 preventOverwriting = TRUE,
+                                 silent = TRUE) {
 
   if ("justifierSource" %in% class(x)) {
     justifierType <- "source";
@@ -91,7 +93,7 @@ export_justification <- function(x,
               file,
               "'.");
     }
-    invisible(res);
+    invisible(x);
   }
 
 

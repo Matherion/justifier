@@ -7,6 +7,12 @@
 #' @param description A human-readable description.
 #' @param xdoi,type For `source`s, XDOI identifier and type can also be
 #' specified.
+#' @param source In assertions, the source (or sources) that the assertion
+#' is based on can be specified using `srce()`.
+#' @param assertion In justifications, the assertion (or assertions) that
+#' the justification is based on can be specified using `asrt()`.
+#' @param justification In decisions, the justification (or justifications)
+#' that the decision is based on can be specified using `jstf()`.
 #' @param id The identifier (randomly generated if omitted).
 #' @param ... Additional fields and values to store in the element.
 #'
@@ -85,15 +91,70 @@ dcsn <- function(label,
 #' @export
 #' @rdname constructingJustifications
 c.justifierElement <- function(...) {
+
+  ### Get arguments in a list
   res <- list(...);
-  names(res) <-
+
+  elementType <-
     unlist(lapply(res,
                   function(x) {
-                    return(x$id);
+                    return(head(class(x), 1));
                   }));
+
+  if (length(unique(elementType)) != 1) {
+    stop("All elements to concatenate must be of the same type! ",
+         "So either all decisions, or all justifications, or all ",
+         "assertions, or all sources - you passed elements of types ",
+         vecTxtQ(elementType), ", respectively.");
+  }
+
+  elementType <- unique(elementType);
+
+  ### If any of the arguments does itself have multiple elements,
+  ### we need to place the single elements in lists.
+  if (any(unlist(lapply(res, class)) == "multipleJustifierElements")) {
+    res <-
+      lapply(res,
+             function(x) {
+               return(ifelseObj("singleJustifierElement" %in% class(x),
+                                structure(list(x),
+                                          class = c(elementType,
+                                                    "singleJustifierElements",
+                                                    "justifierElement",
+                                                    "justifier")),
+                                x));
+             });
+    ### ... And then remove one level of lists
+    res <- unlist(res,
+                  recursive = FALSE);
+  }
+
+  ### Set names to identifiers
+  ### We can't do this until the parser can handle it.
+  # names(res) <-
+  #   unlist(lapply(res,
+  #                 function(x) {
+  #                   return(x$id);
+  #                 }));
+
+  class(res) <- c(elementType, "multipleJustifierElements", "justifierElement", "justifier");
   return(res);
 }
 
+print.singleJustifierElement <- function(x, ...) {
+  cat0("Justifier element of type '",
+       class(x)[1], "' and with id '",
+       x$id,
+       "'.");
+  return(invisible(x));
+}
+
+print.multipleJustifierElements <- function(x, ...) {
+  cat0("A list of ", length(x), " justifier elements of ",
+       "type ", class(x[[1]])[1], " and with identifiers ",
+       vecTxtQ(unlist(lapply(x, function(y) return(y$id)))));
+  return(invisible(x));
+}
 
 justifierObjectConstructor <-
   function(justifierType,
@@ -124,6 +185,7 @@ justifierObjectConstructor <-
 
     class(res) <-
       c(justifierClasses[justifierType],
+        "singleJustifierElement",
         "justifierElement",
         "justifier");
 

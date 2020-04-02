@@ -1,4 +1,11 @@
+#' Merging to justifier specification lists
+#'
+#' @param x,y The two justifier specification lists
+#'
+#' @return
 #' @export
+#'
+#' @examples ### Add example
 merge_specLists <- function(x, y) {
   if (!(("justifierSpecList" %in% class(x)) &&
         ("justifierSpecList" %in% class(y)))) {

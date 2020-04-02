@@ -11,13 +11,13 @@ generate_id(
 )
 }
 \arguments{
+\item{type}{The type of the justifier object; \code{D}, \code{J}, \code{A} or \code{S}.}
+
 \item{prefix}{An identifier prefix.}
 
 \item{stopOnIllegalChars}{Whether to \code{\link[base:stop]{base::stop()}} or produce a \code{\link[base:warning]{base::warning()}}
 when encountering illegal characters (i.e. anything other than a letter or
 underscore).}
-
-\item{x}{A vector of identifier prefixes.}
 }
 \value{
 A character vector containing the identifier(s).

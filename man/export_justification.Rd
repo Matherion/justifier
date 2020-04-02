@@ -9,7 +9,8 @@ export_justification(
   file = NULL,
   encoding = "UTF-8",
   append = TRUE,
-  preventOverwriting = TRUE
+  preventOverwriting = TRUE,
+  silent = TRUE
 )
 }
 \arguments{
@@ -24,6 +25,8 @@ justifications, assertions, or sources.}
 \item{append}{Whether to append to the file, or replace its contents.}
 
 \item{preventOverwriting}{Whether to prevent overwriting an existing file.}
+
+\item{silent}{Whether to be silent or chatty.}
 }
 \value{
 The generated YAML, invisibly, unless file is NULL.
