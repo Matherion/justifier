@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">justifier</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -81,7 +81,7 @@
       <h1>Using justifier in behavior change intervention development</h1>
                         <h4 class="author">Gjalt-Jorn Peters &amp; Marta Marques</h4>
             
-            <h4 class="date">2020-03-20</h4>
+            <h4 class="date">2020-04-03</h4>
       
       
       <div class="hidden name"><code>justifier-in-intervention-development.Rmd</code></div>
@@ -134,40 +134,40 @@
 <a href="#justifying-the-selected-target-behavior" class="anchor"></a>Justifying the selected target behavior</h2>
 <p>Before it is possible to analyse why target population members exhibit a behavior they exhibit, selecting such a target behavior is necessary. Behavior change interventions do, after all, need a target behavior.</p>
 <p>To include the decision to select a target behavior, a fragment like this can be used:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>decision<span class="op">:</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>target_behavior_selection</span>
-<span id="cb1-4"><a href="#cb1-4"></a>  type<span class="op">:</span><span class="st"> </span>selection_target_behavior</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  </span>
-<span id="cb1-6"><a href="#cb1-6"></a>  label<span class="op">:</span><span class="st"> "The target behavior is getting ecstasy tested"</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>  </span>
-<span id="cb1-8"><a href="#cb1-8"></a>  description<span class="op">:</span><span class="st"> "In the Netherlands, it is possible to deliver an ecstasy pill to a testing centre. These testing centres, usually operated by the prevention department of substance use disorder organisations, a type of health organisation in the Netherlands, then test the pills. The client receives a code and can call the testing service a week later to find out which active ingredients were found in the pill, and in which dose (in milligrams)."</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>  </span>
-<span id="cb1-10"><a href="#cb1-10"></a>  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>  </span>
-<span id="cb1-12"><a href="#cb1-12"></a>  justification<span class="op">:</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>importance_of_knowing_pill_contents</span>
-<span id="cb1-14"><a href="#cb1-14"></a>    label<span class="op">:</span><span class="st"> "Knowing pill contents is important"</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>    description<span class="op">:</span><span class="st"> "Risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>    assertion<span class="op">:</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>adulterants_can_be_toxic</span>
-<span id="cb1-18"><a href="#cb1-18"></a>      label<span class="op">:</span><span class="st"> "Adulterated MDMA can contain toxic substances."</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>      source<span class="op">:</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>expert_interview_<span class="dv">1</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>        label<span class="op">:</span><span class="st"> "Expert interview in document 'exp_interview_1.docx'."</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a>        type<span class="op">:</span><span class="st"> "external expert opinion"</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb1-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>target_behavior_selection</a>
+<a class="sourceLine" id="cb1-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_target_behavior</a>
+<a class="sourceLine" id="cb1-5" title="5">  </a>
+<a class="sourceLine" id="cb1-6" title="6">  label<span class="op">:</span><span class="st"> "The target behavior is getting ecstasy tested"</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  </a>
+<a class="sourceLine" id="cb1-8" title="8">  description<span class="op">:</span><span class="st"> "In the Netherlands, it is possible to deliver an ecstasy pill to a testing centre. These testing centres, usually operated by the prevention department of substance use disorder organisations, a type of health organisation in the Netherlands, then test the pills. The client receives a code and can call the testing service a week later to find out which active ingredients were found in the pill, and in which dose (in milligrams)."</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  </a>
+<a class="sourceLine" id="cb1-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  </a>
+<a class="sourceLine" id="cb1-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>importance_of_knowing_pill_contents</a>
+<a class="sourceLine" id="cb1-14" title="14">    label<span class="op">:</span><span class="st"> "Knowing pill contents is important"</span></a>
+<a class="sourceLine" id="cb1-15" title="15">    description<span class="op">:</span><span class="st"> "Risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."</span></a>
+<a class="sourceLine" id="cb1-16" title="16">    assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>adulterants_can_be_toxic</a>
+<a class="sourceLine" id="cb1-18" title="18">      label<span class="op">:</span><span class="st"> "Adulterated MDMA can contain toxic substances."</span></a>
+<a class="sourceLine" id="cb1-19" title="19">      source<span class="op">:</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>expert_interview_<span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-21" title="21">        label<span class="op">:</span><span class="st"> "Expert interview in document 'exp_interview_1.docx'."</span></a>
+<a class="sourceLine" id="cb1-22" title="22">        type<span class="op">:</span><span class="st"> "external expert opinion"</span></a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="op">---</span></a></code></pre></div>
 <p>Every <code>justifier</code> element must have a unique identifier (<code>id</code>), and in addition, can optionally have a type. Specifying a type for a decision will enable automatic processing when a framework is applied. Frameworks specify, for decisons of given types, how to organise them relative to each other (e.g. the order of the decisisons in a procedure), what acceptable values for the decisions are (if any), and allow some validation to check for those values.</p>
 <p>In addition, to an <code>id</code>, all <code>justifier</code> elements can have a <code>label</code> and a <code>description</code>. A <code>label</code> is a human-readable short title for the element, and a <code>description</code> allows for more details. The <code>date</code> field allows specifying when the decision was taken.</p>
 <p>In <code>justifier</code>, every <code>decision</code> has a <code>justification</code>. Each <code>justification</code> is based on one or more <code>assertion</code>s, which are each based on one or more <code>source</code>s. A <code>source</code> can be an academic article, an unpublished report, the result of a consensus meeting with experts, the opinion of the planning group (an Intervention Mapping term), or even the opinion of one individual. The explicit definition of <code>source</code>s makes it possible to trace back the origins of <code>assertion</code>s. An <code>assertion</code> is an assumption or statement of fact. This is loosely based on assertions as defined in nanopublications (see <a href="http://nanopub.org" class="uri">http://nanopub.org</a>; in this sense, a <code>source</code> can be considered a very rough specification of an <code>assertion</code>s provenance). Thus, a list of all <code>assertion</code>s documented in an interventions justification shows what the intervention developers knew about, or believed to be true about, the world (and a list of the sources shows where that knowledge or those assumptions came from).</p>
 <p>The <code>justification</code>s combine one or more <code>assertion</code>s into coherent reasoning supporting a <code>decision</code>. A <code>decision</code> can have multiple <code>justification</code>s (but the entire justification can also be formulated within one <code>justification</code> element; so the number of <code>justification</code>s on which a decision is based is not necessarily a proxy for how well-supported a decision is).</p>
 <p>Any <code>source</code>, <code>assertion</code>, and <code>justification</code> can be re-used; they have, after all, unique identifiers. In addition, these elements can be specified on their own, or within their parent elements. For example, the following constitutes a valid <code>source</code> definition:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="op">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>source<span class="op">:</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>west_development_<span class="dv">2019</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>  label<span class="op">:</span><span class="st"> "West, R., Godinho, C. A., Bohlen, L. C., Carey, R. N., Hastings, J., Lefevre, C. E., &amp; Michie, S. (2019). Development of a formal system for representing behaviour-change theories. Nature human behaviour, 3(5), 526. doi:10.1038/s41562-019-0561-2"</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>  doi<span class="op">:</span><span class="st"> "10.1038/s41562-019-0561-2"</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb2-2" title="2">source<span class="op">:</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>west_development_<span class="dv">2019</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  label<span class="op">:</span><span class="st"> "West, R., Godinho, C. A., Bohlen, L. C., Carey, R. N., Hastings, J., Lefevre, C. E., &amp; Michie, S. (2019). Development of a formal system for representing behaviour-change theories. Nature human behaviour, 3(5), 526. doi:10.1038/s41562-019-0561-2"</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  doi<span class="op">:</span><span class="st"> "10.1038/s41562-019-0561-2"</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="op">---</span></a></code></pre></div>
 <p>This source can then be used in assertions elsewhere.</p>
 <!----------------------------------------------------------------------------->
 </div>
@@ -176,29 +176,29 @@
 <a href="#justifying-selected-sub-behaviors" class="anchor"></a>Justifying selected sub-behaviors</h2>
 <p>Once the target behavior is clear, Intervention Mapping prompts identification of all sub-behaviors that make up the target behavior (called ‘performance objectives’ in IM vocabulary). Sub-behaviors are distinguished by having different psychological determinants and/or environmental conditions. Not all sub-behaviors are selected for intervention. Resource constraints often necesitate selection.</p>
 <p>To justify choosing or not choosing a sub-behavior, a fragment like the following can be used:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">---</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>decision<span class="op">:</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>sub_behavior_selection</span>
-<span id="cb3-4"><a href="#cb3-4"></a>  type<span class="op">:</span><span class="st"> </span>selection_sub_behavior</span>
-<span id="cb3-5"><a href="#cb3-5"></a>  </span>
-<span id="cb3-6"><a href="#cb3-6"></a>  label<span class="op">:</span><span class="st"> "The sub-behavior 'delivering pill to testing centre' is selected."</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>  </span>
-<span id="cb3-8"><a href="#cb3-8"></a>  description<span class="op">:</span><span class="st"> "This is a necessary sub-behavior; without, the target behavior can impossibly be completed."</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a>  </span>
-<span id="cb3-10"><a href="#cb3-10"></a>  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>  </span>
-<span id="cb3-12"><a href="#cb3-12"></a>  justification<span class="op">:</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_only_pills_delivered_to_testing_centres_are_tested</span>
-<span id="cb3-14"><a href="#cb3-14"></a>    label<span class="op">:</span><span class="st"> "Only ecstasy pills delivered to a testing centre are tested."</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>    description<span class="op">:</span><span class="st"> "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a>    assertion<span class="op">:</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>only_pills_delivered_to_testing_centres_are_tested</span>
-<span id="cb3-18"><a href="#cb3-18"></a>      label<span class="op">:</span><span class="st"> "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a>      source<span class="op">:</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>drug_testing_conditions</span>
-<span id="cb3-21"><a href="#cb3-21"></a>        label<span class="op">:</span><span class="st"> "Conditions for getting drugs tested"</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a>        url<span class="op">:</span><span class="st"> "https://www.drugs-test.nl/voorwaarden"</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb3-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>sub_behavior_selection</a>
+<a class="sourceLine" id="cb3-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_sub_behavior</a>
+<a class="sourceLine" id="cb3-5" title="5">  </a>
+<a class="sourceLine" id="cb3-6" title="6">  label<span class="op">:</span><span class="st"> "The sub-behavior 'delivering pill to testing centre' is selected."</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  </a>
+<a class="sourceLine" id="cb3-8" title="8">  description<span class="op">:</span><span class="st"> "This is a necessary sub-behavior; without, the target behavior can impossibly be completed."</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  </a>
+<a class="sourceLine" id="cb3-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb3-11" title="11">  </a>
+<a class="sourceLine" id="cb3-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_only_pills_delivered_to_testing_centres_are_tested</a>
+<a class="sourceLine" id="cb3-14" title="14">    label<span class="op">:</span><span class="st"> "Only ecstasy pills delivered to a testing centre are tested."</span></a>
+<a class="sourceLine" id="cb3-15" title="15">    description<span class="op">:</span><span class="st"> "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."</span></a>
+<a class="sourceLine" id="cb3-16" title="16">    assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>only_pills_delivered_to_testing_centres_are_tested</a>
+<a class="sourceLine" id="cb3-18" title="18">      label<span class="op">:</span><span class="st"> "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."</span></a>
+<a class="sourceLine" id="cb3-19" title="19">      source<span class="op">:</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>drug_testing_conditions</a>
+<a class="sourceLine" id="cb3-21" title="21">        label<span class="op">:</span><span class="st"> "Conditions for getting drugs tested"</span></a>
+<a class="sourceLine" id="cb3-22" title="22">        url<span class="op">:</span><span class="st"> "https://www.drugs-test.nl/voorwaarden"</span></a>
+<a class="sourceLine" id="cb3-23" title="23"><span class="op">---</span></a></code></pre></div>
 <p>As can be seen here, there is no real difference between the justification and assertion; for such simple facts, there is not much reasoning required to tie it into a decision.</p>
 <!----------------------------------------------------------------------------->
 </div>
@@ -207,28 +207,28 @@
 <a href="#justifying-selected-determinants" class="anchor"></a>Justifying selected determinants</h2>
 <p>Ideally, for every performance objective, all determinants are mapped as comprehensively as possible (as are the enviromental conditions and the environmental agents who control those, but ABCDs deal only with behavior change within target population individuals). From this full overview of potentially relevant determinants, resource constraints will often necessitate selection of a subset of determinants to target in an intervention.</p>
 <p>To justify choosing or not choosing a determinant for a sub-behavior, a fragment like the following can be used:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>decision<span class="op">:</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>determinants_forgo_habit</span>
-<span id="cb4-4"><a href="#cb4-4"></a>  type<span class="op">:</span><span class="st"> </span>selection_determinant</span>
-<span id="cb4-5"><a href="#cb4-5"></a>  </span>
-<span id="cb4-6"><a href="#cb4-6"></a>  label<span class="op">:</span><span class="st"> "The determinant 'habit' is not selected."</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>  </span>
-<span id="cb4-8"><a href="#cb4-8"></a>  description<span class="op">:</span><span class="st"> "We will not spend resources on targeting 'habit'"</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>  </span>
-<span id="cb4-10"><a href="#cb4-10"></a>  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a></span>
-<span id="cb4-12"><a href="#cb4-12"></a>  justification<span class="op">:</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_habit_not_important_for_testing</span>
-<span id="cb4-14"><a href="#cb4-14"></a>    label<span class="op">:</span><span class="st"> "Habit is not relevant."</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>    description<span class="op">:</span><span class="st"> "Getting ecstasy tested is an infrequently performed behavior. This means the requirements for developing automatic behavior are not in place."</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a>    assertion<span class="op">:</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>assertion_habit_not_important_for_testing</span>
-<span id="cb4-18"><a href="#cb4-18"></a>      label<span class="op">:</span><span class="st"> "Getting ecstasy tested is an infrequently performed behavior. This means the requirements for developing automatic behavior are not in place."</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a>      source<span class="op">:</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>planning_group_meeting_<span class="dv">20190816</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a>        label<span class="op">:</span><span class="st"> "Minutes of the planning group meeting at the 16th of August 2019."</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb4-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>determinants_forgo_habit</a>
+<a class="sourceLine" id="cb4-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_determinant</a>
+<a class="sourceLine" id="cb4-5" title="5">  </a>
+<a class="sourceLine" id="cb4-6" title="6">  label<span class="op">:</span><span class="st"> "The determinant 'habit' is not selected."</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  </a>
+<a class="sourceLine" id="cb4-8" title="8">  description<span class="op">:</span><span class="st"> "We will not spend resources on targeting 'habit'"</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  </a>
+<a class="sourceLine" id="cb4-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb4-11" title="11"></a>
+<a class="sourceLine" id="cb4-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_habit_not_important_for_testing</a>
+<a class="sourceLine" id="cb4-14" title="14">    label<span class="op">:</span><span class="st"> "Habit is not relevant."</span></a>
+<a class="sourceLine" id="cb4-15" title="15">    description<span class="op">:</span><span class="st"> "Getting ecstasy tested is an infrequently performed behavior. This means the requirements for developing automatic behavior are not in place."</span></a>
+<a class="sourceLine" id="cb4-16" title="16">    assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="st">      </span>id<span class="op">:</span><span class="st"> </span>assertion_habit_not_important_for_testing</a>
+<a class="sourceLine" id="cb4-18" title="18">      label<span class="op">:</span><span class="st"> "Getting ecstasy tested is an infrequently performed behavior. This means the requirements for developing automatic behavior are not in place."</span></a>
+<a class="sourceLine" id="cb4-19" title="19">      source<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="st">        </span>id<span class="op">:</span><span class="st"> </span>planning_group_meeting_<span class="dv">20190816</span></a>
+<a class="sourceLine" id="cb4-21" title="21">        label<span class="op">:</span><span class="st"> "Minutes of the planning group meeting at the 16th of August 2019."</span></a>
+<a class="sourceLine" id="cb4-22" title="22"><span class="op">---</span></a></code></pre></div>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="justifying-selected-sub-determinants" class="section level2">
@@ -236,68 +236,68 @@
 <a href="#justifying-selected-sub-determinants" class="anchor"></a>Justifying selected sub-determinants</h2>
 <p>Intervention messages cannot target behavioral determinants directly, because such determinants are defined as generic constructs. On the one hand this enables studying behavioral determinants over a variety of behaviors and populations, but on the other hand, it renders them insufficiently specific to verbalize or visualize. Therefore, interventions target the specific sub-determinants that underlie each determinant. In a way, tehrefore, subdeterminant selection is more important than determinant selection (although it’s very important to know to which determinant a sub-determinant belongs; this is required to select the behavior change principles).</p>
 <p>To justify choosing a sub-determinant, a fragment like the following can be used:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="op">---</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>decision<span class="op">:</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>subdeterminants_select_memory</span>
-<span id="cb5-4"><a href="#cb5-4"></a>  type<span class="op">:</span><span class="st"> </span>selection_subdeterminant</span>
-<span id="cb5-5"><a href="#cb5-5"></a>  </span>
-<span id="cb5-6"><a href="#cb5-6"></a>  label<span class="op">:</span><span class="st"> "We will target the expectation that with a higher dose, people remember less."</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>  </span>
-<span id="cb5-8"><a href="#cb5-8"></a>  description<span class="op">:</span><span class="st"> "It seems people prefer to remember more of their ecstasy use sessions, while at the same time indicating that if they use a higher dose, they will remember less. This contradiction can be leveraged in an intervention to promote deliberately dosing at a lower intensity."</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>  </span>
-<span id="cb5-10"><a href="#cb5-10"></a>  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>  </span>
-<span id="cb5-12"><a href="#cb5-12"></a>  justification<span class="op">:</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_subdeterminants_select_memory</span>
-<span id="cb5-14"><a href="#cb5-14"></a>    label<span class="op">:</span><span class="st"> "People simultaneously want to remember more, but realise they remember less if they use a higher dose."</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a>    description<span class="op">:</span><span class="st"> "This inconsistency can be used in an intervention."</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a>    assertion<span class="op">:</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="st">      </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_subdeterminant_high_dose_less_memories</span>
-<span id="cb5-18"><a href="#cb5-18"></a>        label<span class="op">:</span><span class="st"> "People expect to remember less afting using a high dose of ecstasy."</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a>        source<span class="op">:</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a><span class="st">          </span>id<span class="op">:</span><span class="st"> </span>crutzen_using_<span class="dv">2017</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a>          label<span class="op">:</span><span class="st"> "Crutzen, R., Peters, G.-J. Y., &amp; Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. Frontiers in Public Health, 5, 165. doi:10.3389/fpubh.2017.00165"</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a>          doi<span class="op">:</span><span class="st"> "10.3389/fpubh.2017.00165"</span></span>
-<span id="cb5-23"><a href="#cb5-23"></a>      <span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_subdeterminant_more_memories_preferred</span>
-<span id="cb5-24"><a href="#cb5-24"></a>        label<span class="op">:</span><span class="st"> "People prefer to remember more after having used ecstasy."</span></span>
-<span id="cb5-25"><a href="#cb5-25"></a>        source<span class="op">:</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a><span class="st">          </span>id<span class="op">:</span><span class="st"> </span>partypanel_report_<span class="fl">15.1</span></span>
-<span id="cb5-27"><a href="#cb5-27"></a>          label<span class="op">:</span><span class="st"> "Party Panel report for Party Panel 15.1"</span></span>
-<span id="cb5-28"><a href="#cb5-28"></a>          spec<span class="op">:</span><span class="st"> "Figure 23, CIBER plot for evaluations"</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a>          url<span class="op">:</span><span class="st"> "https://partypanel.nl/resultResources/15.1/report.html"</span></span>
-<span id="cb5-30"><a href="#cb5-30"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb5-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>subdeterminants_select_memory</a>
+<a class="sourceLine" id="cb5-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_subdeterminant</a>
+<a class="sourceLine" id="cb5-5" title="5">  </a>
+<a class="sourceLine" id="cb5-6" title="6">  label<span class="op">:</span><span class="st"> "We will target the expectation that with a higher dose, people remember less."</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  </a>
+<a class="sourceLine" id="cb5-8" title="8">  description<span class="op">:</span><span class="st"> "It seems people prefer to remember more of their ecstasy use sessions, while at the same time indicating that if they use a higher dose, they will remember less. This contradiction can be leveraged in an intervention to promote deliberately dosing at a lower intensity."</span></a>
+<a class="sourceLine" id="cb5-9" title="9">  </a>
+<a class="sourceLine" id="cb5-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb5-11" title="11">  </a>
+<a class="sourceLine" id="cb5-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="st">    </span>id<span class="op">:</span><span class="st"> </span>justification_subdeterminants_select_memory</a>
+<a class="sourceLine" id="cb5-14" title="14">    label<span class="op">:</span><span class="st"> "People simultaneously want to remember more, but realise they remember less if they use a higher dose."</span></a>
+<a class="sourceLine" id="cb5-15" title="15">    description<span class="op">:</span><span class="st"> "This inconsistency can be used in an intervention."</span></a>
+<a class="sourceLine" id="cb5-16" title="16">    assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb5-17" title="17"><span class="st">      </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_subdeterminant_high_dose_less_memories</a>
+<a class="sourceLine" id="cb5-18" title="18">        label<span class="op">:</span><span class="st"> "People expect to remember less afting using a high dose of ecstasy."</span></a>
+<a class="sourceLine" id="cb5-19" title="19">        source<span class="op">:</span></a>
+<a class="sourceLine" id="cb5-20" title="20"><span class="st">          </span>id<span class="op">:</span><span class="st"> </span>crutzen_using_<span class="dv">2017</span></a>
+<a class="sourceLine" id="cb5-21" title="21">          label<span class="op">:</span><span class="st"> "Crutzen, R., Peters, G.-J. Y., &amp; Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. Frontiers in Public Health, 5, 165. doi:10.3389/fpubh.2017.00165"</span></a>
+<a class="sourceLine" id="cb5-22" title="22">          doi<span class="op">:</span><span class="st"> "10.3389/fpubh.2017.00165"</span></a>
+<a class="sourceLine" id="cb5-23" title="23">      <span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_subdeterminant_more_memories_preferred</a>
+<a class="sourceLine" id="cb5-24" title="24">        label<span class="op">:</span><span class="st"> "People prefer to remember more after having used ecstasy."</span></a>
+<a class="sourceLine" id="cb5-25" title="25">        source<span class="op">:</span></a>
+<a class="sourceLine" id="cb5-26" title="26"><span class="st">          </span>id<span class="op">:</span><span class="st"> </span>partypanel_report_<span class="fl">15.1</span></a>
+<a class="sourceLine" id="cb5-27" title="27">          label<span class="op">:</span><span class="st"> "Party Panel report for Party Panel 15.1"</span></a>
+<a class="sourceLine" id="cb5-28" title="28">          spec<span class="op">:</span><span class="st"> "Figure 23, CIBER plot for evaluations"</span></a>
+<a class="sourceLine" id="cb5-29" title="29">          url<span class="op">:</span><span class="st"> "https://partypanel.nl/resultResources/15.1/report.html"</span></a>
+<a class="sourceLine" id="cb5-30" title="30"><span class="op">---</span></a></code></pre></div>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="justifying-selected-behavior-change-principles" class="section level2">
 <h2 class="hasAnchor">
 <a href="#justifying-selected-behavior-change-principles" class="anchor"></a>Justifying selected behavior change principles</h2>
 <p>Once the relevant subdeterminants have been selected, the concrete intervention targets are known. It then becomes possible to think about which behavior change principles (BCPs) are most likely to be effective to change those subdeterminants. Lists of behavior change principles are available as methods of behavior change in the Intervention Mapping book (and the open access article by <a href="https://doi.org/10.1080/17437199.2015.1077155">Kok et al., 2016</a>), and some of the behavior change techniques may also contain effective elements (see for example <a href="https://doi.org/10.1037/0278-6133.27.3.379">Abraham &amp; Michie, 2008</a>). In addition, the psychological literature contains a wealth of theories and empirical evidence on behavior change principles that are not included in either list. For example, there’s a list being developed of self-determination theory-based behavior change principles (see <a href="https://osf.io/2vh8y/" class="uri">https://osf.io/2vh8y/</a>).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>decision<span class="op">:</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>bcps_select_persuasivecomm</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  type<span class="op">:</span><span class="st"> </span>selection_bcp</span>
-<span id="cb6-5"><a href="#cb6-5"></a>  </span>
-<span id="cb6-6"><a href="#cb6-6"></a>  label<span class="op">:</span><span class="st"> "We will use persuasive communication combined with self-reevaluation."</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>  </span>
-<span id="cb6-8"><a href="#cb6-8"></a>  description<span class="op">:</span><span class="st"> "The idea is to appeal to people's desire to experience the optimal ecstasy trip. Using this premise, we will prompt reflection on the effects of higher doses on one's memory (and other undesirable effects)."</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a>  </span>
-<span id="cb6-10"><a href="#cb6-10"></a>  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>  </span>
-<span id="cb6-12"><a href="#cb6-12"></a>  justification<span class="op">:</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="st">    </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>justification_bcps_select_persuasivecomm</span>
-<span id="cb6-14"><a href="#cb6-14"></a>      label<span class="op">:</span><span class="st"> "Persuasive communication and self-reevaluation are both BCPs that can target attitudinal beliefs."</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a>      assertion<span class="op">:</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="st">        </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_persuasivecomm_can_target_attitude</span>
-<span id="cb6-17"><a href="#cb6-17"></a>          label<span class="op">:</span><span class="st"> "Persuasive communication can target attitudinal beliefs."</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a>          source<span class="op">:</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="st">            </span>id<span class="op">:</span><span class="st"> </span>kok_taxonomy_<span class="dv">2016</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a>            label<span class="op">:</span><span class="st"> "Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. Health Psychology Review, 10, 297-312. doi:10.1080/17437199.2015.1077155"</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a>            doi<span class="op">:</span><span class="st"> "10.1080/17437199.2015.1077155"</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a>        <span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_selfReeval_can_target_attitude</span>
-<span id="cb6-23"><a href="#cb6-23"></a>          label<span class="op">:</span><span class="st"> "Self-reevaluation can be used to target attitudinal beliefs."</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a>          source<span class="op">:</span><span class="st"> </span>kok_taxonomy_<span class="dv">2016</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb6-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>bcps_select_persuasivecomm</a>
+<a class="sourceLine" id="cb6-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_bcp</a>
+<a class="sourceLine" id="cb6-5" title="5">  </a>
+<a class="sourceLine" id="cb6-6" title="6">  label<span class="op">:</span><span class="st"> "We will use persuasive communication combined with self-reevaluation."</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  </a>
+<a class="sourceLine" id="cb6-8" title="8">  description<span class="op">:</span><span class="st"> "The idea is to appeal to people's desire to experience the optimal ecstasy trip. Using this premise, we will prompt reflection on the effects of higher doses on one's memory (and other undesirable effects)."</span></a>
+<a class="sourceLine" id="cb6-9" title="9">  </a>
+<a class="sourceLine" id="cb6-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb6-11" title="11">  </a>
+<a class="sourceLine" id="cb6-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="st">    </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>justification_bcps_select_persuasivecomm</a>
+<a class="sourceLine" id="cb6-14" title="14">      label<span class="op">:</span><span class="st"> "Persuasive communication and self-reevaluation are both BCPs that can target attitudinal beliefs."</span></a>
+<a class="sourceLine" id="cb6-15" title="15">      assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="st">        </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_persuasivecomm_can_target_attitude</a>
+<a class="sourceLine" id="cb6-17" title="17">          label<span class="op">:</span><span class="st"> "Persuasive communication can target attitudinal beliefs."</span></a>
+<a class="sourceLine" id="cb6-18" title="18">          source<span class="op">:</span></a>
+<a class="sourceLine" id="cb6-19" title="19"><span class="st">            </span>id<span class="op">:</span><span class="st"> </span>kok_taxonomy_<span class="dv">2016</span></a>
+<a class="sourceLine" id="cb6-20" title="20">            label<span class="op">:</span><span class="st"> "Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. Health Psychology Review, 10, 297-312. doi:10.1080/17437199.2015.1077155"</span></a>
+<a class="sourceLine" id="cb6-21" title="21">            doi<span class="op">:</span><span class="st"> "10.1080/17437199.2015.1077155"</span></a>
+<a class="sourceLine" id="cb6-22" title="22">        <span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_selfReeval_can_target_attitude</a>
+<a class="sourceLine" id="cb6-23" title="23">          label<span class="op">:</span><span class="st"> "Self-reevaluation can be used to target attitudinal beliefs."</span></a>
+<a class="sourceLine" id="cb6-24" title="24">          source<span class="op">:</span><span class="st"> </span>kok_taxonomy_<span class="dv">2016</span></a>
+<a class="sourceLine" id="cb6-25" title="25"></a>
+<a class="sourceLine" id="cb6-26" title="26"><span class="op">---</span></a></code></pre></div>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="justifying-applications" class="section level2">
@@ -305,27 +305,27 @@
 <a href="#justifying-applications" class="anchor"></a>Justifying applications</h2>
 <p>Behavior change principles (BCPs) are theoretical principles that describe a procedure for successfully leveraging evolutionary learning processes. Because organisms’ ability to learn is very general, both ELPs and BCPs are formulated at a general level. Most BCPs can therefore take a variety of conrete forms, enabling applying the same BCPs in interventions that use brochures as are used in smartphone apps or school programmes. This enables applying BCPs in whichever form is optimal given the population, context, or intervention delivery scenario.</p>
 <p>To justify an application, a fragment like the following can be used:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">---</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>decision<span class="op">:</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>application_factsheet</span>
-<span id="cb7-4"><a href="#cb7-4"></a>  type<span class="op">:</span><span class="st"> </span>selection_application</span>
-<span id="cb7-5"><a href="#cb7-5"></a>  </span>
-<span id="cb7-6"><a href="#cb7-6"></a>  label<span class="op">:</span><span class="st"> "We will create a factsheet."</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a>  </span>
-<span id="cb7-8"><a href="#cb7-8"></a>  description<span class="op">:</span><span class="st"> "The intervention source is considered an authoritative source in the target population, and generally dispenses trusted harm reduction information."</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a>  </span>
-<span id="cb7-10"><a href="#cb7-10"></a>  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a>  </span>
-<span id="cb7-12"><a href="#cb7-12"></a>  justification<span class="op">:</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="st">    </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>justification_application_factsheet</span>
-<span id="cb7-14"><a href="#cb7-14"></a>      label<span class="op">:</span><span class="st"> "The intervention source's rapport with the target population means that a factsheet fits well with the target population's expectations, and they are likely to take the information seriously."</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a>      assertion<span class="op">:</span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="st">        </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_source_organisation_considered_reliable</span>
-<span id="cb7-17"><a href="#cb7-17"></a>          label<span class="op">:</span><span class="st"> "The organisation that will be the intervention's source is considered reliable by the target population."</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a>          source<span class="op">:</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="st">            </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>year_report</span>
-<span id="cb7-20"><a href="#cb7-20"></a>              label<span class="op">:</span><span class="st"> "The year report of the organisation that will be the intervention's source"</span></span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb7-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>application_factsheet</a>
+<a class="sourceLine" id="cb7-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_application</a>
+<a class="sourceLine" id="cb7-5" title="5">  </a>
+<a class="sourceLine" id="cb7-6" title="6">  label<span class="op">:</span><span class="st"> "We will create a factsheet."</span></a>
+<a class="sourceLine" id="cb7-7" title="7">  </a>
+<a class="sourceLine" id="cb7-8" title="8">  description<span class="op">:</span><span class="st"> "The intervention source is considered an authoritative source in the target population, and generally dispenses trusted harm reduction information."</span></a>
+<a class="sourceLine" id="cb7-9" title="9">  </a>
+<a class="sourceLine" id="cb7-10" title="10">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb7-11" title="11">  </a>
+<a class="sourceLine" id="cb7-12" title="12">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="st">    </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>justification_application_factsheet</a>
+<a class="sourceLine" id="cb7-14" title="14">      label<span class="op">:</span><span class="st"> "The intervention source's rapport with the target population means that a factsheet fits well with the target population's expectations, and they are likely to take the information seriously."</span></a>
+<a class="sourceLine" id="cb7-15" title="15">      assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb7-16" title="16"><span class="st">        </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_source_organisation_considered_reliable</a>
+<a class="sourceLine" id="cb7-17" title="17">          label<span class="op">:</span><span class="st"> "The organisation that will be the intervention's source is considered reliable by the target population."</span></a>
+<a class="sourceLine" id="cb7-18" title="18">          source<span class="op">:</span></a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="st">            </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>year_report</a>
+<a class="sourceLine" id="cb7-20" title="20">              label<span class="op">:</span><span class="st"> "The year report of the organisation that will be the intervention's source"</span></a>
+<a class="sourceLine" id="cb7-21" title="21"><span class="op">---</span></a></code></pre></div>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="justifying-conditions-for-effectiveness" class="section level2">
@@ -333,23 +333,23 @@
 <a href="#justifying-conditions-for-effectiveness" class="anchor"></a>Justifying conditions for effectiveness</h2>
 <p>Because behavior change principles are defined at a higher level than the very fundamental evolutionary learning processes, their description often leaves many degrees of freedom. Yet, their final application must closely approximate the conditions under which the underlying evolutionary learning processes work. The parameters for this approximation are captured by a BCPs parameters for effectiveness. In addition to these parameters for effectiveness, applications have to meet conditions relating to the target population (e.g. what is acceptable to them), culture (e.g. what fits with the held belief systems), and context (e.g. what is possible in the situation where the intervention will be delivered). Together, all these conditions are called the conditions for effectiveness. Any application of one or more BCPs must meet the relevant conditions for effectiveness.</p>
 <p>To justify which conditions for effectiveness exist and how they are satisfied, a fragment like the following can be used:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="op">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>decision<span class="op">:</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>conditions_persuasivecomm</span>
-<span id="cb8-4"><a href="#cb8-4"></a>  type<span class="op">:</span><span class="st"> </span>selection_application</span>
-<span id="cb8-5"><a href="#cb8-5"></a>  </span>
-<span id="cb8-6"><a href="#cb8-6"></a>  label<span class="op">:</span><span class="st"> "Messages need to be relevant and not too discrepant from the beliefs of the individual; can be stimulated by surprise and repetition. Will include arguments."</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a>  </span>
-<span id="cb8-8"><a href="#cb8-8"></a>  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a>  </span>
-<span id="cb8-10"><a href="#cb8-10"></a>  justification<span class="op">:</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="st">    </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>justification_conditions_persuasivecomm</span>
-<span id="cb8-12"><a href="#cb8-12"></a>      label<span class="op">:</span><span class="st"> "The parameters for effectiveness for persuasive communication, as listed in the IM list of methods, are 'Messages need to be relevant and not too discrepant from the beliefs of the individual; can be stimulated by surprise and repetition. Will include arguments.'."</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a>      assertion<span class="op">:</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="st">        </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_parameters_persuasivecomm</span>
-<span id="cb8-15"><a href="#cb8-15"></a>          label<span class="op">:</span><span class="st"> "The parameters for effectiveness for persuasive communication are that messages need to be relevant and not too discrepant from the beliefs of the individual; and persuasive communication can be stimulated by surprise and repetition. The message should include one or more arguments."</span></span>
-<span id="cb8-16"><a href="#cb8-16"></a>          source<span class="op">:</span><span class="st"> </span>kok_taxonomy_<span class="dv">2016</span></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="op">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb8-2" title="2">decision<span class="op">:</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span>id<span class="op">:</span><span class="st"> </span>conditions_persuasivecomm</a>
+<a class="sourceLine" id="cb8-4" title="4">  type<span class="op">:</span><span class="st"> </span>selection_application</a>
+<a class="sourceLine" id="cb8-5" title="5">  </a>
+<a class="sourceLine" id="cb8-6" title="6">  label<span class="op">:</span><span class="st"> "Messages need to be relevant and not too discrepant from the beliefs of the individual; can be stimulated by surprise and repetition. Will include arguments."</span></a>
+<a class="sourceLine" id="cb8-7" title="7">  </a>
+<a class="sourceLine" id="cb8-8" title="8">  date<span class="op">:</span><span class="st"> </span><span class="dv">2019-09-03</span></a>
+<a class="sourceLine" id="cb8-9" title="9">  </a>
+<a class="sourceLine" id="cb8-10" title="10">  justification<span class="op">:</span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="st">    </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>justification_conditions_persuasivecomm</a>
+<a class="sourceLine" id="cb8-12" title="12">      label<span class="op">:</span><span class="st"> "The parameters for effectiveness for persuasive communication, as listed in the IM list of methods, are 'Messages need to be relevant and not too discrepant from the beliefs of the individual; can be stimulated by surprise and repetition. Will include arguments.'."</span></a>
+<a class="sourceLine" id="cb8-13" title="13">      assertion<span class="op">:</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="st">        </span><span class="op">-</span><span class="st"> </span>id<span class="op">:</span><span class="st"> </span>assertion_parameters_persuasivecomm</a>
+<a class="sourceLine" id="cb8-15" title="15">          label<span class="op">:</span><span class="st"> "The parameters for effectiveness for persuasive communication are that messages need to be relevant and not too discrepant from the beliefs of the individual; and persuasive communication can be stimulated by surprise and repetition. The message should include one or more arguments."</span></a>
+<a class="sourceLine" id="cb8-16" title="16">          source<span class="op">:</span><span class="st"> </span>kok_taxonomy_<span class="dv">2016</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="op">---</span></a></code></pre></div>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="deliberate-omissions" class="section level2">
@@ -390,27 +390,27 @@
 <h1 class="hasAnchor">
 <a href="#processing-justifications" class="anchor"></a>Processing justifications</h1>
 <p>The justifications in this file can be processed with this command:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2"></a>processedJustifications &lt;-</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="st">  </span>justifier<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/justifier/man/load_justifications.html">load_justifications</a></span>(here<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/here/man/here.html">here</a></span>(<span class="st">"vignettes"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4"></a>                                            <span class="st">"justifier-in-intervention-development.Rmd"</span>),</span>
-<span id="cb9-5"><a href="#cb9-5"></a>                                 <span class="dt">silent=</span><span class="ot">TRUE</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"></a>
+<a class="sourceLine" id="cb9-2" title="2">processedJustifications &lt;-</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span>justifier<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/justifier/man/load_justifications.html">load_justifications</a></span>(here<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/here/man/here.html">here</a></span>(<span class="st">"vignettes"</span>,</a>
+<a class="sourceLine" id="cb9-4" title="4">                                            <span class="st">"justifier-in-intervention-development.Rmd"</span>),</a>
+<a class="sourceLine" id="cb9-5" title="5">                                 <span class="dt">silent=</span><span class="ot">TRUE</span>);</a></code></pre></div>
 <p>The resulting object then contains the specified decision trees:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>processedJustifications<span class="op">$</span>decisionTrees<span class="op">$</span>bcps_select_persuasivecomm</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#&gt;                                              levelName</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; 1 bcps_select_persuasivecomm                          </span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; 2  °--justification_bcps_select_persuasivecomm        </span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; 3      ¦--assertion_persuasivecomm_can_target_attitude</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; 4      ¦   °--kok_taxonomy_2016                       </span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt; 5      °--assertion_selfReeval_can_target_attitude    </span></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt; 6          °--kok_taxonomy_2016</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">processedJustifications<span class="op">$</span>decisionTrees<span class="op">$</span>bcps_select_persuasivecomm</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="co">#&gt;                                              levelName</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="co">#&gt; 1 bcps_select_persuasivecomm                          </span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="co">#&gt; 2  °--justification_bcps_select_persuasivecomm        </span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="co">#&gt; 3      ¦--assertion_persuasivecomm_can_target_attitude</span></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="co">#&gt; 4      ¦   °--kok_taxonomy_2016                       </span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="co">#&gt; 5      °--assertion_selfReeval_can_target_attitude    </span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="co">#&gt; 6          °--kok_taxonomy_2016</span></a></code></pre></div>
 <p>These can also be displayed as a graph. In this fragment, we generate the graph but add a bit of HTML to make it small enough to fit in this vignette:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">&lt;div style='width:800px'&gt;"</span>,</span>
-<span id="cb11-3"><a href="#cb11-3"></a>    processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>bcps_select_persuasivecomm,</span>
-<span id="cb11-4"><a href="#cb11-4"></a>    <span class="st">"&lt;/div&gt;</span><span class="ch">\n\n</span><span class="st">&lt;div style='width:800px'&gt;"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5"></a>    processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>subdeterminants_select_memory,</span>
-<span id="cb11-6"><a href="#cb11-6"></a>    <span class="st">"&lt;/div&gt;</span><span class="ch">\n\n</span><span class="st">"</span>, <span class="dt">sep=</span><span class="st">""</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">"</span><span class="ch">\n\n</span><span class="st">&lt;div style='width:800px'&gt;"</span>,</a>
+<a class="sourceLine" id="cb11-3" title="3">    processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>bcps_select_persuasivecomm,</a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="st">"&lt;/div&gt;</span><span class="ch">\n\n</span><span class="st">&lt;div style='width:800px'&gt;"</span>,</a>
+<a class="sourceLine" id="cb11-5" title="5">    processedJustifications<span class="op">$</span>decisionGraphsSvg<span class="op">$</span>subdeterminants_select_memory,</a>
+<a class="sourceLine" id="cb11-6" title="6">    <span class="st">"&lt;/div&gt;</span><span class="ch">\n\n</span><span class="st">"</span>, <span class="dt">sep=</span><span class="st">""</span>);</a></code></pre></div>
 <div style="width:800px">
 
 </div>

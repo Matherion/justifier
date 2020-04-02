@@ -141,6 +141,8 @@ c.justifierElement <- function(...) {
   return(res);
 }
 
+#' @export
+#' @method print singleJustifierElement
 print.singleJustifierElement <- function(x, ...) {
   cat0("Justifier element of type '",
        class(x)[1], "' and with id '",
@@ -149,6 +151,8 @@ print.singleJustifierElement <- function(x, ...) {
   return(invisible(x));
 }
 
+#' @export
+#' @method print multipleJustifierElements
 print.multipleJustifierElements <- function(x, ...) {
   cat0("A list of ", length(x), " justifier elements of ",
        "type ", class(x[[1]])[1], " and with identifiers ",

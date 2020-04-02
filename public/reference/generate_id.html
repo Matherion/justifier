@@ -70,7 +70,7 @@ sources, assertions, justifications, and decisions." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">justifier</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -139,6 +139,10 @@ sources, assertions, justifications, and decisions.</p>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>type</th>
+      <td><p>The type of the justifier object; <code>D</code>, <code>J</code>, <code>A</code> or <code>S</code>.</p></td>
+    </tr>
+    <tr>
       <th>prefix</th>
       <td><p>An identifier prefix.</p></td>
     </tr>
@@ -147,10 +151,6 @@ sources, assertions, justifications, and decisions.</p>
       <td><p>Whether to <code><a href='https://rdrr.io/r/base/stop.html'>base::stop()</a></code> or produce a <code><a href='https://rdrr.io/r/base/warning.html'>base::warning()</a></code>
 when encountering illegal characters (i.e. anything other than a letter or
 underscore).</p></td>
-    </tr>
-    <tr>
-      <th>x</th>
-      <td><p>A vector of identifier prefixes.</p></td>
     </tr>
     </table>
 

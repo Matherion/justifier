@@ -56,6 +56,7 @@ export_justification <- function(x,
               "\n---\n");
 
   if (is.null(file)) {
+    class(x) <- c("export_justification", class(x));
     return(x);
   } else {
     if (!dir.exists(dirname(file))) {
@@ -97,4 +98,12 @@ export_justification <- function(x,
   }
 
 
+}
+
+#' @export
+#' @method print export_justification
+print.export_justification <- function(x,
+                                       ...) {
+  cat(x);
+  return(invisible(x));
 }

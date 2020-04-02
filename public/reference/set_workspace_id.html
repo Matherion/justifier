@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Repeat a string a number of times — repeatStr • justifier</title>
+<title>Set your justifier workspace identifier — set_workspace_id • justifier</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Repeat a string a number of times — repeatStr" />
-<meta property="og:description" content="Repeat a string a number of times" />
+<meta property="og:title" content="Set your justifier workspace identifier — set_workspace_id" />
+<meta property="og:description" content="This is used to be able to log decisions programmatically." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -118,37 +118,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Repeat a string a number of times</h1>
+    <h1>Set your justifier workspace identifier</h1>
     
-    <div class="hidden name"><code>repeatStr.Rd</code></div>
+    <div class="hidden name"><code>set_workspace_id.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Repeat a string a number of times</p>
+    <p>This is used to be able to log decisions programmatically.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>repeatStr</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>str</span> <span class='kw'>=</span> <span class='st'>" "</span>)</pre>
+    <pre class="usage"><span class='fu'>set_workspace_id</span>(<span class='no'>id</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/justifier/man/opts.html'>opts</a></span>$<span class='fu'><a href='opts.html'>get</a></span>(<span class='st'>"silent"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>n, str</th>
-      <td><p>Normally, respectively the frequency with which to
-repeat the string and the string to repeat; but the order of the
-inputs can be switched as well.</p></td>
+      <th>id</th>
+      <td><p>The workspace identifier</p></td>
+    </tr>
+    <tr>
+      <th>silent</th>
+      <td><p>Whether to be suppress messages.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector of length 1.</p>
+    <p>Invisibly, the passed <code>id</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>### 10 spaces:</span>
-<span class='fu'>repStr</span>(<span class='fl'>10</span>);</div><div class='output co'>#&gt; [1] "          "</div><div class='input'>
-<span class='co'>### Three euro symbols:</span>
-<span class='fu'>repStr</span>(<span class='st'>"\u20ac"</span>, <span class='fl'>3</span>);</div><div class='output co'>#&gt; [1] "\200\200\200"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>set_workspace_id</span>(<span class='st'>"my_workspace"</span>);</div><div class='output co'>#&gt; <span class='error'>Error in stop("Option '", option, "' is not a valid (i.e. existing) option for justifier!"): object 'option' not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

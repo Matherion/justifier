@@ -6,11 +6,11 @@
 \usage{
 log_decision(
   label,
-  description = NULL,
-  alternatives = NULL,
-  date = Sys.Date(),
+  description = "",
+  alternatives = "",
+  date = as.character(Sys.Date()),
   id = NULL,
-  justification = NULL,
+  justification = "",
   silent = justifier::opts$get("silent"),
   ...
 )

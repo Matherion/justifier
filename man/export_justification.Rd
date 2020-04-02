@@ -10,7 +10,7 @@ export_justification(
   encoding = "UTF-8",
   append = TRUE,
   preventOverwriting = TRUE,
-  silent = TRUE
+  silent = justifier::opts$get("silent")
 )
 }
 \arguments{

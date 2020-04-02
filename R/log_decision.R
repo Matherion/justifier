@@ -28,17 +28,20 @@
 #'              silent=FALSE);
 #' workspace();
 log_decision <- function(label,
-                         description = NULL,
-                         alternatives = NULL,
-                         date = Sys.Date(),
+                         description = "",
+                         alternatives = "",
+                         date = as.character(Sys.Date()),
                          id = NULL,
-                         justification = NULL,
+                         justification = "",
                          silent=justifier::opts$get('silent'),
                          ...) {
 
+  args <- as.list(environment());
+  args <- args[setdiff(names(args), "silent")];
+
   newDecision <-
     do.call(dcsn,
-            as.list(environment()));
+            args);
 
   oldWorkspace <-
     getOption(justifier::opts$get('workspace'),

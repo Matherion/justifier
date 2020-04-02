@@ -21,8 +21,7 @@
 #' log_decision("Then we start learning from ourselves.",
 #'              silent=FALSE);
 #' save_workspace();
-save_workspace <- function(x,
-                           file = NULL,
+save_workspace <- function(file = NULL,
                            encoding = "UTF-8",
                            append = FALSE,
                            preventOverwriting = TRUE,

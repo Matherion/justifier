@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">justifier</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -132,7 +132,8 @@
   <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>,
   <span class='kw'>append</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>preventOverwriting</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+  <span class='kw'>preventOverwriting</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/justifier/man/opts.html'>opts</a></span>$<span class='fu'><a href='opts.html'>get</a></span>(<span class='st'>"silent"</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -160,6 +161,10 @@ justifications, assertions, or sources.</p></td>
       <th>preventOverwriting</th>
       <td><p>Whether to prevent overwriting an existing file.</p></td>
     </tr>
+    <tr>
+      <th>silent</th>
+      <td><p>Whether to be silent or chatty.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -184,22 +189,20 @@ justifications, assertions, or sources.</p></td>
 <span class='co'>### Show YAML</span>
 <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='no'>justifierYAML</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>"\n"</span>);</div><div class='output co'>#&gt; ---
 #&gt; assertion:
-#&gt;   id: eulb_A77cjdbjm
+#&gt;   id: hqre_A77j667fd
 #&gt;   label: assertion
 #&gt;   description: ''
 #&gt;   source:
-#&gt;     fdpb_S77cjdbjm:
-#&gt;       id: fdpb_S77cjdbjm
-#&gt;       label: source1
-#&gt;       description: ''
-#&gt;       xdoi: ''
-#&gt;       type: ''
-#&gt;     cyvk_S77cjdbjm:
-#&gt;       id: cyvk_S77cjdbjm
-#&gt;       label: source2
-#&gt;       description: ''
-#&gt;       xdoi: ''
-#&gt;       type: ''
+#&gt;   - id: zsbm_S77j667fd
+#&gt;     label: source1
+#&gt;     description: ''
+#&gt;     xdoi: ''
+#&gt;     type: ''
+#&gt;   - id: sraf_S77j667fd
+#&gt;     label: source2
+#&gt;     description: ''
+#&gt;     xdoi: ''
+#&gt;     type: ''
 #&gt;   
 #&gt; ---
 #&gt; </div></pre>
