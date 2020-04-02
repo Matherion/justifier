@@ -33,7 +33,7 @@ export_justification <- function(x,
                                  encoding = "UTF-8",
                                  append = TRUE,
                                  preventOverwriting = TRUE,
-                                 silent = TRUE) {
+                                 silent = justifier::opts$get('silent')) {
 
   if ("justifierSource" %in% class(x)) {
     justifierType <- "source";
