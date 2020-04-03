@@ -27,12 +27,13 @@
 #'     source = c(
 #'       justifier::srce('source1'),
 #'       justifier::srce('source2')));
-srce <- function(label,
-                 description = NULL,
-                 xdoi = NULL,
-                 type = NULL,
-                 id = NULL,
-                 ...) {
+source <-
+  srce <- function(label,
+                   description = NULL,
+                   xdoi = NULL,
+                   type = NULL,
+                   id = NULL,
+                   ...) {
   return(justifierObjectConstructor(justifierType = "S",
                                     id=id,
                                     label = label,
@@ -44,31 +45,34 @@ srce <- function(label,
 
 #' @export
 #' @rdname constructingJustifications
-asrt <- function(label,
-                 description = NULL,
-                 id = NULL,
-                 source = NULL,
-                 ...) {
+assert <-
+  asrt <-
+          function(label,
+                   description = "",
+                   id = NULL,
+                   source = NULL,
+                   ...) {
   return(justifierObjectConstructor(justifierType = "A",
                                     id=id,
                                     label = label,
                                     description = description %||% "",
-                                    source = source %||% "",
+                                    source = source %||% NULL,
                                     ...));
 }
 
 #' @export
 #' @rdname constructingJustifications
-jstf <- function(label,
-                 description = NULL,
-                 id = NULL,
-                 assertion = NULL,
-                 ...) {
+justify <-
+   jstf <- function(label,
+                    description = "",
+                    id = NULL,
+                    assertion = NULL,
+                    ...) {
   return(justifierObjectConstructor(justifierType = "J",
                                     id=id,
                                     label = label,
                                     description = description %||% "",
-                                    assertion = assertion %||% "",
+                                    assertion = assertion %||% NULL,
                                     ...));
 }
 
