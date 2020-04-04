@@ -26,7 +26,7 @@
 #'     source = c(
 #'       justifier::srce('source1'),
 #'       justifier::srce('source2')));
-#' @export src
+#' @export srce
 source <-
   srce <- function(label,
                    description = NULL,
@@ -60,7 +60,7 @@ assert <-
                                     ...));
 }
 
-#' @export justification jstf
+#' @export justify jstf
 #' @rdname constructingJustifications
 justify <-
    jstf <- function(label,
