@@ -18,7 +18,6 @@
 #'
 #' @rdname constructingJustifications
 #' @return The generated object.
-#' @export
 #'
 #' @examples ### Programmatically create a simple justification object
 #' justifierObject <-
@@ -27,6 +26,7 @@
 #'     source = c(
 #'       justifier::srce('source1'),
 #'       justifier::srce('source2')));
+#' @export src
 source <-
   srce <- function(label,
                    description = NULL,
@@ -43,7 +43,7 @@ source <-
                                     ...));
 }
 
-#' @export
+#' @export assert asrt
 #' @rdname constructingJustifications
 assert <-
   asrt <-
@@ -60,7 +60,7 @@ assert <-
                                     ...));
 }
 
-#' @export
+#' @export justification jstf
 #' @rdname constructingJustifications
 justify <-
    jstf <- function(label,
@@ -76,7 +76,7 @@ justify <-
                                     ...));
 }
 
-#' @export
+#' @export dcsn
 #' @rdname constructingJustifications
 dcsn <- function(label,
                  description = NULL,
