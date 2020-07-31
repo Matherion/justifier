@@ -17,6 +17,7 @@
 #' @param ... Additional fields and values to store in the element.
 #'
 #' @rdname constructingJustifications
+#' @aliases dcsn jstf asrt srce
 #' @return The generated object.
 #'
 #' @examples ### Programmatically create a simple justification object

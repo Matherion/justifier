@@ -7,7 +7,9 @@
 clean_workspace(force = FALSE, silent = justifier::opts$get("silent"))
 }
 \arguments{
-\item{...}{}
+\item{force}{Whether to force cleaning the workspace}
+
+\item{silent}{Whether to be chatty or silent.}
 }
 \value{
 

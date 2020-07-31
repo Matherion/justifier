@@ -5,7 +5,8 @@ Authors@R:
     person(given = "Gjalt-Jorn Ygram",
            family = "Peters",
            role = c("aut", "cre"),
-           email = "gjalt-jorn@behaviorchange.eu")
+           email = "gjalt-jorn@behaviorchange.eu",
+           comment = c(ORCID = "0000-0002-0336-9589"))
 Maintainer: Gjalt-Jorn Ygram Peters <gjalt-jorn@behaviorchange.eu>
 Description: Leverages the 'yum' package to
              implement a 'YAML' ('YAML Ain't Markup Language', a human
@@ -36,4 +37,4 @@ Imports:
     yum (>= 0.0.1)
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0

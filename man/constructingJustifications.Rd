@@ -2,9 +2,12 @@
 % Please edit documentation in R/srce.R
 \name{source}
 \alias{source}
+\alias{dcsn}
+\alias{jstf}
+\alias{asrt}
+\alias{srce}
 \alias{assert}
 \alias{justify}
-\alias{dcsn}
 \alias{c.justifierElement}
 \title{Programmatically constructing justifier elements}
 \usage{
