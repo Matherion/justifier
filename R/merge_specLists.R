@@ -2,7 +2,7 @@
 #'
 #' @param x,y The two justifier specification lists
 #'
-#' @return
+#' @return A merged justifier specification list.
 #' @export
 #'
 #' @examples ### Add example

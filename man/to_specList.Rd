@@ -14,6 +14,10 @@ list (the \code{justifierSpecList} object to return).}
 
 \item{type}{The class to assign to each specification
 (in addition to \code{justifierSpec}).}
+
+\item{idsRequired}{Whether to require identifiers.}
+
+\item{silent}{Whether to be chatty or silent.}
 }
 \value{
 A list of classes \code{c("justifierSpecList", types)} where

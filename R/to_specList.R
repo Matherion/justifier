@@ -9,6 +9,8 @@
 #' list (the `justifierSpecList` object to return).
 #' @param type The class to assign to each specification
 #' (in addition to `justifierSpec`).
+#' @param idsRequired Whether to require identifiers.
+#' @param silent Whether to be chatty or silent.
 #'
 #' @return A list of classes `c("justifierSpecList", types)` where
 #' each element is a specification of class

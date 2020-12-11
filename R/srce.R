@@ -103,7 +103,7 @@ c.justifierElement <- function(...) {
   elementType <-
     unlist(lapply(res,
                   function(x) {
-                    return(head(class(x), 1));
+                    return(utils::head(class(x), 1));
                   }));
 
   if (length(unique(elementType)) != 1) {

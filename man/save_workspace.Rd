@@ -22,13 +22,9 @@ save_workspace(
 \item{preventOverwriting}{Whether to prevent overwriting an existing file.}
 
 \item{silent}{Whether to be silent or chatty.}
-
-\item{x}{The justification, either loaded from one or more files or
-programmatically constructed. This can be one or more decisions,
-justifications, assertions, or sources.}
 }
 \value{
-
+The result of a call to \code{\link[=export_justification]{export_justification()}}.
 }
 \description{
 Save your workspace

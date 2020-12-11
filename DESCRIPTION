@@ -25,6 +25,7 @@ URL: https://r-packages.gitlab.io/justifier
 BugReports: https://gitlab.com/r-packages/justifier/issues
 Suggests: 
     covr,
+    here,
     knitr,
     rmarkdown,
     testthat
@@ -37,4 +38,4 @@ Imports:
     yum (>= 0.0.1)
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1

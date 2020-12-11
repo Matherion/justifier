@@ -1,9 +1,8 @@
-#' Show your workspace
+#' Show your workspace contents
 #'
-#' @param silent
-#' @param ...
+#' @param silent Whether to be chatty or silent.
 #'
-#' @return
+#' @return The workspace contents.
 #' @export
 #'
 #' @examples clean_workspace(force = TRUE, silent=FALSE);

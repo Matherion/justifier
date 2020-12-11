@@ -27,5 +27,6 @@ Convenience function to generate a unique identifiers for
 sources, assertions, justifications, and decisions.
 }
 \examples{
-generate_id('example');
+generate_id(type = "S", 'sourceExample');
+generate_id(type = "A", 'assertionExample');
 }

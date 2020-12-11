@@ -20,7 +20,11 @@
 #' @param fromFile The file from which the `justifier` specifications were read.
 #' @param path The path holding these `justifier` specifications (not necessary
 #' if `fromFile` is provided).
+#' @param storeDecisionGraphSvg Whether to also produce (and return) the SVG
+#' for the decision graph.
 #' @param silent Whether to be chatty or quiet.
+#' @param ... Additional arguments are passed on to [graphics::plot()] for the
+#' `print` method or to [DiagrammeR::render_graph()] for the `plot` method.
 #'
 #' @return The parsed `justifier` object.
 #'

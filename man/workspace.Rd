@@ -2,18 +2,18 @@
 % Please edit documentation in R/workspace.R
 \name{workspace}
 \alias{workspace}
-\title{Show your workspace}
+\title{Show your workspace contents}
 \usage{
 workspace(silent = justifier::opts$get("silent"))
 }
 \arguments{
-\item{...}{}
+\item{silent}{Whether to be chatty or silent.}
 }
 \value{
-
+The workspace contents.
 }
 \description{
-Show your workspace
+Show your workspace contents
 }
 \examples{
 clean_workspace(force = TRUE, silent=FALSE);

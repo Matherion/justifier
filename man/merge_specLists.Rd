@@ -10,7 +10,7 @@ merge_specLists(x, y)
 \item{x, y}{The two justifier specification lists}
 }
 \value{
-
+A merged justifier specification list.
 }
 \description{
 Merging to justifier specification lists

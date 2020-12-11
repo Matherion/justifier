@@ -3,7 +3,6 @@
 #' @param force Whether to force cleaning the workspace
 #' @param silent Whether to be chatty or silent.
 #'
-#' @return
 #' @export
 #'
 #' @examples ### Without `force=TRUE`, presents a query to the user in

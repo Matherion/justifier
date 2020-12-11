@@ -11,9 +11,6 @@ clean_workspace(force = FALSE, silent = justifier::opts$get("silent"))
 
 \item{silent}{Whether to be chatty or silent.}
 }
-\value{
-
-}
 \description{
 Clean your workspace
 }

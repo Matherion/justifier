@@ -10,7 +10,8 @@
 #' underscore).
 #'
 #' @return A character vector containing the identifier(s).
-#' @examples generate_id('example');
+#' @examples generate_id(type = "S", 'sourceExample');
+#' generate_id(type = "A", 'assertionExample');
 #' @name generate_id
 #' @rdname generate_id
 #' @export

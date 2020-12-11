@@ -42,22 +42,22 @@
 #'
 #' @usage opts
 #'
-#' @examples ### Get the default utteranceMarker
-#' justifier::opts$get(complecs_entitySheet);
+#' @examples ### Get the default 'silent' setting
+#' justifier::opts$get('silent');
 #'
-#' ### Set it to a custom version, so that every line starts with a pipe
-#' justifier::opts$set(complecs_entitySheet = "sheet_with_entities");
+#' ### Set to FALSE
+#' justifier::opts$set(silent = FALSE);
 #'
 #' ### Check that it worked
-#' justifier::opts$get(complecs_entitySheet);
+#' justifier::opts$get('silent');
 #'
 #' ### Reset this option to its default value
-#' justifier::opts$reset(complecs_entitySheet);
+#' justifier::opts$reset('silent');
 #'
 #' ### Check that the reset worked, too
-#' justifier::opts$get(complecs_entitySheet);
+#' justifier::opts$get('silent');
 #'
-#' @export
+#' @export opts
 opts <- list();
 
 opts$set <- function(...) {
@@ -116,6 +116,9 @@ opts$defaults <-
     silent=TRUE,
 
     ### For working with workspaces
+    workspace_id = "wsid",
+    ### Use triple colon because when constructing this object,
+    ### it's not exported yet, or something like that?
     workspace = paste0("WORKSPACE_", justifier:::opts$get("workspace_id"))
 
   )

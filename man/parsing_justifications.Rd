@@ -30,7 +30,13 @@ the elements within the specified scope.}
 \item{path}{The path holding these \code{justifier} specifications (not necessary
 if \code{fromFile} is provided).}
 
+\item{storeDecisionGraphSvg}{Whether to also produce (and return) the SVG
+for the decision graph.}
+
 \item{silent}{Whether to be chatty or quiet.}
+
+\item{...}{Additional arguments are passed on to \code{\link[graphics:plot.default]{graphics::plot()}} for the
+\code{print} method or to \code{\link[DiagrammeR:render_graph]{DiagrammeR::render_graph()}} for the \code{plot} method.}
 }
 \value{
 The parsed \code{justifier} object.
