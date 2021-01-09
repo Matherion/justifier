@@ -8,29 +8,61 @@
 \alias{srce}
 \alias{assert}
 \alias{justify}
+\alias{decide}
 \alias{c.justifierElement}
 \title{Programmatically constructing justifier elements}
 \usage{
-source(label, description = NULL, xdoi = NULL, type = NULL, id = NULL, ...)
+source(label, description = NULL, type = NULL, id = NULL, xdoi = NULL, ...)
 
-assert(label, description = "", id = NULL, source = NULL, ...)
+assert(label, description = "", type = NULL, id = NULL, source = NULL, ...)
 
-justify(label, description = "", id = NULL, assertion = NULL, ...)
+justify(label, description = "", type = NULL, id = NULL, assertion = NULL, ...)
 
-dcsn(label, description = NULL, id = NULL, justification = NULL, ...)
+decide(
+  label,
+  description = NULL,
+  type = NULL,
+  id = NULL,
+  justification = NULL,
+  ...
+)
 
 \method{c}{justifierElement}(...)
 }
 \arguments{
 \item{label}{A human-readable label for the \code{decision}, \code{justification},
-\code{assertion}, or \code{source}.}
+\code{assertion}, or \code{source}. Labels are brief summaries of the core of the
+decision, justification, assertion, or source. More details, background
+information, context, and other comments can be placed in the description.}
 
-\item{description}{A human-readable description.}
+\item{description}{A human-readable description. This can be used to
+elaborate on the label. Note that the label should be reader-friendly and
+self-contained; but because they also have to be as short as possible,
+descriptions can be used to provide definitions, context, background
+information, or add any other metadata or comments.}
 
-\item{xdoi, type}{For \code{source}s, XDOI identifier and type can also be
-specified.}
+\item{type}{Types are used when working with a framework. Frameworks define
+type identifiers, consisting of letters, digits, and underscores. By
+specifying these identifiers the type of a decision, justification,
+assertion, or source. Source types can be, for example, types of documents
+or other data providers, such as "empirical evidence', 'expert consensus',
+'personal opinion', or 'that one meeting that we had in May'. Assertion
+types can be, for example, data types or types of facts, such as 'number',
+'prevalence', 'causal relationship', or 'contact information'.
+Justification types can be, for example, types of reasoning or logical
+expressions, such as 'deduction', 'induction', or 'intersection'. Decision
+types are the most framework-specific, heavily depend on the specific
+context of the decision, and are used by frameworks to organise the
+decisions in a project. Examples of decision types are the decision to
+recruit a certain number of participants in a scientific study; the decision
+to target a certain belief in a behavior change intervention; the decision
+to merge two codes in a qualitative study; the decision to hire a staff
+member; or the decision to make a certain purchase.}
 
 \item{id}{The identifier (randomly generated if omitted).}
+
+\item{xdoi}{For \code{source}s, XDOI identifier (a DOI, or, if that does not
+exist, ISBN or other unique identifier of the source).}
 
 \item{...}{Additional fields and values to store in the element.}
 

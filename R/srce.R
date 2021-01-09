@@ -3,10 +3,33 @@
 #' These functions can be used to programmatically construct justifications.
 #'
 #' @param label A human-readable label for the `decision`, `justification`,
-#' `assertion`, or `source`.
-#' @param description A human-readable description.
-#' @param xdoi,type For `source`s, XDOI identifier and type can also be
-#' specified.
+#' `assertion`, or `source`. Labels are brief summaries of the core of the
+#' decision, justification, assertion, or source. More details, background
+#' information, context, and other comments can be placed in the description.
+#' @param description A human-readable description. This can be used to
+#' elaborate on the label. Note that the label should be reader-friendly and
+#' self-contained; but because they also have to be as short as possible,
+#' descriptions can be used to provide definitions, context, background
+#' information, or add any other metadata or comments.
+#' @param type Types are used when working with a framework. Frameworks define
+#' type identifiers, consisting of letters, digits, and underscores. By
+#' specifying these identifiers the type of a decision, justification,
+#' assertion, or source. Source types can be, for example, types of documents
+#' or other data providers, such as "empirical evidence', 'expert consensus',
+#' 'personal opinion', or 'that one meeting that we had in May'. Assertion
+#' types can be, for example, data types or types of facts, such as 'number',
+#' 'prevalence', 'causal relationship', or 'contact information'.
+#' Justification types can be, for example, types of reasoning or logical
+#' expressions, such as 'deduction', 'induction', or 'intersection'. Decision
+#' types are the most framework-specific, heavily depend on the specific
+#' context of the decision, and are used by frameworks to organise the
+#' decisions in a project. Examples of decision types are the decision to
+#' recruit a certain number of participants in a scientific study; the decision
+#' to target a certain belief in a behavior change intervention; the decision
+#' to merge two codes in a qualitative study; the decision to hire a staff
+#' member; or the decision to make a certain purchase.
+#' @param xdoi For `source`s, XDOI identifier (a DOI, or, if that does not
+#' exist, ISBN or other unique identifier of the source).
 #' @param source In assertions, the source (or sources) that the assertion
 #' is based on can be specified using `srce()`.
 #' @param assertion In justifications, the assertion (or assertions) that
@@ -31,9 +54,9 @@
 source <-
   srce <- function(label,
                    description = NULL,
-                   xdoi = NULL,
                    type = NULL,
                    id = NULL,
+                   xdoi = NULL,
                    ...) {
   return(justifierObjectConstructor(justifierType = "S",
                                     id=id,
@@ -50,6 +73,7 @@ assert <-
   asrt <-
           function(label,
                    description = "",
+                   type = NULL,
                    id = NULL,
                    source = NULL,
                    ...) {
@@ -57,6 +81,7 @@ assert <-
                                     id=id,
                                     label = label,
                                     description = description %||% "",
+                                    type = type %||% "",
                                     source = source %||% NULL,
                                     ...));
 }
@@ -66,6 +91,7 @@ assert <-
 justify <-
    jstf <- function(label,
                     description = "",
+                    type = NULL,
                     id = NULL,
                     assertion = NULL,
                     ...) {
@@ -73,21 +99,25 @@ justify <-
                                     id=id,
                                     label = label,
                                     description = description %||% "",
+                                    type = type %||% "",
                                     assertion = assertion %||% NULL,
                                     ...));
 }
 
 #' @export dcsn
 #' @rdname constructingJustifications
-dcsn <- function(label,
-                 description = NULL,
-                 id = NULL,
-                 justification = NULL,
-                 ...) {
+decide <-
+  dcsn <- function(label,
+                   description = NULL,
+                   type = NULL,
+                   id = NULL,
+                   justification = NULL,
+                   ...) {
   return(justifierObjectConstructor(justifierType = "D",
                                     id=id,
                                     label = label,
                                     description = description %||% "",
+                                    type = type %||% "",
                                     justification = justification %||% "",
                                     ...));
 }
