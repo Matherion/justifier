@@ -65,8 +65,7 @@ export_justification <- function(x,
            dirname(file),
            "') does not exist.");
     }
-    if (file.exists(file)) {
-      if (append) {
+    if (file.exists(file) && append) {
         con <- file(description=file,
                     open="a",
                     encoding=encoding);
@@ -74,12 +73,11 @@ export_justification <- function(x,
                           x),
                    con=con);
         close(con);
-      } else if (preventOverwriting) {
-        if (!silent) {
-          message("File '",
-                  file, "' exists, and `preventOverwriting` was `TRUE`, so I did not ",
-                  "write the justification to disk.");
-        }
+    } else if (file.exists(file) && preventOverwriting) {
+      if (!silent) {
+        message("File '",
+                file, "' exists, and `preventOverwriting` was `TRUE`, so I did not ",
+                "write the justification to disk.");
       }
     } else {
       con <- file(description=file,

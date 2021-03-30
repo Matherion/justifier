@@ -36,7 +36,8 @@ log_decision <- function(label,
                          silent=justifier::opts$get('silent'),
                          ...) {
 
-  args <- as.list(environment());
+  args <-
+    c(as.list(environment()), list(...));
   args <- args[setdiff(names(args), "silent")];
 
   newDecision <-
