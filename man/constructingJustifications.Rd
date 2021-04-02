@@ -23,6 +23,7 @@ decide(
   description = NULL,
   type = NULL,
   id = NULL,
+  alternatives = NULL,
   justification = NULL,
   ...
 )
@@ -71,6 +72,8 @@ is based on can be specified using \code{srce()}.}
 
 \item{assertion}{In justifications, the assertion (or assertions) that
 the justification is based on can be specified using \code{asrt()}.}
+
+\item{alternatives}{The alternatives that were considered in a decision.}
 
 \item{justification}{In decisions, the justification (or justifications)
 that the decision is based on can be specified using \code{jstf()}.}

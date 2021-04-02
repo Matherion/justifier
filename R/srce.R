@@ -32,6 +32,7 @@
 #' exist, ISBN or other unique identifier of the source).
 #' @param source In assertions, the source (or sources) that the assertion
 #' is based on can be specified using `srce()`.
+#' @param alternatives The alternatives that were considered in a decision.
 #' @param assertion In justifications, the assertion (or assertions) that
 #' the justification is based on can be specified using `asrt()`.
 #' @param justification In decisions, the justification (or justifications)
@@ -107,10 +108,12 @@ justify <-
 #' @export dcsn
 #' @rdname constructingJustifications
 decide <-
+  decision <-
   dcsn <- function(label,
                    description = NULL,
                    type = NULL,
                    id = NULL,
+                   alternatives = NULL,
                    justification = NULL,
                    ...) {
   return(justifierObjectConstructor(justifierType = "D",

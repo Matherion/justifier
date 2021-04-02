@@ -6,7 +6,8 @@
 \usage{
 sanitize_for_DiagrammeR(
   x,
-  regExReplacements = list(c("\\\\\\"", "`"), c("\\\\'", "`"), c("\\\\\\\\", "/"))
+ 
+    regExReplacements = list(c("\\\\\\"", "`"), c("\\\\'", "`"), c("\\\\\\\\", "/"), c("[^a-zA-Z0-9;)(,._-/`]", " "))
 )
 }
 \arguments{

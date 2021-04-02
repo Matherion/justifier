@@ -14,7 +14,8 @@
 sanitize_for_DiagrammeR <- function(x,
                                     regExReplacements = list(c("\\\"", "`"),
                                                              c("\\'", "`"),
-                                                             c("\\\\", "/"))) {
+                                                             c("\\\\", "/"),
+                                                             c("[^a-zA-Z0-9;)(,._-/`]", " "))) {
   for (i in seq_along(regExReplacements)) {
     x <- gsub(regExReplacements[[i]][1],
               regExReplacements[[i]][2],
