@@ -86,13 +86,37 @@ The generated object.
 These functions can be used to programmatically construct justifications.
 }
 \examples{
-### Programmatically create a simple justification object
-simpleJustifierObject <-
-  justifier::asrt(
-    "assertion",
+### Programmatically create a partial justification object
+justifierAssertion <-
+  justifier::assert(
+    "This is an assertion",
     source = c(
-      justifier::srce('source1'),
-      justifier::srce('source2')));
+      justifier::source('This is a first source'),
+      justifier::source('This is a second source')));
+
+### Programmatically create a justification with two assertions
+### but without sources
+justifierJustification <-
+  justify(
+    "Icecream will make me feel less fit",
+    assertion = c(
+      assert('Icecream is rich in energy'),
+      assert('Consuming high-energy foods makes me feel less fit')
+    )
+  );
+
+### Show it
+justifierJustification;
+
+### Programmatically create a simple decision
+simpleDecision <-
+  justifier::decide(
+    "decision",
+    justification = justifier::jstf(
+      "justification",
+      assertion = justifierAssertion
+    )
+  );
 
 ### Programmatically create a justification object for a full decision
 fullJustifierObject <-
@@ -116,6 +140,7 @@ fullJustifierObject <-
           )
         )
       ),
+      justifierJustification,
       justifier::justify(
         "I can afford to buy an icecream.",
         assertion = c(
@@ -136,7 +161,15 @@ fullJustifierObject <-
     )
   );
 
-### Show it
+### Show the full object
 fullJustifierObject;
+
+### Combine both into a list of decisions
+twoDecisions <-
+  c(simpleDecision,
+    fullJustifierObject);
+
+### Show the combination
+twoDecisions;
 
 }
