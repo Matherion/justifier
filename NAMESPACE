@@ -2,6 +2,8 @@
 
 S3method(c,justifierElement)
 S3method(plot,justifierDecisionGraph)
+S3method(plot,multipleJustifierElements)
+S3method(plot,singleJustifierElement)
 S3method(print,export_justification)
 S3method(print,justifierDecisionGraph)
 S3method(print,multipleJustifierElements)

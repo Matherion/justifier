@@ -12,3 +12,6 @@
 ^docs/
 ^delete/
 ^img/
+
+### Ignoring vignettes for now
+.Rmd

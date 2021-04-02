@@ -108,15 +108,21 @@ opts$reset <- function(...) {
 opts$defaults <-
   list(
 
-    ### Whether to be chatty or silent
-    silent = TRUE,
+    ### Default regex replacements when sanitizing for DiagrammeR
+    regExReplacements = list(c("\\\"", "`"),
+                             c("\\'", "`"),
+                             c("\\\\", "/"),
+                             c("[^a-zA-Z0-9;)(,._-`/]", " ")),
 
     ### For working with workspaces
     workspace_id = "wsid",
 
     ### Use triple colon because when constructing this object,
     ### it's not exported yet, or something like that?
-    workspace = paste0("WORKSPACE_", justifier:::opts$get("workspace_id"))
+    workspace = paste0("WORKSPACE_", justifier:::opts$get("workspace_id")),
+
+    ### Whether to be chatty or silent
+    silent = TRUE
 
   )
 

@@ -6,9 +6,10 @@
 \alias{jstf}
 \alias{asrt}
 \alias{srce}
+\alias{decide}
+\alias{decision}
 \alias{assert}
 \alias{justify}
-\alias{decide}
 \alias{c.justifierElement}
 \title{Programmatically constructing justifier elements}
 \usage{
@@ -86,10 +87,56 @@ These functions can be used to programmatically construct justifications.
 }
 \examples{
 ### Programmatically create a simple justification object
-justifierObject <-
+simpleJustifierObject <-
   justifier::asrt(
     "assertion",
     source = c(
       justifier::srce('source1'),
       justifier::srce('source2')));
+
+### Programmatically create a justification object for a full decision
+fullJustifierObject <-
+  justifier::decide(
+    "I decide to go get an icecream",
+    justification = c(
+      justifier::justify(
+        "Having an icecream now would make me happy",
+        assertion = c(
+          justifier::assert(
+            "Decreasing hunger increases happiness",
+            source = justifier::source(
+              "My past experiences"
+            )
+          ),
+          justifier::assert(
+            "I feel hungry",
+            source = justifier::source(
+              "Bodily sensations"
+            )
+          )
+        )
+      ),
+      justifier::justify(
+        "I can afford to buy an icecream.",
+        assertion = c(
+          justifier::assert(
+            "My bank account balance is over 300 euro.",
+            source = justifier::source(
+              "My bank app"
+            )
+          ),
+          justifier::assert(
+            "I need to keep at least 100 euro in my bank account.",
+            source = justifier::source(
+              "Parental advice"
+            )
+          )
+        )
+      )
+    )
+  );
+
+### Show it
+fullJustifierObject;
+
 }

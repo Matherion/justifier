@@ -41,16 +41,62 @@
 #' @param ... Additional fields and values to store in the element.
 #'
 #' @rdname constructingJustifications
-#' @aliases dcsn jstf asrt srce
+#' @aliases dcsn jstf asrt srce decide decision assert justify source
 #' @return The generated object.
 #'
 #' @examples ### Programmatically create a simple justification object
-#' justifierObject <-
+#' simpleJustifierObject <-
 #'   justifier::asrt(
 #'     "assertion",
 #'     source = c(
 #'       justifier::srce('source1'),
 #'       justifier::srce('source2')));
+#'
+#' ### Programmatically create a justification object for a full decision
+#' fullJustifierObject <-
+#'   justifier::decide(
+#'     "I decide to go get an icecream",
+#'     justification = c(
+#'       justifier::justify(
+#'         "Having an icecream now would make me happy",
+#'         assertion = c(
+#'           justifier::assert(
+#'             "Decreasing hunger increases happiness",
+#'             source = justifier::source(
+#'               "My past experiences"
+#'             )
+#'           ),
+#'           justifier::assert(
+#'             "I feel hungry",
+#'             source = justifier::source(
+#'               "Bodily sensations"
+#'             )
+#'           )
+#'         )
+#'       ),
+#'       justifier::justify(
+#'         "I can afford to buy an icecream.",
+#'         assertion = c(
+#'           justifier::assert(
+#'             "My bank account balance is over 300 euro.",
+#'             source = justifier::source(
+#'               "My bank app"
+#'             )
+#'           ),
+#'           justifier::assert(
+#'             "I need to keep at least 100 euro in my bank account.",
+#'             source = justifier::source(
+#'               "Parental advice"
+#'             )
+#'           )
+#'         )
+#'       )
+#'     )
+#'   );
+#'
+#' ### Show it
+#' fullJustifierObject;
+#'
 #' @export srce
 source <-
   srce <- function(label,
@@ -175,8 +221,15 @@ c.justifierElement <- function(...) {
   #                   return(x$id);
   #                 }));
 
-  class(res) <- c(elementType, "multipleJustifierElements", "justifierElement", "justifier");
+  class(res) <-
+    c(elementType,
+      "multipleJustifierElements",
+      "justifierElement",
+      "justifier"
+    );
+
   return(res);
+
 }
 
 #' @export
@@ -186,6 +239,7 @@ print.singleJustifierElement <- function(x, ...) {
        class(x)[1], "' and with id '",
        x$id,
        "'.");
+  plot(x);
   return(invisible(x));
 }
 
@@ -195,6 +249,46 @@ print.multipleJustifierElements <- function(x, ...) {
   cat0("A list of ", length(x), " justifier elements of ",
        "type ", class(x[[1]])[1], " and with identifiers ",
        vecTxtQ(unlist(lapply(x, function(y) return(y$id)))));
+  return(invisible(x));
+}
+
+#' @export
+#' @method plot singleJustifierElement
+plot.singleJustifierElement <- function(x, ...) {
+
+  tree <-
+    create_justifierTree(
+      x
+    );
+
+  graph <- create_justifierGraph(
+    tree[[1]]
+  );
+
+  print(graph);
+
+  return(invisible(x));
+
+}
+
+#' @export
+#' @method plot multipleJustifierElements
+plot.multipleJustifierElements <- function(x, ...) {
+
+  tree <-
+    create_justifierTree(
+      x
+    );
+
+  graph <-
+    lapply(
+      tree,
+      create_justifierGraph
+    );
+  for (i in seq_along(graph)) {
+    print(graph[[i]]);
+  }
+
   return(invisible(x));
 }
 
