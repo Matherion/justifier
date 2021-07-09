@@ -1,12 +1,16 @@
 Package: justifier
 Title: Human and Machine-Readable Justifications and Justified Decisions Based on 'YAML'
 Version: 0.2.0
-Authors@R: 
+Authors@R: c(
     person(given = "Gjalt-Jorn Ygram",
            family = "Peters",
            role = c("aut", "cre"),
            email = "gjalt-jorn@behaviorchange.eu",
-           comment = c(ORCID = "0000-0002-0336-9589"))
+           comment = c(ORCID = "0000-0002-0336-9589")),
+    person(given = "Szilvia",
+           family = "Zorgo",
+           role = c("ctb"),
+           comment = c(ORCID = "0000-0002-6916-2097")))
 Maintainer: Gjalt-Jorn Ygram Peters <gjalt-jorn@behaviorchange.eu>
 Description: Leverages the 'yum' package to
              implement a 'YAML' ('YAML Ain't Markup Language', a human

@@ -13,6 +13,8 @@ get_workspace_id <- function(silent=justifier::opts$get('silent')) {
   if (!silent) {
     message("Your justifier workspace is currently set to workspace identifier '",
             id, "'.\n");
+    return(invisible(id));
+  } else {
+    return(id);
   }
-  return(invisible(id));
 }

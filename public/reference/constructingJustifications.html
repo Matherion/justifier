@@ -6,27 +6,31 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Programmatically constructing justifier elements — srce • justifier</title>
+<title>Programmatically constructing justifier elements — source • justifier</title>
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -35,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Programmatically constructing justifier elements — srce" />
+<meta property="og:title" content="Programmatically constructing justifier elements — source" />
 <meta property="og:description" content="These functions can be used to programmatically construct justifications." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -77,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -104,7 +107,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://gitlab.com/r-packages/justifier/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -119,7 +127,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Programmatically constructing justifier elements</h1>
-    
+    <small class="dont-index">Source: <a href='https://gitlab.com/r-packages/justifier/blob/master/R/srce.R'><code>R/srce.R</code></a></small>
     <div class="hidden name"><code>constructingJustifications.Rd</code></div>
     </div>
 
@@ -127,16 +135,24 @@
     <p>These functions can be used to programmatically construct justifications.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>srce</span>(<span class='no'>label</span>, <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>xdoi</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='kw'>source</span><span class='op'>(</span><span class='va'>label</span>, description <span class='op'>=</span> <span class='cn'>NULL</span>, type <span class='op'>=</span> <span class='cn'>NULL</span>, id <span class='op'>=</span> <span class='cn'>NULL</span>, xdoi <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>asrt</span>(<span class='no'>label</span>, <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>source</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>assert</span><span class='op'>(</span><span class='va'>label</span>, description <span class='op'>=</span> <span class='st'>""</span>, type <span class='op'>=</span> <span class='cn'>NULL</span>, id <span class='op'>=</span> <span class='cn'>NULL</span>, source <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>jstf</span>(<span class='no'>label</span>, <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>assertion</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>justify</span><span class='op'>(</span><span class='va'>label</span>, description <span class='op'>=</span> <span class='st'>""</span>, type <span class='op'>=</span> <span class='cn'>NULL</span>, id <span class='op'>=</span> <span class='cn'>NULL</span>, assertion <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>dcsn</span>(<span class='no'>label</span>, <span class='kw'>description</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>id</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>justification</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>decide</span><span class='op'>(</span>
+  <span class='va'>label</span>,
+  description <span class='op'>=</span> <span class='cn'>NULL</span>,
+  type <span class='op'>=</span> <span class='cn'>NULL</span>,
+  id <span class='op'>=</span> <span class='cn'>NULL</span>,
+  alternatives <span class='op'>=</span> <span class='cn'>NULL</span>,
+  justification <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for justifierElement</span>
-<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,20 +160,46 @@
     <tr>
       <th>label</th>
       <td><p>A human-readable label for the <code>decision</code>, <code>justification</code>,
-<code>assertion</code>, or <code>source</code>.</p></td>
+<code>assertion</code>, or <code>source</code>. Labels are brief summaries of the core of the
+decision, justification, assertion, or source. More details, background
+information, context, and other comments can be placed in the description.</p></td>
     </tr>
     <tr>
       <th>description</th>
-      <td><p>A human-readable description.</p></td>
+      <td><p>A human-readable description. This can be used to
+elaborate on the label. Note that the label should be reader-friendly and
+self-contained; but because they also have to be as short as possible,
+descriptions can be used to provide definitions, context, background
+information, or add any other metadata or comments.</p></td>
     </tr>
     <tr>
-      <th>xdoi, type</th>
-      <td><p>For <code>source</code>s, XDOI identifier and type can also be
-specified.</p></td>
+      <th>type</th>
+      <td><p>Types are used when working with a framework. Frameworks define
+type identifiers, consisting of letters, digits, and underscores. By
+specifying these identifiers the type of a decision, justification,
+assertion, or source. Source types can be, for example, types of documents
+or other data providers, such as "empirical evidence', 'expert consensus',
+'personal opinion', or 'that one meeting that we had in May'. Assertion
+types can be, for example, data types or types of facts, such as 'number',
+'prevalence', 'causal relationship', or 'contact information'.
+Justification types can be, for example, types of reasoning or logical
+expressions, such as 'deduction', 'induction', or 'intersection'. Decision
+types are the most framework-specific, heavily depend on the specific
+context of the decision, and are used by frameworks to organise the
+decisions in a project. Examples of decision types are the decision to
+recruit a certain number of participants in a scientific study; the decision
+to target a certain belief in a behavior change intervention; the decision
+to merge two codes in a qualitative study; the decision to hire a staff
+member; or the decision to make a certain purchase.</p></td>
     </tr>
     <tr>
       <th>id</th>
       <td><p>The identifier (randomly generated if omitted).</p></td>
+    </tr>
+    <tr>
+      <th>xdoi</th>
+      <td><p>For <code>source</code>s, XDOI identifier (a DOI, or, if that does not
+exist, ISBN or other unique identifier of the source).</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -174,6 +216,10 @@ is based on can be specified using <code>srce()</code>.</p></td>
 the justification is based on can be specified using <code>asrt()</code>.</p></td>
     </tr>
     <tr>
+      <th>alternatives</th>
+      <td><p>The alternatives that were considered in a decision.</p></td>
+    </tr>
+    <tr>
       <th>justification</th>
       <td><p>In decisions, the justification (or justifications)
 that the decision is based on can be specified using <code>jstf()</code>.</p></td>
@@ -185,22 +231,101 @@ that the decision is based on can be specified using <code>jstf()</code>.</p></t
     <p>The generated object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>### Programmatically create a simple justification object</span>
-<span class='no'>justifierObject</span> <span class='kw'>&lt;-</span>
-  <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/justifier/man/constructingJustifications.html'>asrt</a></span>(
-    <span class='st'>"assertion"</span>,
-    <span class='kw'>source</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
-      <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/justifier/man/constructingJustifications.html'>srce</a></span>(<span class='st'>'source1'</span>),
-      <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/justifier/man/constructingJustifications.html'>srce</a></span>(<span class='st'>'source2'</span>)));</div></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+    <pre class="examples"><div class='input'><span class='co'>### Programmatically create a partial justification object</span>
+<span class='va'>justifierAssertion</span> <span class='op'>&lt;-</span>
+  <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>assert</span><span class='op'>(</span>
+    <span class='st'>"This is an assertion"</span>,
+    source <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span><span class='st'>'This is a first source'</span><span class='op'>)</span>,
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span><span class='st'>'This is a second source'</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>;
 
+<span class='co'>### Programmatically create a justification with two assertions</span>
+<span class='co'>### but without sources</span>
+<span class='va'>justifierJustification</span> <span class='op'>&lt;-</span>
+  <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>justify</span><span class='op'>(</span>
+    <span class='st'>"Icecream will make me feel less fit"</span>,
+    assertion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>assert</span><span class='op'>(</span><span class='st'>'Icecream is rich in energy'</span><span class='op'>)</span>,
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>assert</span><span class='op'>(</span><span class='st'>'Consuming high-energy foods makes me feel less fit'</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    weight <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.5</span>
+  <span class='op'>)</span>;
+
+<span class='co'>### Show it</span>
+<span class='va'>justifierJustification</span>;
+</div><div class='output co'>#&gt; Justifier element of type 'justifierJustification' and with id 'eulb_J7f0rfjmn'.</div><div class='input'>
+<span class='co'>### Programmatically create a simple decision</span>
+<span class='va'>simpleDecision</span> <span class='op'>&lt;-</span>
+  <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>decide</span><span class='op'>(</span>
+    <span class='st'>"decision"</span>,
+    justification <span class='op'>=</span> <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>jstf</span><span class='op'>(</span>
+      <span class='st'>"justification"</span>,
+      assertion <span class='op'>=</span> <span class='va'>justifierAssertion</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>;
+
+<span class='co'>### Programmatically create a justification object for a full decision</span>
+<span class='va'>fullJustifierObject</span> <span class='op'>&lt;-</span>
+  <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>decide</span><span class='op'>(</span>
+    <span class='st'>"I decide to go get an icecream"</span>,
+    justification <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>justify</span><span class='op'>(</span>
+        <span class='st'>"Having an icecream now would make me happy"</span>,
+        assertion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+          <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>assert</span><span class='op'>(</span>
+            <span class='st'>"Decreasing hunger increases happiness"</span>,
+            source <span class='op'>=</span> <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span>
+              <span class='st'>"My past experiences"</span>
+            <span class='op'>)</span>
+          <span class='op'>)</span>,
+          <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>assert</span><span class='op'>(</span>
+            <span class='st'>"I feel hungry"</span>,
+            source <span class='op'>=</span> <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span>
+              <span class='st'>"Bodily sensations"</span>
+            <span class='op'>)</span>
+          <span class='op'>)</span>
+        <span class='op'>)</span>,
+        weight <span class='op'>=</span> <span class='fl'>1</span>
+      <span class='op'>)</span>,
+      <span class='va'>justifierJustification</span>,
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>justify</span><span class='op'>(</span>
+        <span class='st'>"I can afford to buy an icecream."</span>,
+        assertion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+          <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>assert</span><span class='op'>(</span>
+            <span class='st'>"My bank account balance is over 300 euro."</span>,
+            source <span class='op'>=</span> <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span>
+              <span class='st'>"My bank app"</span>
+            <span class='op'>)</span>
+          <span class='op'>)</span>,
+          <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>assert</span><span class='op'>(</span>
+            <span class='st'>"I need to keep at least 100 euro in my bank account."</span>,
+            source <span class='op'>=</span> <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span>
+              <span class='st'>"Parental advice"</span>
+            <span class='op'>)</span>
+          <span class='op'>)</span>
+        <span class='op'>)</span>,
+        weight <span class='op'>=</span> <span class='fl'>.3</span>
+      <span class='op'>)</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>;
+
+<span class='co'>### Show the full object</span>
+<span class='va'>fullJustifierObject</span>;
+</div><div class='output co'>#&gt; Justifier element of type 'justifierDecision' and with id 'bsna_D7f0rfjnl'.</div><div class='input'>
+<span class='co'>### Combine both into a list of decisions</span>
+<span class='va'>twoDecisions</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>simpleDecision</span>,
+    <span class='va'>fullJustifierObject</span><span class='op'>)</span>;
+
+<span class='co'>### Show the combination</span>
+<span class='va'>twoDecisions</span>;
+</div><div class='output co'>#&gt; A list of 2 justifier elements of type justifierDecision and with identifiers 'ubqt_D7f0rfjnl' &amp; 'bsna_D7f0rfjnl'</div><div class='input'>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -211,7 +336,7 @@ that the decision is based on can be specified using <code>jstf()</code>.</p></t
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

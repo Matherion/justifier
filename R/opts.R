@@ -74,13 +74,8 @@ opts$set <- function(...) {
 }
 
 opts$get <- function(option, default=FALSE) {
-  ### manual to prevent problems with devtools:document
-  if (option == "workspace_id") {
-    return(getOption("justifier.workspace_id",
-                     "default"));
-  }
   optionName <- as.character(substitute(option));
-  if (!optionName %in% names(opts$defaults)) {
+  if ((!is.null(opts$defaults)) && !optionName %in% names(opts$defaults)) {
     stop("Option '", optionName, "' is not a valid (i.e. existing) option for justifier!");
   } else {
     return(getOption(paste0("justifier.", optionName),
@@ -113,13 +108,32 @@ opts$reset <- function(...) {
 opts$defaults <-
   list(
 
-    silent=TRUE,
+    ### Default regex replacements when sanitizing for DiagrammeR
+    regExReplacements = list(c("\\\"", "`"),
+                             c("\\'", "`"),
+                             c("\\\\", "/"),
+                             c("[^a-zA-Z0-9;)(,._-`/]", " ")),
+
+    weight_fieldName = "weight",
+
+    ### scales::show_col(viridis::viridis(2, begin=.1, end=.8, alpha=.9))
+    negWeight_color = "#482576E6",
+    posWeight_color = "#9AD93CE6",
+
+    node_color = "#000000FF",
+    edge_color = "#000000FF",
+
+    penwidth = 2,
 
     ### For working with workspaces
     workspace_id = "wsid",
+
     ### Use triple colon because when constructing this object,
     ### it's not exported yet, or something like that?
-    workspace = paste0("WORKSPACE_", justifier:::opts$get("workspace_id"))
+    workspace = paste0("WORKSPACE_", justifier:::opts$get("workspace_id")),
+
+    ### Whether to be chatty or silent
+    silent = TRUE
 
   )
 

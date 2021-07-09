@@ -67,10 +67,8 @@ parse_justifications <- function(x,
   ### Process all specifications and create five organised lists,
   ### where id's are used as names
   justNames <- tolower(names(x));
-  if (!silent) {
-    cat0("\nStarting first processing sweep to process a series of specifications with names ",
-         vecTxtQ(justNames), ".\n");
-  }
+  msg("\nStarting first processing sweep to process a series of specifications with names ",
+      vecTxtQ(justNames), ".\n", silent = silent);
 
   res$structured <-
     list(sources = to_specList(x[which(justNames == 'source')],
@@ -924,38 +922,58 @@ parse_justifications <- function(x,
   }
 
   ### Now create one decision tree for each decision
-  res$decisionTrees <-
-    lapply(res$supplemented$decisions,
-           function(d) {
-             d$children <- d$justification;
-             d$justification <- NULL;
-             d$children <-
-               lapply(d$children,
-                      function(j) {
-                        j$children <- j$assertion;
-                        j$assertion <- NULL;
-                        j$children <-
-                          lapply(j$children,
-                                 function(a) {
-                                   a$children <- a$source;
-                                   a$source <- NULL;
-                                   return(a);
-                                 });
-                        return(j);
-                      });
-             return(d);
-           });
+  # res$decisionTrees <-
+  #   lapply(res$supplemented$decisions,
+  #          function(d) {
+  #            d$children <- d$justification;
+  #            d$justification <- NULL;
+  #            d$children <-
+  #              lapply(d$children,
+  #                     function(j) {
+  #                       j$children <- j$assertion;
+  #                       j$assertion <- NULL;
+  #                       j$children <-
+  #                         lapply(j$children,
+  #                                function(a) {
+  #                                  a$children <- a$source;
+  #                                  a$source <- NULL;
+  #                                  return(a);
+  #                                });
+  #                       return(j);
+  #                     });
+  #            return(d);
+  #          });
+  #
+  # res$decisionTrees <-
+  #   lapply(names(res$decisionTrees),
+  #          function(decisionId) {
+  #            res <-
+  #              data.tree::FromListExplicit(explicitList = res$decisionTrees[[decisionId]],
+  #                                          nameName="id",
+  #                                          childrenName="children",
+  #                                          nodeName=decisionId);
+  #            return(res);
+  #          });
 
   res$decisionTrees <-
-    lapply(names(res$decisionTrees),
-           function(decisionId) {
-             res <-
-               data.tree::FromListExplicit(explicitList = res$decisionTrees[[decisionId]],
-                                           nameName="id",
-                                           childrenName="children",
-                                           nodeName=decisionId);
-             return(res);
-           });
+    lapply(
+      res$supplemented$decisions,
+      create_justifierTree,
+      silent = silent
+    );
+
+  ### This may not be a good idea
+  res$decisionTrees <- lapply(
+    seq_along(res$decisionTrees),
+    function(x) {
+      if (length(x) == 1) {
+        return(res$decisionTrees[[x]][[1]]);
+      } else {
+        stop("I just created justifier trees, but one of the results had ",
+             "a length of more than one element!");
+      }
+    }
+  );
 
   names(res$decisionTrees) <-
     names(res$supplemented$decisions);
@@ -1080,56 +1098,15 @@ parse_justifications <- function(x,
   }
 
   res$decisionGraphs <-
-    lapply(names(res$decisionTrees),
-           function(dTreeName) {
-             dTree <-
-               res$decisionTrees[[dTreeName]];
-             tryCatch({
-               dTree$Do(function(node) {
-                 lbl <-
-                   ifelse(is.null(node$label),
-                                  node$name,
-                                  node$label)
-                 lbl <-
-                   justifier::sanitize_for_DiagrammeR(lbl);
-                 lbl <-
-                   paste0(strwrap(lbl, 40), collapse="\n");
-                 data.tree::SetNodeStyle(node,
-                                         label = lbl);
-               });
-               dTreeGraph <-
-                 data.tree::ToDiagrammeRGraph(dTree);
-               dTreeGraph <-
-                 justifier::apply_graph_theme(dTreeGraph,
-                                              c("layout", "dot", "graph"),
-                                              c("rankdir", "LR", "graph"),
-                                              c("outputorder", "nodesfirst", "graph"),
-                                              c("fixedsize", "false", "node"),
-                                              c("shape", "box", "node"),
-                                              c("style", "rounded,filled", "node"),
-                                              c("color", "#000000", "node"),
-                                              c("margin", "0.2,0.6", "node"),
-                                              c("color", "#888888", "edge"),
-                                              c("dir", "none", "edge"),
-                                              c("fillcolor", "#FFFFFF", "node"));
-             }, error = function(e) {
-               warning("Error issued when converting '",
-                       dTreeName, "' decision tree to a decision graph: ",
-                       e$message, "\n\nClass and content:\n\n",
-                       paste0(utils::capture.output(print(class(dTree))),
-                              collapse="\n"),
-                       "\n",
-                       paste0(utils::capture.output(print(dTree)),
-                              collapse="\n"));
-             });
-             if (is.null(dTreeGraph))
-               dTreeGraph <- NA;
-             class(dTreeGraph) <- c("justifierDecisionGraph", class(dTreeGraph));
-             return(dTreeGraph);
-           });
+    lapply(
+      names(res$decisionTrees),
+      function(dTreeName) {
+        return(create_justifierGraph(res$decisionTrees[[dTreeName]]));
+      }
+    );
 
   names(res$decisionGraphs) <-
-    names(res$supplemented$decisions);
+    names(res$decisionTrees);
 
   if (!silent) {
     cat0("\nCreated decision graphs.");
