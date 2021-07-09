@@ -206,7 +206,7 @@ to_specList <- function(x,
       ### as specification(s), and return.
       if ((length(unique(names(x)))==1) && (unique(names(x)) == "id")) {
         if (!silent) {
-          cat0("\nThis specification contains multiple named filds; returning it as is, with class `justifierSpec`, within a list with class `justifierSpecList`.\n");
+          cat0("\nThis specification contains multiple named fields; returning it as is, with class `justifierSpec`, within a list with class `justifierSpecList`.\n");
         }
         ids <- x$id;
         return(structure(lapply(ids,

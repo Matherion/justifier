@@ -1,7 +1,17 @@
-create_justifierGraph <- function(dTree) {
+create_justifierGraph <- function(
+  dTree,
+  weight_fieldName = justifier::opts$get("weight_fieldName")
+) {
+
+  negWeight_color <- justifier::opts$get("negWeight_color");
+  posWeight_color <- justifier::opts$get("posWeight_color");
+  node_color <- justifier::opts$get("node_color");
+  edge_color <- justifier::opts$get("edge_color");
+  penwidth <- justifier::opts$get("penwidth");
 
   if (!("Node" %in% class(dTree))) {
-    stop("You must pass a justifier tree!");
+    stop("You must pass a justifier tree: you passed an object ",
+         "of class(es) ", vecTxtQ(class(dTree)), "!");
   }
 
   tryCatch({
@@ -17,8 +27,34 @@ create_justifierGraph <- function(dTree) {
 
       lbl <- paste0(strwrap(lbl, 40), collapse = "\n");
 
-      data.tree::SetNodeStyle(node,
-                              label = lbl);
+      if (!is.null(node$weight)) {
+        data.tree::SetNodeStyle(
+          node,
+          color = ifelse(
+            node$weight < 0,
+            negWeight_color,
+            posWeight_color
+          ),
+          label = lbl);
+        data.tree::SetEdgeStyle(
+          node,
+          color = ifelse(
+            node$weight < 0,
+            negWeight_color,
+            posWeight_color
+          ));
+      } else {
+        data.tree::SetEdgeStyle(
+          node,
+          color = edge_color
+        );
+        data.tree::SetNodeStyle(
+          node,
+          color = edge_color,
+          label = lbl
+        );
+      }
+
 
     });
 
@@ -48,20 +84,25 @@ create_justifierGraph <- function(dTree) {
     dTreeGraph <-
       justifier::apply_graph_theme(
         dTreeGraph,
-        c("layout", "dot", "graph"),
-        c("rankdir", "LR", "graph"),
-        c("outputorder", "edgesfirst", "graph"),
-        c("fixedsize", "false", "node"),
-        c("shape", "box", "node"),
-        c("style", "rounded,filled", "node"),
-        c("color", "#000000", "node"),
-        c("margin", "0.2,0.2", "node"),
-        c("color", "#888888", "edge"),
-        c("dir", "none", "edge"),
-        c("headclip", "false", "edge"),
-        c("tailclip", "false", "edge"),
-        c("fillcolor", "#FFFFFF", "node"),
-        c("fontname", "Arial", "node")
+        c("layout",      "dot",            "graph"),
+        c("rankdir",     "LR",             "graph"),
+        c("outputorder", "edgesfirst",     "graph"),
+
+        c("fontname",    "Arial",          "node"),
+        c("fillcolor",   "#FFFFFF",        "node"),
+        c("fixedsize",   "false",          "node"),
+        c("shape",       "box",            "node"),
+        c("style",       "rounded,filled", "node"),
+        c("color",       node_color,       "node"),
+        c("margin",      "0.2,0.2",        "node"),
+
+        c("fontname",    "Arial",          "edge"),
+        c("color",       edge_color,       "edge"),
+        c("penwidth",    penwidth,         "edge"),
+        c("headclip",    "false",          "edge"),
+        c("tailclip",    "false",          "edge"),
+        c("dir",         "none",           "edge")
+
       )
   }
 

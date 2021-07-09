@@ -127,12 +127,13 @@ We can now refer to these two specifications later on, for
 example to justify decisions we take.
 ';
 
-load_justifications(text=exampleMinutes);
+justifier::load_justifications(text=exampleMinutes);
 
 ### To load a directory with justifications
+
 examplePath <-
   file.path(system.file(package="justifier"),
             'extdata');
-load_justifications_dir(path=examplePath);
+justifier::load_justifications_dir(path=examplePath);
 
 }

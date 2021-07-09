@@ -114,6 +114,17 @@ opts$defaults <-
                              c("\\\\", "/"),
                              c("[^a-zA-Z0-9;)(,._-`/]", " ")),
 
+    weight_fieldName = "weight",
+
+    ### scales::show_col(viridis::viridis(2, begin=.1, end=.8, alpha=.9))
+    negWeight_color = "#482576E6",
+    posWeight_color = "#9AD93CE6",
+
+    node_color = "#000000FF",
+    edge_color = "#000000FF",
+
+    penwidth = 2,
+
     ### For working with workspaces
     workspace_id = "wsid",
 

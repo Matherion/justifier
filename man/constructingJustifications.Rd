@@ -102,7 +102,8 @@ justifierJustification <-
     assertion = c(
       assert('Icecream is rich in energy'),
       assert('Consuming high-energy foods makes me feel less fit')
-    )
+    ),
+    weight = -.5
   );
 
 ### Show it
@@ -138,7 +139,8 @@ fullJustifierObject <-
               "Bodily sensations"
             )
           )
-        )
+        ),
+        weight = 1
       ),
       justifierJustification,
       justifier::justify(
@@ -156,7 +158,8 @@ fullJustifierObject <-
               "Parental advice"
             )
           )
-        )
+        ),
+        weight = .3
       )
     )
   );

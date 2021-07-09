@@ -1,4 +1,5 @@
-create_justifierTree <- function(x) {
+create_justifierTree <- function(x,
+                                 silent = TRUE) {
 
   ### Call 'buildListWithChildren' from the right starting point; then
   ### that function will recurse to structure data.tree's 'explicit list'
@@ -9,12 +10,26 @@ create_justifierTree <- function(x) {
       which(names(parentChildRelationships) %in% names(x))[1]
     ];
 
-  x <-
-    buildExplicitDataTreeList(
-      x,
-      targetElement = targetElement,
-      childElement = parentChildRelationships[targetElement]
-    );
+  if (is.na(targetElement)) {
+    msg("Identified no known target element among the names of `x`, so ",
+        "assuming it has no children. (The names of `x` are: ",
+        vecTxtQ(names(x)), ").",
+        silent = silent);
+    x$children <- list("");
+    names(x$children) <- NA;
+  } else {
+    msg("Identified ", targetElement, " as top-level target element to ",
+        "process; proceeding to recursively build tree from that level.\n",
+        silent = silent);
+
+    x <-
+      buildExplicitDataTreeList(
+        x,
+        targetElement = targetElement,
+        childElement = parentChildRelationships[targetElement],
+        silent = silent
+      );
+  }
 
   if ("id" %in% names(x)) {
     x <- list(x);
@@ -24,6 +39,16 @@ create_justifierTree <- function(x) {
   res <-
     lapply(names(x),
            function(decisionId) {
+             if (all(is.na(names(x[[decisionId]]$children))) &&
+                 (nchar(x[[decisionId]]$children[[1]]) == 0)) {
+               msg("No children available, building a tree with only a root.\n",
+                   silent = silent);
+               x[[decisionId]]$children <- NULL;
+             } else {
+               msg("Returning a tree with ", length(x[[decisionId]]$children),
+                   " children.\n",
+                   silent = silent);
+             }
              res <-
                data.tree::FromListExplicit(explicitList = x[[decisionId]],
                                            nameName="id",
@@ -31,6 +56,11 @@ create_justifierTree <- function(x) {
                                            nodeName=decisionId);
              return(res);
            });
+
+  names(res) <- names(x);
+
+  class(res) <- c("justifierTree",
+                  class(res));
 
   return(res);
 
@@ -52,15 +82,33 @@ justifierClasses = c(
 
 buildExplicitDataTreeList <- function(x,
                                       targetElement,
-                                      childElement = NULL) {
+                                      childElement = NULL,
+                                      silent=TRUE) {
+
+  if (!silent) {
+    cat0("Starting to build explicit data tree list for target element '",
+         targetElement, "' and ");
+    if (is.null(childElement)) {
+      cat0("no child element specified.\n");
+    } else {
+      cat0("child element '", childElement, "'.\n");
+    }
+  }
 
   ### If this is a vector (e.g. a source with just an id), return it.
   if (is.atomic(x)) {
+    if (!silent) {
+      cat0("An atomic object was passed, returning as-is!");
+    }
     return(x);
   }
 
   ### If this is a list without the indicated children, return it unclassed.
   if (!(targetElement %in% names(x))) {
+    if (!silent) {
+      cat0("The passed object did not contain anything with the target ",
+           "element name, unclassing and returning!");
+    }
     return(unclass(x));
   }
 

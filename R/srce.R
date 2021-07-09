@@ -60,7 +60,8 @@
 #'     assertion = c(
 #'       assert('Icecream is rich in energy'),
 #'       assert('Consuming high-energy foods makes me feel less fit')
-#'     )
+#'     ),
+#'     weight = -.5
 #'   );
 #'
 #' ### Show it
@@ -96,7 +97,8 @@
 #'               "Bodily sensations"
 #'             )
 #'           )
-#'         )
+#'         ),
+#'         weight = 1
 #'       ),
 #'       justifierJustification,
 #'       justifier::justify(
@@ -114,7 +116,8 @@
 #'               "Parental advice"
 #'             )
 #'           )
-#'         )
+#'         ),
+#'         weight = .3
 #'       )
 #'     )
 #'   );
@@ -130,6 +133,7 @@
 #' ### Show the combination
 #' twoDecisions;
 #'
+#' @export source
 #' @export srce
 source <-
   srce <- function(label,
@@ -147,7 +151,8 @@ source <-
                                     ...));
 }
 
-#' @export assert asrt
+#' @export assert
+#' @export asrt
 #' @rdname constructingJustifications
 assert <-
   asrt <-
@@ -166,7 +171,8 @@ assert <-
                                     ...));
 }
 
-#' @export justify jstf
+#' @export justify
+#' @export jstf
 #' @rdname constructingJustifications
 justify <-
    jstf <- function(label,
@@ -185,6 +191,8 @@ justify <-
 }
 
 #' @export dcsn
+#' @export decision
+#' @export decide
 #' @rdname constructingJustifications
 decide <-
   decision <-
@@ -317,6 +325,10 @@ plot.multipleJustifierElements <- function(x, ...) {
 
 }
 
+###-----------------------------------------------------------------------------
+###-----------------------------------------------------------------------------
+###-----------------------------------------------------------------------------
+
 justifierObjectConstructor <-
   function(justifierType,
            id = NULL,
@@ -353,3 +365,7 @@ justifierObjectConstructor <-
     return(res);
 
   }
+
+###-----------------------------------------------------------------------------
+###-----------------------------------------------------------------------------
+###-----------------------------------------------------------------------------

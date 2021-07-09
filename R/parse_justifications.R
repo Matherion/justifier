@@ -67,10 +67,8 @@ parse_justifications <- function(x,
   ### Process all specifications and create five organised lists,
   ### where id's are used as names
   justNames <- tolower(names(x));
-  if (!silent) {
-    cat0("\nStarting first processing sweep to process a series of specifications with names ",
-         vecTxtQ(justNames), ".\n");
-  }
+  msg("\nStarting first processing sweep to process a series of specifications with names ",
+      vecTxtQ(justNames), ".\n", silent = silent);
 
   res$structured <-
     list(sources = to_specList(x[which(justNames == 'source')],
@@ -956,10 +954,26 @@ parse_justifications <- function(x,
   #                                          nodeName=decisionId);
   #            return(res);
   #          });
+
   res$decisionTrees <-
-    create_justifierTree(
-      res$supplemented$decisions
+    lapply(
+      res$supplemented$decisions,
+      create_justifierTree,
+      silent = silent
     );
+
+  ### This may not be a good idea
+  res$decisionTrees <- lapply(
+    seq_along(res$decisionTrees),
+    function(x) {
+      if (length(x) == 1) {
+        return(res$decisionTrees[[x]][[1]]);
+      } else {
+        stop("I just created justifier trees, but one of the results had ",
+             "a length of more than one element!");
+      }
+    }
+  );
 
   names(res$decisionTrees) <-
     names(res$supplemented$decisions);
@@ -1087,12 +1101,12 @@ parse_justifications <- function(x,
     lapply(
       names(res$decisionTrees),
       function(dTreeName) {
-        return(create_justifierGraph(x[[dTreeName]]));
+        return(create_justifierGraph(res$decisionTrees[[dTreeName]]));
       }
     );
 
   names(res$decisionGraphs) <-
-    names(res$supplemented$decisions);
+    names(res$decisionTrees);
 
   if (!silent) {
     cat0("\nCreated decision graphs.");
