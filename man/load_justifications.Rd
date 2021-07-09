@@ -16,6 +16,7 @@ load_justifications(
     "source"),
   ignoreOddDelimiters = FALSE,
   encoding = "UTF-8",
+  storeDecisionGraphSvg = TRUE,
   silent = TRUE
 )
 
@@ -61,6 +62,9 @@ encountered.}
 
 \item{encoding}{The encoding to use when calling \code{\link[=readLines]{readLines()}}. Set to
 NULL to let \code{\link[=readLines]{readLines()}} guess.}
+
+\item{storeDecisionGraphSvg}{Whether to also produce (and return) the SVG
+for the decision graph.}
 
 \item{silent}{Whether to be silent (TRUE) or informative (FALSE).}
 

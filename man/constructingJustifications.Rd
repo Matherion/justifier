@@ -97,11 +97,11 @@ justifierAssertion <-
 ### Programmatically create a justification with two assertions
 ### but without sources
 justifierJustification <-
-  justify(
+  justifier::justify(
     "Icecream will make me feel less fit",
     assertion = c(
-      assert('Icecream is rich in energy'),
-      assert('Consuming high-energy foods makes me feel less fit')
+      justifier::assert('Icecream is rich in energy'),
+      justifier::assert('Consuming high-energy foods makes me feel less fit')
     ),
     weight = -.5
   );
