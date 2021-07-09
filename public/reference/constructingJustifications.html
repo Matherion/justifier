@@ -238,7 +238,7 @@ that the decision is based on can be specified using <code>jstf()</code>.</p></t
     source <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
       <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span><span class='st'>'This is a first source'</span><span class='op'>)</span>,
       <span class='fu'>justifier</span><span class='fu'>::</span><span class='kw'>source</span><span class='op'>(</span><span class='st'>'This is a second source'</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>;
-</div><div class='output co'>#&gt; <span class='error'>Error: 'source' is not an exported object from 'namespace:justifier'</span></div><div class='input'>
+
 <span class='co'>### Programmatically create a justification with two assertions</span>
 <span class='co'>### but without sources</span>
 <span class='va'>justifierJustification</span> <span class='op'>&lt;-</span>
@@ -253,7 +253,7 @@ that the decision is based on can be specified using <code>jstf()</code>.</p></t
 
 <span class='co'>### Show it</span>
 <span class='va'>justifierJustification</span>;
-</div><div class='output co'>#&gt; Justifier element of type 'justifierJustification' and with id 'foyd_J7f0r8y8w'.</div><div class='input'>
+</div><div class='output co'>#&gt; Justifier element of type 'justifierJustification' and with id 'eulb_J7f0rckmb'.</div><div class='input'>
 <span class='co'>### Programmatically create a simple decision</span>
 <span class='va'>simpleDecision</span> <span class='op'>&lt;-</span>
   <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>decide</span><span class='op'>(</span>
@@ -263,7 +263,7 @@ that the decision is based on can be specified using <code>jstf()</code>.</p></t
       assertion <span class='op'>=</span> <span class='va'>justifierAssertion</span>
     <span class='op'>)</span>
   <span class='op'>)</span>;
-</div><div class='output co'>#&gt; <span class='error'>Error: 'decide' is not an exported object from 'namespace:justifier'</span></div><div class='input'>
+
 <span class='co'>### Programmatically create a justification object for a full decision</span>
 <span class='va'>fullJustifierObject</span> <span class='op'>&lt;-</span>
   <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>decide</span><span class='op'>(</span>
@@ -308,18 +308,18 @@ that the decision is based on can be specified using <code>jstf()</code>.</p></t
       <span class='op'>)</span>
     <span class='op'>)</span>
   <span class='op'>)</span>;
-</div><div class='output co'>#&gt; <span class='error'>Error: 'decide' is not an exported object from 'namespace:justifier'</span></div><div class='input'>
+
 <span class='co'>### Show the full object</span>
 <span class='va'>fullJustifierObject</span>;
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'fullJustifierObject' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; Justifier element of type 'justifierDecision' and with id 'bsna_D7f0rcknb'.</div><div class='input'>
 <span class='co'>### Combine both into a list of decisions</span>
 <span class='va'>twoDecisions</span> <span class='op'>&lt;-</span>
   <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>simpleDecision</span>,
     <span class='va'>fullJustifierObject</span><span class='op'>)</span>;
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'simpleDecision' not found</span></div><div class='input'>
+
 <span class='co'>### Show the combination</span>
 <span class='va'>twoDecisions</span>;
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'twoDecisions' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; A list of 2 justifier elements of type justifierDecision and with identifiers 'ubqt_D7f0rckn9' &amp; 'bsna_D7f0rcknb'</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
