@@ -14,4 +14,6 @@
 ^img/
 
 ### Ignoring vignettes for now
-.Rmd
+#.Rmd
+^doc$
+^Meta$
