@@ -16,13 +16,19 @@ The workspace contents.
 Show your workspace contents
 }
 \examples{
-clean_workspace(force = TRUE, silent=FALSE);
-log_decision("First we start using `justifier`.",
-             silent=FALSE);
-log_decision(paste0("Then we start documenting our ",
-                    "decisions and justifications."),
-             silent=FALSE);
-log_decision("Then we start learning from ourselves.",
-             silent=FALSE);
-workspace();
+justifier::clean_workspace(force = TRUE, silent=FALSE);
+justifier::log_decision(
+  "First we start using `justifier`.",
+  silent=FALSE
+);
+justifier::log_decision(
+  paste0("Then we start documenting our ",
+         "decisions and justifications."),
+  silent=FALSE
+);
+justifier::log_decision(
+  "Then we start learning from ourselves.",
+  silent=FALSE
+);
+justifier::workspace();
 }

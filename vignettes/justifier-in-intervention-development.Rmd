@@ -99,7 +99,7 @@ Every `justifier` element must have a unique identifier (`id`), and in addition,
 
 In addition, to an `id`, all `justifier` elements can have a `label` and a `description`. A `label` is a human-readable short title for the element, and a `description` allows for more details. The `date` field allows specifying when the decision was taken.
 
-In `justifier`, every `decision` has a `justification`. Each `justification` is based on one or more `assertion`s, which are each based on one or more `source`s. A `source` can be an academic article, an unpublished report, the result of a consensus meeting with experts, the opinion of the planning group (an Intervention Mapping term), or even the opinion of one individual. The explicit definition of `source`s makes it possible to trace back the origins of `assertion`s. An `assertion` is an assumption or statement of fact. This is loosely based on assertions as defined in nanopublications (see http://nanopub.org; in this sense, a `source` can be considered a very rough specification of an `assertion`s provenance). Thus, a list of all `assertion`s documented in an interventions justification shows what the intervention developers knew about, or believed to be true about, the world (and a list of the sources shows where that knowledge or those assumptions came from).
+In `justifier`, every `decision` has a `justification`. Each `justification` is based on one or more `assertion`s, which are each based on one or more `source`s. A `source` can be an academic article, an unpublished report, the result of a consensus meeting with experts, the opinion of the planning group (an Intervention Mapping term), or even the opinion of one individual. The explicit definition of `source`s makes it possible to trace back the origins of `assertion`s. An `assertion` is an assumption or statement of fact. This is loosely based on assertions as defined in [nanopublicatios](http://nanopub.org/wordpress/); in this sense, a `source` can be considered a very rough specification of an `assertion`s provenance). Thus, a list of all `assertion`s documented in an interventions justification shows what the intervention developers knew about, or believed to be true about, the world (and a list of the sources shows where that knowledge or those assumptions came from).
 
 The `justification`s combine one or more `assertion`s into coherent reasoning supporting a `decision`. A `decision` can have multiple `justification`s (but the entire justification can also be formulated within one `justification` element; so the number of `justification`s on which a decision is based is not necessarily a proxy for how well-supported a decision is).
 
@@ -397,10 +397,10 @@ cat("\n\n<div style='width:800px'>",
 
 # References
 
-Crutzen, R., Peters, G.-J. Y., & Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. *Frontiers in Public Health, 5*, 165. doi:10.3389/fpubh.2017.00165
+Crutzen, R., Peters, G.-J. Y., & Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. *Frontiers in Public Health, 5*, 165. https://doi.org/10.3389/fpubh.2017.00165
 
-Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. *Health Psychology Review, 10*, 297-312. doi:10.1080/17437199.2015.1077155
+Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. *Health Psychology Review, 10*, 297-312. https://doi.org/10.1080/17437199.2015.1077155
 
-Leventhal, H. (1970) Findings and Theory in the Study of Fear Communications. *Advances in Experimental Social Psychology, 5*, 119-186. doi:10.1016/S0065-2601(08)60091-X
+Leventhal, H. (1970) Findings and Theory in the Study of Fear Communications. *Advances in Experimental Social Psychology, 5*, 119-186. https://doi.org/10.1016/S0065-2601(08)60091-X
 
 

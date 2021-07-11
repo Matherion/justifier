@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -39,7 +43,6 @@
 <meta property="og:description" content="This function is for internal use, but has been exported in
 case it's useful for people working 'manually' with
 lists of justifications." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -57,7 +60,7 @@ lists of justifications." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,7 +82,7 @@ lists of justifications." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -106,7 +109,12 @@ lists of justifications." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://gitlab.com/r-packages/justifier/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -121,7 +129,7 @@ lists of justifications." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Producing a list of specifications</h1>
-    
+    <small class="dont-index">Source: <a href='https://gitlab.com/r-packages/justifier/blob/master/R/to_specList.R'><code>R/to_specList.R</code></a></small>
     <div class="hidden name"><code>to_specList.Rd</code></div>
     </div>
 
@@ -131,7 +139,7 @@ case it's useful for people working 'manually' with
 lists of justifications.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>to_specList</span>(<span class='no'>x</span>, <span class='no'>types</span>, <span class='no'>type</span>, <span class='kw'>idsRequired</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>to_specList</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>types</span>, <span class='va'>type</span>, idsRequired <span class='op'>=</span> <span class='cn'>TRUE</span>, silent <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,6 +158,14 @@ list (the <code>justifierSpecList</code> object to return).</p></td>
       <td><p>The class to assign to each specification
 (in addition to <code>justifierSpec</code>).</p></td>
     </tr>
+    <tr>
+      <th>idsRequired</th>
+      <td><p>Whether to require identifiers.</p></td>
+    </tr>
+    <tr>
+      <th>silent</th>
+      <td><p>Whether to be chatty or silent.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -160,13 +176,14 @@ each element is a specification of class
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>### Specify an example text</span>
-<span class='no'>exampleFile</span> <span class='kw'>&lt;-</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>,
+<span class='va'>exampleFile</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>,
               <span class='st'>"simple-example.jmd"</span>,
-              <span class='kw'>package</span><span class='kw'>=</span><span class='st'>"justifier"</span>);
+              package<span class='op'>=</span><span class='st'>"justifier"</span><span class='op'>)</span>;
 
 <span class='co'>### Show contents</span>
-<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span>(<span class='no'>exampleFile</span>), <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>"\n"</span>);</div><div class='output co'>#&gt; This is an example of minutes that include
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span><span class='op'>(</span><span class='va'>exampleFile</span><span class='op'>)</span>, sep<span class='op'>=</span><span class='st'>"\n"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; This is an example of minutes that include
 #&gt; a source, an assertion, and a justification. For example, in
 #&gt; the meeting, we can discuss the assertion that sleep deprivation
 #&gt; affects decision making. We could quickly enter this assertion in
@@ -198,20 +215,24 @@ each element is a specification of class
 #&gt; We can now refer to these two specifications later on, for
 #&gt; example to justify decisions we take.</div><div class='input'>
 <span class='co'>### Load it with yum::load_and_simplify()</span>
-<span class='no'>loadedMinutes</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>yum</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/yum/man/load_and_simplify.html'>load_and_simplify</a></span>(<span class='no'>exampleFile</span>);
+<span class='va'>loadedMinutes</span> <span class='op'>&lt;-</span> <span class='fu'>yum</span><span class='fu'>::</span><span class='fu'><a href='https://r-packages.gitlab.io/yum/reference/load_and_simplify.html'>load_and_simplify</a></span><span class='op'>(</span><span class='va'>exampleFile</span><span class='op'>)</span>;
 
 <span class='co'>### Show contents</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>loadedMinutes</span>);</div><div class='output co'>#&gt; [1] "assertion" "source"   </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>loadedMinutes</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] "assertion" "source"   </div><div class='input'>
 <span class='co'>### Show classes</span>
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>]);</div><div class='output co'>#&gt; [1] "list"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>loadedMinutes</span><span class='op'>[</span><span class='st'>"assertion"</span><span class='op'>]</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] "list"</div><div class='input'>
 <span class='co'>### Convert to specification list</span>
-<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>to_specList</span>(<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>],
-                   <span class='kw'>type</span><span class='kw'>=</span><span class='st'>"assertion"</span>,
-                   <span class='kw'>types</span><span class='kw'>=</span><span class='st'>"assertions"</span>);
+<span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>to_specList</span><span class='op'>(</span><span class='va'>loadedMinutes</span><span class='op'>[</span><span class='st'>"assertion"</span><span class='op'>]</span>,
+                   type<span class='op'>=</span><span class='st'>"assertion"</span>,
+                   types<span class='op'>=</span><span class='st'>"assertions"</span><span class='op'>)</span>;
 <span class='co'>### Show classes</span>
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>res</span>);</div><div class='output co'>#&gt; [1] "justifierSpecList" "assertions"       </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; [1] "justifierSpecList" "assertions"       </div><div class='input'>
 <span class='co'>### Show original and parsed objects</span>
-<span class='no'>loadedMinutes</span>[<span class='st'>"assertion"</span>];</div><div class='output co'>#&gt; $assertion
+<span class='va'>loadedMinutes</span><span class='op'>[</span><span class='st'>"assertion"</span><span class='op'>]</span>;
+</div><div class='output co'>#&gt; $assertion
 #&gt; $assertion$id
 #&gt; [1] "assertion_SD_decision"
 #&gt; 
@@ -223,7 +244,8 @@ each element is a specification of class
 #&gt; [1] "source_Harrison"
 #&gt; 
 #&gt; 
-#&gt; </div><div class='input'><span class='no'>res</span>;</div><div class='output co'>#&gt; $assertion_SD_decision
+#&gt; </div><div class='input'><span class='va'>res</span>;
+</div><div class='output co'>#&gt; $assertion_SD_decision
 #&gt; $id
 #&gt; [1] "assertion_SD_decision"
 #&gt; 
@@ -242,14 +264,10 @@ each element is a specification of class
 #&gt; [1] "justifierSpecList" "assertions"       </div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -260,7 +278,7 @@ each element is a specification of class
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

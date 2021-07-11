@@ -16,6 +16,7 @@ load_justifications(
     "source"),
   ignoreOddDelimiters = FALSE,
   encoding = "UTF-8",
+  storeDecisionGraphSvg = TRUE,
   silent = TRUE
 )
 
@@ -61,6 +62,9 @@ encountered.}
 
 \item{encoding}{The encoding to use when calling \code{\link[=readLines]{readLines()}}. Set to
 NULL to let \code{\link[=readLines]{readLines()}} guess.}
+
+\item{storeDecisionGraphSvg}{Whether to also produce (and return) the SVG
+for the decision graph.}
 
 \item{silent}{Whether to be silent (TRUE) or informative (FALSE).}
 
@@ -127,12 +131,13 @@ We can now refer to these two specifications later on, for
 example to justify decisions we take.
 ';
 
-load_justifications(text=exampleMinutes);
+justifier::load_justifications(text=exampleMinutes);
 
 ### To load a directory with justifications
+
 examplePath <-
   file.path(system.file(package="justifier"),
             'extdata');
-load_justifications_dir(path=examplePath);
+justifier::load_justifications_dir(path=examplePath);
 
 }

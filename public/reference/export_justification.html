@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="Export justification as YAML — export_justification" />
 <meta property="og:description" content="Export justification as YAML" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -77,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -104,7 +107,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://gitlab.com/r-packages/justifier/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -119,7 +127,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Export justification as YAML</h1>
-    
+    <small class="dont-index">Source: <a href='https://gitlab.com/r-packages/justifier/blob/master/R/export_justification.R'><code>R/export_justification.R</code></a></small>
     <div class="hidden name"><code>export_justification.Rd</code></div>
     </div>
 
@@ -127,14 +135,14 @@
     <p>Export justification as YAML</p>
     </div>
 
-    <pre class="usage"><span class='fu'>export_justification</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>,
-  <span class='kw'>append</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>preventOverwriting</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='no'><a href='https://rdrr.io/pkg/justifier/man/opts.html'>opts</a></span>$<span class='fu'><a href='opts.html'>get</a></span>(<span class='st'>"silent"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>export_justification</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  file <span class='op'>=</span> <span class='cn'>NULL</span>,
+  encoding <span class='op'>=</span> <span class='st'>"UTF-8"</span>,
+  append <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  preventOverwriting <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  silent <span class='op'>=</span> <span class='fu'>justifier</span><span class='fu'>::</span><span class='va'><a href='opts.html'>opts</a></span><span class='op'>$</span><span class='fu'>get</span><span class='op'>(</span><span class='st'>"silent"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,32 +181,34 @@ justifications, assertions, or sources.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>### Programmatically create a simple justification object</span>
-<span class='no'>justifierObject</span> <span class='kw'>&lt;-</span>
-  <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/justifier/man/constructingJustifications.html'>asrt</a></span>(
+<span class='va'>justifierObject</span> <span class='op'>&lt;-</span>
+  <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'><a href='source.html'>asrt</a></span><span class='op'>(</span>
     <span class='st'>"assertion"</span>,
-    <span class='kw'>source</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
-      <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/justifier/man/constructingJustifications.html'>srce</a></span>(<span class='st'>'source1'</span>),
-      <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/justifier/man/constructingJustifications.html'>srce</a></span>(<span class='st'>'source2'</span>)));
+    source <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'><a href='source.html'>srce</a></span><span class='op'>(</span><span class='st'>'source1'</span><span class='op'>)</span>,
+      <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'><a href='source.html'>srce</a></span><span class='op'>(</span><span class='st'>'source2'</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>;
 
 <span class='co'>### Export to YAML</span>
-<span class='no'>justifierYAML</span> <span class='kw'>&lt;-</span>
-  <span class='kw pkg'>justifier</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/justifier/man/export_justification.html'>export_justification</a></span>(
-    <span class='no'>justifierObject</span>,
-    <span class='kw'>file</span><span class='kw'>=</span><span class='kw'>NULL</span>);
+<span class='va'>justifierYAML</span> <span class='op'>&lt;-</span>
+  <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>export_justification</span><span class='op'>(</span>
+    <span class='va'>justifierObject</span>,
+    file<span class='op'>=</span><span class='cn'>NULL</span><span class='op'>)</span>;
 
 <span class='co'>### Show YAML</span>
-<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='no'>justifierYAML</span>, <span class='kw'>sep</span><span class='kw'>=</span><span class='st'>"\n"</span>);</div><div class='output co'>#&gt; ---
+<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='va'>justifierYAML</span>, sep<span class='op'>=</span><span class='st'>"\n"</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; ---
 #&gt; assertion:
-#&gt;   id: hqre_A77j667fd
+#&gt;   id: sifm_A7f1b84sb
 #&gt;   label: assertion
 #&gt;   description: ''
+#&gt;   type: ''
 #&gt;   source:
-#&gt;   - id: zsbm_S77j667fd
+#&gt;   - id: myuc_S7f1b84sb
 #&gt;     label: source1
 #&gt;     description: ''
 #&gt;     xdoi: ''
 #&gt;     type: ''
-#&gt;   - id: sraf_S77j667fd
+#&gt;   - id: mrwt_S7f1b84sb
 #&gt;     label: source2
 #&gt;     description: ''
 #&gt;     xdoi: ''
@@ -207,14 +217,10 @@ justifications, assertions, or sources.</p></td>
 #&gt; ---
 #&gt; </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -225,7 +231,7 @@ justifications, assertions, or sources.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

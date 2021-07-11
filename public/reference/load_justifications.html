@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -38,7 +42,6 @@
 <meta property="og:title" content="Load Justifications from a file or multiple files — load_justifications" />
 <meta property="og:description" content="These function load justifications from the YAML fragments
 in one (load_justifications) or multiple files (load_justifications_dir)." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -56,7 +59,7 @@ in one (load_justifications) or multiple files (load_justifications_dir)." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -78,7 +81,7 @@ in one (load_justifications) or multiple files (load_justifications_dir)." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -105,7 +108,12 @@ in one (load_justifications) or multiple files (load_justifications_dir)." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://gitlab.com/r-packages/justifier/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -120,7 +128,7 @@ in one (load_justifications) or multiple files (load_justifications_dir)." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Load Justifications from a file or multiple files</h1>
-    
+    <small class="dont-index">Source: <a href='https://gitlab.com/r-packages/justifier/blob/master/R/load_justifications.R'><code>R/load_justifications.R</code></a>, <a href='https://gitlab.com/r-packages/justifier/blob/master/R/load_justifications_dir.R'><code>R/load_justifications_dir.R</code></a></small>
     <div class="hidden name"><code>load_justifications.Rd</code></div>
     </div>
 
@@ -129,29 +137,30 @@ in one (load_justifications) or multiple files (load_justifications_dir)." />
 in one (<code>load_justifications</code>) or multiple files (<code>load_justifications_dir</code>).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_justifications</span>(
-  <span class='kw'>text</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>delimiterRegEx</span> <span class='kw'>=</span> <span class='st'>"^---$"</span>,
-  <span class='kw'>justificationContainer</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"justifier"</span>, <span class='st'>"justification"</span>, <span class='st'>"decision"</span>, <span class='st'>"assertion"</span>,
-    <span class='st'>"source"</span>),
-  <span class='kw'>ignoreOddDelimiters</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>,
-  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)
+    <pre class="usage"><span class='fu'>load_justifications</span><span class='op'>(</span>
+  text <span class='op'>=</span> <span class='cn'>NULL</span>,
+  file <span class='op'>=</span> <span class='cn'>NULL</span>,
+  delimiterRegEx <span class='op'>=</span> <span class='st'>"^---$"</span>,
+  justificationContainer <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"justifier"</span>, <span class='st'>"justification"</span>, <span class='st'>"decision"</span>, <span class='st'>"assertion"</span>,
+    <span class='st'>"source"</span><span class='op'>)</span>,
+  ignoreOddDelimiters <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  encoding <span class='op'>=</span> <span class='st'>"UTF-8"</span>,
+  storeDecisionGraphSvg <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  silent <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
 
-<span class='fu'>load_justifications_dir</span>(
-  <span class='no'>path</span>,
-  <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>extension</span> <span class='kw'>=</span> <span class='st'>"jmd"</span>,
-  <span class='kw'>regex</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>justificationContainer</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"justifier"</span>, <span class='st'>"justification"</span>, <span class='st'>"decision"</span>, <span class='st'>"assertion"</span>,
-    <span class='st'>"source"</span>),
-  <span class='kw'>delimiterRegEx</span> <span class='kw'>=</span> <span class='st'>"^---$"</span>,
-  <span class='kw'>ignoreOddDelimiters</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>encoding</span> <span class='kw'>=</span> <span class='st'>"UTF-8"</span>,
-  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)</pre>
+<span class='fu'>load_justifications_dir</span><span class='op'>(</span>
+  <span class='va'>path</span>,
+  recursive <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  extension <span class='op'>=</span> <span class='st'>"jmd"</span>,
+  regex <span class='op'>=</span> <span class='cn'>NULL</span>,
+  justificationContainer <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"justifier"</span>, <span class='st'>"justification"</span>, <span class='st'>"decision"</span>, <span class='st'>"assertion"</span>,
+    <span class='st'>"source"</span><span class='op'>)</span>,
+  delimiterRegEx <span class='op'>=</span> <span class='st'>"^---$"</span>,
+  ignoreOddDelimiters <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  encoding <span class='op'>=</span> <span class='st'>"UTF-8"</span>,
+  silent <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -196,6 +205,11 @@ encountered.</p></td>
 NULL to let <code><a href='https://rdrr.io/r/base/readLines.html'>readLines()</a></code> guess.</p></td>
     </tr>
     <tr>
+      <th>storeDecisionGraphSvg</th>
+      <td><p>Whether to also produce (and return) the SVG
+for the decision graph.</p></td>
+    </tr>
+    <tr>
       <th>silent</th>
       <td><p>Whether to be silent (TRUE) or informative (FALSE).</p></td>
     </tr>
@@ -211,7 +225,7 @@ or not (<code>FALSE</code>).</p></td>
     <tr>
       <th>extension</th>
       <td><p>The extension of the files to read; files with other extensions will
-be ignored. Multiple extensions can be separated by a pipe (<code>|</code>).</p></td>
+be ignored. Multiple extensions can be separated by a pipe (<code><a href='https://rdrr.io/r/base/Logic.html'>|</a></code>).</p></td>
     </tr>
     <tr>
       <th>regex</th>
@@ -230,13 +244,13 @@ in <code>output$graph</code> and the overview in <code>output$overview</code>.</
     <p><code>load_justifications_dir</code> simply identifies all files and then calls
 <code>load_justifications</code> for each of them. <code>load_justifications</code> loads the
 YAML fragments containing the justifications using
-<code><a href='https://rdrr.io/pkg/yum/man/load_yaml_fragments.html'>yum::load_yaml_fragments()</a></code> and then parses the justifications
+<code><a href='https://r-packages.gitlab.io/yum/reference/load_yaml_fragments.html'>yum::load_yaml_fragments()</a></code> and then parses the justifications
 into a visual representation as a
 <a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot2::ggplot</a> graph and Markdown documents with
 overviews.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>exampleMinutes</span> <span class='kw'>&lt;-</span> <span class='st'>'This is an example of minutes that include
+    <pre class="examples"><div class='input'><span class='va'>exampleMinutes</span> <span class='op'>&lt;-</span> <span class='st'>'This is an example of minutes that include
 a source, an assertion, and a justification. For example, in
 the meeting, we can discuss the assertion that sleep deprivation
 affects decision making. We could quickly enter this assertion in
@@ -269,7 +283,8 @@ We can now refer to these two specifications later on, for
 example to justify decisions we take.
 '</span>;
 
-<span class='fu'>load_justifications</span>(<span class='kw'>text</span><span class='kw'>=</span><span class='no'>exampleMinutes</span>);</div><div class='output co'>#&gt; $raw
+<span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>load_justifications</span><span class='op'>(</span>text<span class='op'>=</span><span class='va'>exampleMinutes</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; $raw
 #&gt; $assertion
 #&gt; $assertion$id
 #&gt; [1] "assertion_SD_decision"
@@ -452,13 +467,18 @@ example to justify decisions we take.
 #&gt; $decisionGraphs
 #&gt; named list()
 #&gt; 
+#&gt; $decisionGraphsSvg
+#&gt; named list()
+#&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "justifications"</div><div class='input'>
 <span class='co'>### To load a directory with justifications</span>
-<span class='no'>examplePath</span> <span class='kw'>&lt;-</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='kw'>package</span><span class='kw'>=</span><span class='st'>"justifier"</span>),
-            <span class='st'>'extdata'</span>);
-<span class='fu'>load_justifications_dir</span>(<span class='kw'>path</span><span class='kw'>=</span><span class='no'>examplePath</span>);</div><div class='output co'>#&gt; 
+
+<span class='va'>examplePath</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span>package<span class='op'>=</span><span class='st'>"justifier"</span><span class='op'>)</span>,
+            <span class='st'>'extdata'</span><span class='op'>)</span>;
+<span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>load_justifications_dir</span><span class='op'>(</span>path<span class='op'>=</span><span class='va'>examplePath</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; 
 #&gt; 
 #&gt; Not all specifications of decisions, justifications, assertions, and sources successfully passed all verifications for framework '':
 #&gt; 
@@ -590,7 +610,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/complex-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/complex-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $decision
@@ -628,7 +648,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/complex-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/complex-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -663,7 +683,7 @@ example to justify decisions we take.
 #&gt; NULL
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/example-minutes.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/example-minutes.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -699,12 +719,12 @@ example to justify decisions we take.
 #&gt; NULL
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/example-minutes.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/example-minutes.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justifier
 #&gt; $justifier$id
-#&gt; [1] "justifier-example-study-framework-specification"
+#&gt; [1] "justifier_example_study_framework_specification"
 #&gt; 
 #&gt; $justifier$label
 #&gt; [1] "Justifier example: Study framework specification"
@@ -717,6 +737,12 @@ example to justify decisions we take.
 #&gt; $justifier$context[[1]]$id
 #&gt; [1] "global_planning"
 #&gt; 
+#&gt; $justifier$context[[1]]$importedContextFramework
+#&gt; [1] "some_other_framework_specification"
+#&gt; 
+#&gt; $justifier$context[[1]]$importedContextId
+#&gt; [1] "global_planning"
+#&gt; 
 #&gt; $justifier$context[[1]]$sequence
 #&gt; [1] 1
 #&gt; 
@@ -727,6 +753,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; $justifier$context[[2]]$sequence
 #&gt; [1] 2
+#&gt; 
+#&gt; $justifier$context[[2]]$label
+#&gt; [1] "Decisions related to design"
 #&gt; 
 #&gt; 
 #&gt; $justifier$context[[3]]
@@ -839,7 +868,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justifier$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/justifier-example-study-framework-specification.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/justifier-example-study-framework-specification.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -856,7 +885,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -873,7 +902,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -890,7 +919,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -907,7 +936,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -924,7 +953,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -941,7 +970,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -958,7 +987,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -978,7 +1007,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -995,7 +1024,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1012,7 +1041,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1029,7 +1058,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1046,7 +1075,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1063,7 +1092,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1080,7 +1109,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1097,7 +1126,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1114,7 +1143,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1131,7 +1160,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1148,7 +1177,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1162,7 +1191,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1173,7 +1202,7 @@ example to justify decisions we take.
 #&gt; [1] "Peeke et al (1980) Combined effects of alcohol and sleep deprivation in normal young adults."
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1190,7 +1219,7 @@ example to justify decisions we take.
 #&gt; [1] "Report"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1207,7 +1236,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1224,7 +1253,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1241,7 +1270,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1258,7 +1287,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1275,7 +1304,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1292,7 +1321,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -1309,7 +1338,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1328,7 +1357,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1344,7 +1373,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1360,7 +1389,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1376,7 +1405,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1392,7 +1421,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1408,7 +1437,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1424,7 +1453,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1440,7 +1469,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1456,7 +1485,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1472,7 +1501,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1488,7 +1517,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1504,7 +1533,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1520,7 +1549,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1536,7 +1565,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1552,7 +1581,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1568,7 +1597,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1584,7 +1613,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1600,7 +1629,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1616,7 +1645,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1632,7 +1661,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1648,7 +1677,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1664,7 +1693,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1680,7 +1709,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1696,7 +1725,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1712,7 +1741,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1728,7 +1757,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1744,7 +1773,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1760,7 +1789,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1776,7 +1805,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1792,7 +1821,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1808,7 +1837,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1824,7 +1853,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1843,7 +1872,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1859,7 +1888,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1875,7 +1904,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -1891,7 +1920,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -1908,7 +1937,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -1926,7 +1955,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -1943,7 +1972,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -1959,7 +1988,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -1975,7 +2004,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -1992,7 +2021,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -2008,7 +2037,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -2024,7 +2053,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -2040,7 +2069,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -2056,7 +2085,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -2072,7 +2101,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -2089,7 +2118,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justification
@@ -2106,7 +2135,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $justification$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $decision
@@ -2122,7 +2151,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $decision
@@ -2138,7 +2167,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/pp19.1-target-behavior-selection.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/pp19.1-target-behavior-selection.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -2154,7 +2183,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/simple-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/simple-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -2171,7 +2200,7 @@ example to justify decisions we take.
 #&gt; [1] "Journal article"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/simple-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/simple-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justifier
@@ -2182,7 +2211,7 @@ example to justify decisions we take.
 #&gt; [1] "justifier-example-study-framework-specification.jmd"
 #&gt; 
 #&gt; $justifier$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/study-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/study-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $justifier
@@ -2193,7 +2222,7 @@ example to justify decisions we take.
 #&gt; [1] "2019-03-06"
 #&gt; 
 #&gt; $justifier$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/study-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/study-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $decision
@@ -2266,7 +2295,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/study-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/study-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $decision
@@ -2349,7 +2378,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/study-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/study-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $decision
@@ -2422,7 +2451,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/study-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/study-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $decision
@@ -2483,7 +2512,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $decision$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/study-example.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/study-example.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -2497,7 +2526,7 @@ example to justify decisions we take.
 #&gt; [1] "isbn:9781409240716"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/xtc-non-users.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/xtc-non-users.jmd"
 #&gt; 
 #&gt; 
 #&gt; $source
@@ -2508,7 +2537,7 @@ example to justify decisions we take.
 #&gt; [1] "Vervaeke, H. K. E. (2009) Initiation and continuation: social context and behavioural aspects of ecstasy use"
 #&gt; 
 #&gt; $source$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/xtc-non-users.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/xtc-non-users.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -2527,7 +2556,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/xtc-non-users.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/xtc-non-users.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -2546,7 +2575,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/xtc-non-users.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/xtc-non-users.jmd"
 #&gt; 
 #&gt; 
 #&gt; $assertion
@@ -2565,7 +2594,7 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $assertion$fromFile
-#&gt; [1] "C:/Users/gjalt/AppData/Local/Temp/RtmpknVyX1/temp_libpath1b1c93f7790/justifier/extdata/xtc-non-users.jmd"
+#&gt; [1] "C:/Users/micro/AppData/Local/Temp/RtmpCCR74e/temp_libpath287877e536d/justifier/extdata/xtc-non-users.jmd"
 #&gt; 
 #&gt; 
 #&gt; attr(,"class")
@@ -5830,9 +5859,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $structured$justifier
-#&gt; $structured$justifier$`justifier-example-study-framework-specification`
+#&gt; $structured$justifier$justifier_example_study_framework_specification
 #&gt; $id
-#&gt; [1] "justifier-example-study-framework-specification"
+#&gt; [1] "justifier_example_study_framework_specification"
 #&gt; 
 #&gt; $label
 #&gt; [1] "Justifier example: Study framework specification"
@@ -5845,6 +5874,12 @@ example to justify decisions we take.
 #&gt; $context[[1]]$id
 #&gt; [1] "global_planning"
 #&gt; 
+#&gt; $context[[1]]$importedContextFramework
+#&gt; [1] "some_other_framework_specification"
+#&gt; 
+#&gt; $context[[1]]$importedContextId
+#&gt; [1] "global_planning"
+#&gt; 
 #&gt; $context[[1]]$sequence
 #&gt; [1] 1
 #&gt; 
@@ -5855,6 +5890,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; $context[[2]]$sequence
 #&gt; [1] 2
+#&gt; 
+#&gt; $context[[2]]$label
+#&gt; [1] "Decisions related to design"
 #&gt; 
 #&gt; 
 #&gt; $context[[3]]
@@ -6036,7 +6074,7 @@ example to justify decisions we take.
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$id
-#&gt; [1] "justifier-example-study-framework-specification"
+#&gt; [1] "justifier_example_study_framework_specification"
 #&gt; 
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$label
 #&gt; [1] "Justifier example: Study framework specification"
@@ -6049,6 +6087,12 @@ example to justify decisions we take.
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$context[[1]]$id
 #&gt; [1] "global_planning"
 #&gt; 
+#&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$context[[1]]$importedContextFramework
+#&gt; [1] "some_other_framework_specification"
+#&gt; 
+#&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$context[[1]]$importedContextId
+#&gt; [1] "global_planning"
+#&gt; 
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$context[[1]]$sequence
 #&gt; [1] 1
 #&gt; 
@@ -6059,6 +6103,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$context[[2]]$sequence
 #&gt; [1] 2
+#&gt; 
+#&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$context[[2]]$label
+#&gt; [1] "Decisions related to design"
 #&gt; 
 #&gt; 
 #&gt; $frameworks$loaded$`justifier-example-study-framework-specification.jmd`$justifier$context[[3]]
@@ -6175,7 +6222,7 @@ example to justify decisions we take.
 #&gt; $frameworks$loaded[[2]]
 #&gt; $frameworks$loaded[[2]]$justifier
 #&gt; $id
-#&gt; [1] "justifier-example-study-framework-specification"
+#&gt; [1] "justifier_example_study_framework_specification"
 #&gt; 
 #&gt; $label
 #&gt; [1] "Justifier example: Study framework specification"
@@ -6188,6 +6235,12 @@ example to justify decisions we take.
 #&gt; $context[[1]]$id
 #&gt; [1] "global_planning"
 #&gt; 
+#&gt; $context[[1]]$importedContextFramework
+#&gt; [1] "some_other_framework_specification"
+#&gt; 
+#&gt; $context[[1]]$importedContextId
+#&gt; [1] "global_planning"
+#&gt; 
 #&gt; $context[[1]]$sequence
 #&gt; [1] 1
 #&gt; 
@@ -6198,6 +6251,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; $context[[2]]$sequence
 #&gt; [1] 2
+#&gt; 
+#&gt; $context[[2]]$label
+#&gt; [1] "Decisions related to design"
 #&gt; 
 #&gt; 
 #&gt; $context[[3]]
@@ -6363,9 +6419,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $frameworks$parsed
-#&gt; $frameworks$parsed$`justifier-example-study-framework-specification`
+#&gt; $frameworks$parsed$justifier_example_study_framework_specification
 #&gt; $id
-#&gt; [1] "justifier-example-study-framework-specification"
+#&gt; [1] "justifier_example_study_framework_specification"
 #&gt; 
 #&gt; $label
 #&gt; [1] "Justifier example: Study framework specification"
@@ -6378,6 +6434,12 @@ example to justify decisions we take.
 #&gt; $contextSpecifications[[1]]$id
 #&gt; [1] "global_planning"
 #&gt; 
+#&gt; $contextSpecifications[[1]]$importedContextFramework
+#&gt; [1] "some_other_framework_specification"
+#&gt; 
+#&gt; $contextSpecifications[[1]]$importedContextId
+#&gt; [1] "global_planning"
+#&gt; 
 #&gt; $contextSpecifications[[1]]$sequence
 #&gt; [1] 1
 #&gt; 
@@ -6388,6 +6450,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; $contextSpecifications[[2]]$sequence
 #&gt; [1] 2
+#&gt; 
+#&gt; $contextSpecifications[[2]]$label
+#&gt; [1] "Decisions related to design"
 #&gt; 
 #&gt; 
 #&gt; $contextSpecifications[[3]]
@@ -6506,11 +6571,11 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $contexts
-#&gt;                    id sequence
-#&gt; 1     global_planning        1
-#&gt; 2              design        2
-#&gt; 3         sample_size        3
-#&gt; 4 operationalizations        4
+#&gt;                    id sequence                       label
+#&gt; 1     global_planning        1                        &lt;NA&gt;
+#&gt; 2              design        2 Decisions related to design
+#&gt; 3         sample_size        3                        &lt;NA&gt;
+#&gt; 4 operationalizations        4                        &lt;NA&gt;
 #&gt; 
 #&gt; $conditions
 #&gt; $conditions$decision
@@ -6584,9 +6649,9 @@ example to justify decisions we take.
 #&gt; attr(,"class")
 #&gt; [1] "justifierFramework" "list"              
 #&gt; 
-#&gt; $frameworks$parsed$`justifier-example-study-framework-specification`
+#&gt; $frameworks$parsed$justifier_example_study_framework_specification
 #&gt; $id
-#&gt; [1] "justifier-example-study-framework-specification"
+#&gt; [1] "justifier_example_study_framework_specification"
 #&gt; 
 #&gt; $label
 #&gt; [1] "Justifier example: Study framework specification"
@@ -6599,6 +6664,12 @@ example to justify decisions we take.
 #&gt; $contextSpecifications[[1]]$id
 #&gt; [1] "global_planning"
 #&gt; 
+#&gt; $contextSpecifications[[1]]$importedContextFramework
+#&gt; [1] "some_other_framework_specification"
+#&gt; 
+#&gt; $contextSpecifications[[1]]$importedContextId
+#&gt; [1] "global_planning"
+#&gt; 
 #&gt; $contextSpecifications[[1]]$sequence
 #&gt; [1] 1
 #&gt; 
@@ -6609,6 +6680,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; $contextSpecifications[[2]]$sequence
 #&gt; [1] 2
+#&gt; 
+#&gt; $contextSpecifications[[2]]$label
+#&gt; [1] "Decisions related to design"
 #&gt; 
 #&gt; 
 #&gt; $contextSpecifications[[3]]
@@ -6727,11 +6801,11 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $contexts
-#&gt;                    id sequence
-#&gt; 1     global_planning        1
-#&gt; 2              design        2
-#&gt; 3         sample_size        3
-#&gt; 4 operationalizations        4
+#&gt;                    id sequence                       label
+#&gt; 1     global_planning        1                        &lt;NA&gt;
+#&gt; 2              design        2 Decisions related to design
+#&gt; 3         sample_size        3                        &lt;NA&gt;
+#&gt; 4 operationalizations        4                        &lt;NA&gt;
 #&gt; 
 #&gt; $conditions
 #&gt; $conditions$decision
@@ -6880,8 +6954,8 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $fwApplications
-#&gt; $fwApplications$`justifier-example-study-framework-specification`
-#&gt; $fwApplications$`justifier-example-study-framework-specification`$verifications
+#&gt; $fwApplications$justifier_example_study_framework_specification
+#&gt; $fwApplications$justifier_example_study_framework_specification$verifications
 #&gt;     element                                 id              type
 #&gt; 1  decision                  study_sample_size study_sample_size
 #&gt; 2    source                  source_Diekelmann                .*
@@ -7219,7 +7293,7 @@ example to justify decisions we take.
 #&gt; 82                                                                    OK
 #&gt; 83                                                                    OK
 #&gt; 
-#&gt; $fwApplications$`justifier-example-study-framework-specification`$fieldScoring
+#&gt; $fwApplications$justifier_example_study_framework_specification$fieldScoring
 #&gt;   element                          id type    condition         field
 #&gt; 1  source                  brunt_2012   .* source_types evidence_type
 #&gt; 2  source nice_round_numbers_are_nice   .* source_types evidence_type
@@ -7231,7 +7305,7 @@ example to justify decisions we take.
 #&gt; 3          theory     4
 #&gt; 4 empirical study     5
 #&gt; 
-#&gt; $fwApplications$`justifier-example-study-framework-specification`$scoreDf
+#&gt; $fwApplications$justifier_example_study_framework_specification$scoreDf
 #&gt;                        decision         field score
 #&gt; 1                    decision_1 evidence_type    NA
 #&gt; 2                    decision_2 evidence_type    NA
@@ -15587,9 +15661,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; 
 #&gt; $supplemented$justifier
-#&gt; $supplemented$justifier$`justifier-example-study-framework-specification`
+#&gt; $supplemented$justifier$justifier_example_study_framework_specification
 #&gt; $id
-#&gt; [1] "justifier-example-study-framework-specification"
+#&gt; [1] "justifier_example_study_framework_specification"
 #&gt; 
 #&gt; $label
 #&gt; [1] "Justifier example: Study framework specification"
@@ -15602,6 +15676,12 @@ example to justify decisions we take.
 #&gt; $context[[1]]$id
 #&gt; [1] "global_planning"
 #&gt; 
+#&gt; $context[[1]]$importedContextFramework
+#&gt; [1] "some_other_framework_specification"
+#&gt; 
+#&gt; $context[[1]]$importedContextId
+#&gt; [1] "global_planning"
+#&gt; 
 #&gt; $context[[1]]$sequence
 #&gt; [1] 1
 #&gt; 
@@ -15612,6 +15692,9 @@ example to justify decisions we take.
 #&gt; 
 #&gt; $context[[2]]$sequence
 #&gt; [1] 2
+#&gt; 
+#&gt; $context[[2]]$label
+#&gt; [1] "Decisions related to design"
 #&gt; 
 #&gt; 
 #&gt; $context[[3]]
@@ -15845,7 +15928,7 @@ example to justify decisions we take.
 #&gt; 1 research_question                                
 #&gt; 2  ¦--without_testing_users_may_ingest_contaminants
 #&gt; 3  ¦   °--some_pills_are_contaminated              
-#&gt; 4  ¦       °--vogels_2009                          
+#&gt; 4  ¦       °--1                                    
 #&gt; 5  °--proper_dosing_requires_knowing_dose          
 #&gt; 6      °--dosing_requires_pill_content             
 #&gt; 7          °--brunt_2012                           
@@ -15855,9 +15938,9 @@ example to justify decisions we take.
 #&gt; 1 global_study_method                                
 #&gt; 2  ¦--enough_known_about_testing_determinants        
 #&gt; 3  ¦   ¦--testing_xtc_is_reasoned                    
-#&gt; 4  ¦   ¦   °--phd_peters_2008                        
+#&gt; 4  ¦   ¦   °--1                                      
 #&gt; 5  ¦   °--there_is_qualitative_research_about_testing
-#&gt; 6  ¦       °--phd_peters_2008                        
+#&gt; 6  ¦       °--1                                      
 #&gt; 7  °--limited_time                                   
 #&gt; 8      °--project_deadline                           
 #&gt; 9          °--project_proposal                       
@@ -15904,15 +15987,10 @@ example to justify decisions we take.
 #&gt; [1] "justifications"</div><div class='input'>
 </div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -15923,7 +16001,7 @@ example to justify decisions we take.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

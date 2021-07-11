@@ -1,15 +1,18 @@
 ---
 justifier:
-  id: justifier-example-study-framework-specification
+  id: justifier_example_study_framework_specification
   label: "Justifier example: Study framework specification"
   description: "This framework is an example of how different decisions in the planning of a psychological study could be contextualized."
   context:
     -
       id: global_planning
+      importedContextFramework: some_other_framework_specification
+      importedContextId: global_planning
       sequence: 1
     -
       id: design
       sequence: 2
+      label: "Decisions related to design"
     -
       id: sample_size
       sequence: 3
