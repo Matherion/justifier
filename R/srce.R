@@ -279,7 +279,7 @@ print.singleJustifierElement <- function(x, ...) {
   cat0("Justifier element of type '",
        class(x)[1], "' and with id '",
        x$id,
-       "'.");
+       "'.\n");
   plot(x);
   return(invisible(x));
 }
@@ -340,7 +340,7 @@ justifierObjectConstructor <-
     }
     if (!any(c("D", "J", "A", "S") == justifierType)) {
       stop("I can only generate an object of type D(ecision), ",
-           "J(ustifier), A(ssertion), or S(ource)!");
+           "J(ustification), A(ssertion), or S(ource)!");
     }
 
     if (is.null(id)) {

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Options for the justifier package — opts • justifier</title>
+<title>Convert a structured justifier specification to JSON — justifierStructured_to_json • justifier</title>
 
 
 <!-- jquery -->
@@ -39,11 +39,8 @@
 
 
 
-<meta property="og:title" content="Options for the justifier package — opts" />
-<meta property="og:description" content="The justifier::opts object contains three functions to set, get, and reset
-options used by the escalc package. Use justifier::opts$set to set options,
-justifier::opts$get to get options, or justifier::opts$reset to reset specific or
-all options to their default values." />
+<meta property="og:title" content="Convert a structured justifier specification to JSON — justifierStructured_to_json" />
+<meta property="og:description" content="Convert a structured justifier specification to JSON" />
 
 
 
@@ -129,75 +126,61 @@ all options to their default values." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Options for the justifier package</h1>
-    <small class="dont-index">Source: <a href='https://gitlab.com/r-packages/justifier/blob/master/R/opts.R'><code>R/opts.R</code></a></small>
-    <div class="hidden name"><code>opts.Rd</code></div>
+    <h1>Convert a structured justifier specification to JSON</h1>
+    <small class="dont-index">Source: <a href='https://gitlab.com/r-packages/justifier/blob/master/R/justifierStructured_to_json.R'><code>R/justifierStructured_to_json.R</code></a></small>
+    <div class="hidden name"><code>justifier_to_json.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The <code>justifier::opts</code> object contains three functions to set, get, and reset
-options used by the escalc package. Use <code>justifier::opts$set</code> to set options,
-<code>justifier::opts$get</code> to get options, or <code>justifier::opts$reset</code> to reset specific or
-all options to their default values.</p>
+    <p>Convert a structured justifier specification to JSON</p>
     </div>
 
-    <pre class="usage"><span class='va'>opts</span></pre>
+    <pre class="usage"><span class='fu'>justifierStructured_to_json</span><span class='op'>(</span><span class='va'>x</span>, file <span class='op'>=</span> <span class='cn'>NULL</span>, wrap_in_html <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
+<span class='co'># S3 method for justifier_json</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>The structured justifier specification.</p></td>
+    </tr>
+    <tr>
+      <th>file</th>
+      <td><p>Optionally, a file to save the JSON to.</p></td>
+    </tr>
+    <tr>
+      <th>wrap_in_html</th>
+      <td><p>Whether to wrap the JSON in an HTML element.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Any additional arguments are ignored.</p></td>
+    </tr>
+    </table>
 
-    <p>An object of class <code>list</code> of length 4.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If you use justifier to programmatically document your decisions in an
-R file, there is one option that you common use: <code>workspace_id</code> and
-<code>workspace_option_name</code></p>
-<p>It is normally not necessary to get or set <code>justifier</code> options.</p>
-<p>The following arguments can be passed:</p>
-<dl>
-<dt>...</dt><dd><p>For <code>justifier::opts$set</code>, the dots can be used to specify the options
-to set, in the format <code>option = value</code>, for example,
-<code>EFFECTSIZE_POINTESTIMATE_NAME_IN_DF = "\n"</code>. For
-<code>justifier::opts$reset</code>, a list of options to be reset can be passed.</p></dd>
-<dt>option</dt><dd><p>For <code>justifier::opts$set</code>, the name of the option to set.</p></dd>
-<dt>default</dt><dd><p>For <code>justifier::opts$get</code>, the default value to return if the
-option has not been manually specified.</p></dd>
-
-</dl>
-
-<p>The following options can be set:</p>
-<dl>
-
-<dt></dt><dd><p>The name of the column
-with the effect size values.</p></dd>
-
-<dt></dt><dd><p>The name of the column
-with the effect size variance.</p></dd>
-
-<dt></dt><dd><p>The name of the column
-with the missing values.</p></dd>
-
-
-</dl>
-
+    <p>If a file is specified to write, to, <code>x</code> will be returned invisibly
+to allow building a pipe chain; if <code>file=NULL</code>, the resulting JSON
+will be returned as a character vector.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>### Get the default 'silent' setting</span>
-<span class='fu'>justifier</span><span class='fu'>::</span><span class='va'>opts</span><span class='op'>$</span><span class='fu'>get</span><span class='op'>(</span><span class='st'>'silent'</span><span class='op'>)</span>;
-</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-<span class='co'>### Set to FALSE</span>
-<span class='fu'>justifier</span><span class='fu'>::</span><span class='va'>opts</span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>silent <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>;
-
-<span class='co'>### Check that it worked</span>
-<span class='fu'>justifier</span><span class='fu'>::</span><span class='va'>opts</span><span class='op'>$</span><span class='fu'>get</span><span class='op'>(</span><span class='st'>'silent'</span><span class='op'>)</span>;
-</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
-<span class='co'>### Reset this option to its default value</span>
-<span class='fu'>justifier</span><span class='fu'>::</span><span class='va'>opts</span><span class='op'>$</span><span class='fu'>reset</span><span class='op'>(</span><span class='st'>'silent'</span><span class='op'>)</span>;
-
-<span class='co'>### Check that the reset worked, too</span>
-<span class='fu'>justifier</span><span class='fu'>::</span><span class='va'>opts</span><span class='op'>$</span><span class='fu'>get</span><span class='op'>(</span><span class='st'>'silent'</span><span class='op'>)</span>;
-</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='co'>### Programmatically create a justification with two assertions</span>
+<span class='co'>### but without sources; flatten it; and show the json</span>
+<span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'><a href='source.html'>justify</a></span><span class='op'>(</span>
+  <span class='st'>"Icecream will make me feel less fit"</span>,
+  assertion <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>
+    <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'><a href='source.html'>assert</a></span><span class='op'>(</span><span class='st'>'Icecream is rich in energy'</span><span class='op'>)</span>,
+    <span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'><a href='source.html'>assert</a></span><span class='op'>(</span><span class='st'>'Consuming high-energy foods makes me feel less fit'</span><span class='op'>)</span>
+  <span class='op'>)</span>,
+  weight <span class='op'>=</span> <span class='op'>-</span><span class='fl'>.5</span>
+<span class='op'>)</span> |&gt;
+<span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'><a href='flatten.html'>flatten</a></span><span class='op'>(</span><span class='op'>)</span> |&gt;
+<span class='fu'>justifier</span><span class='fu'>::</span><span class='fu'>justifierStructured_to_json</span><span class='op'>(</span><span class='op'>)</span>;
+</div><div class='output co'>#&gt; <span class='error'>Error: 'justifierStructured_to_json' is not an exported object from 'namespace:justifier'</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
