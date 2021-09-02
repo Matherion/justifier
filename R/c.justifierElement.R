@@ -1,12 +1,16 @@
-#' @method c justifierStructured
+#' @method c justifierElement
 #' @export
 #' @rdname constructingJustifications
-c.justifierStructured <- function(...) {
+c.justifierElement <- function(...) {
 
   ### Get arguments in a list
   res <- list(...);
 
-  elementType <- unlist(lapply(res, whichJustifier));
+  elementType <-
+    unlist(lapply(res,
+                  function(x) {
+                    return(utils::head(class(x), 1));
+                  }));
 
   if (length(unique(elementType)) != 1) {
     stop("All elements to concatenate must be of the same type! ",
@@ -17,18 +21,16 @@ c.justifierStructured <- function(...) {
 
   elementType <- unique(elementType);
 
-  res <- res[which(unlist(lapply(res, length)) > 0)];
-
   ### If any of the arguments does itself have multiple elements,
   ### we need to place the single elements in lists.
-  if (any(unlist(lapply(res, inherits, "multipleJustifierElements")))) {
+  if (any(unlist(lapply(res, class)) == "multipleJustifierElements")) {
     res <-
       lapply(res,
              function(x) {
-               return(ifelseObj(inherits(x, "singleJustifierElement"),
+               return(ifelseObj("singleJustifierElement" %in% class(x),
                                 structure(list(x),
                                           class = c(elementType,
-                                                    "singleJustifierElement",
+                                                    "singleJustifierElements",
                                                     "justifierElement",
                                                     "justifier")),
                                 x));
@@ -48,7 +50,6 @@ c.justifierStructured <- function(...) {
 
   class(res) <-
     c(elementType,
-      "justifierStructured",
       "multipleJustifierElements",
       "justifierElement",
       "justifier"

@@ -1,22 +1,22 @@
 selective_flattening <- function(x,
-                                 type,
+                                 what,
                                  recursionLevel = 0,
                                  silent = justifier::opts$get("silent")) {
 
   msg(spc(recursionLevel),
       "Selectively flattening an object called '",
       deparse(substitute(x)), "' only selecting ",
-      type, " specifications.\n",
+      what, " specifications.\n",
       silent = silent);
 
   justifierClass <-
     paste0(
       "justifier",
-      tools::toTitleCase(type)
+      tools::toTitleCase(what)
     );
 
   justifierPlural <-
-    paste0(tolower(type), "s");
+    paste0(tolower(what), "s");
 
   if ((inherits(x, justifierClass)) && (inherits(x, "singleJustifierElement"))) {
 
@@ -25,23 +25,20 @@ selective_flattening <- function(x,
         x$id, "'.\n",
         silent = silent);
 
-    res <-
-      list(
-        sources = list(),
-        assertions = list(),
-        justifications = list(),
-        decisions = list(),
-        justifier = list()
-      );
+    res <- emptyStructuredJustifierObject;
+
+    classToUse <- class(res[[justifierPlural]]);
 
     res[[justifierPlural]] <- list(x);
+
+    class(res[[justifierPlural]]) <- classToUse;
 
     names(res[[justifierPlural]]) <-
       get_ids_from_structured_justifierElements(
         res[[justifierPlural]]
       );
 
-    class(res) <- c("justifier", "justifierStructured", "list");
+    class(res) <- c("justifier", "justifierStructuredObject", "list");
 
     return(res);
 
@@ -57,13 +54,15 @@ selective_flattening <- function(x,
         lapply(
           x,
           selective_flattening,
-          type = type,
+          what = what,
           recursionLevel = recursionLevel + 1,
           silent = silent
         )
       );
 
-    class(res) <- c("justifier", "justifierStructured", "list");
+    res <- unlist(res, recursive = FALSE);
+
+    class(res) <- c("justifier", "justifierStructuredObject", "list");
 
     return(res);
 

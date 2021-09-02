@@ -59,16 +59,21 @@ flatten.multipleJustifierElements <- function(x,
       "Flattening multiple justifier objects; processing them one by one.\n",
       silent = silent);
 
-  return(
+  res <-
     do.call(
       c,
       lapply(
         x,
-        flatten.singleJustifierElement,
+        flatten,
         recursionLevel = recursionLevel + 1,
         silent = silent)
-    )
-  );
+    );
+
+  class(res) <-
+    c("justifier", "justifierStructuredObject", "list");
+
+  return(res);
+
 }
 
 #' @export
@@ -79,16 +84,7 @@ flatten.singleJustifierElement <- function(x,
                                            recursionLevel = 0,
                                            silent = justifier::opts$get("silent")) {
 
-  res <-
-    list(
-      sources = list(),
-      assertions = list(),
-      justifications = list(),
-      decisions = list(),
-      justifier = list()
-    );
-
-  class(res) <- c("justifier", "justifierStructured", "list");
+  res <- emptyStructuredJustifierObject;
 
   ###---------------------------------------------------------------------------
   ### Source
@@ -106,6 +102,9 @@ flatten.singleJustifierElement <- function(x,
       get_ids_from_structured_justifierElements(
         res[["sources"]]
       );
+
+    class(res$sources) <-
+      c("justifier", "justifierStructured", "justifierSource", "list");
 
     msg(spc(recursionLevel),
         "Returning a single structured source with identifier ",
@@ -158,8 +157,12 @@ flatten.singleJustifierElement <- function(x,
         "No ", childPlural, " specified.\n",
         silent = silent);
 
+    oldClass <- class(res[[pluralName]]);
+
     ### No children to process
     res[[pluralName]] <- list(x);
+
+    class(res[[pluralName]]) <- oldClass;
 
     names(res[[pluralName]]) <-
       get_ids_from_structured_justifierElements(
@@ -167,7 +170,7 @@ flatten.singleJustifierElement <- function(x,
       );
 
     msg(spc(recursionLevel),
-        "Returning a single structured ", singularName,
+        "Returning a single structured childless ", singularName,
         " with identifier ",
         names(res[[pluralName]]), ".\n",
         silent = silent);
@@ -199,14 +202,15 @@ flatten.singleJustifierElement <- function(x,
       c(res,
         structuredChildren);
 
-    x[[childName]] <- get_ids_from_structured_justifierElements(
-      structuredChildren[[childPlural]]
-    );
+    x[[childName]] <-
+      justifier::idRef(
+        structuredChildren[[childPlural]]
+      );
 
     structuredTarget <-
       selective_flattening(
         x,
-        type = singularName,
+        what = singularName,
         recursionLevel = recursionLevel + 1,
         silent=silent);
 
@@ -229,9 +233,25 @@ flatten.singleJustifierElement <- function(x,
   }
 
   class(res) <-
-    c("justifier", "justifierStructured", "list");
+    c("justifier", "justifierStructuredObject", "list");
 
   return(res);
 
 }
 
+emptyStructuredJustifierObject <-
+  structure(
+    list(
+      sources = structure(list(),
+                          class=c("justifier", "justifierStructured", "justifierSource", "list")),
+      assertions = structure(list(),
+                             class=c("justifier", "justifierStructured", "justifierAssertion", "list")),
+      justifications = structure(list(),
+                                 class=c("justifier", "justifierStructured", "justifierJustification", "list")),
+      decisions = structure(list(),
+                            class=c("justifier", "justifierStructured", "justifierDecision", "list")),
+      justifier = structure(list(),
+                            class=c("justifier", "justifierStructured", "justifierJustifier", "list"))
+    ),
+    class = c("justifier", "justifierStructuredObject", "list")
+  );

@@ -1,6 +1,6 @@
 has_justifierElement <- function(x,
-                                 type) {
+                                 what) {
   return(
-    !(is.null(x[[type]]) || all(is.na(x[[type]])) || all((length(x[[type]]) == 0)))
+    !(is.null(x[[what]]) || all(is.na(x[[what]])) || all((length(x[[what]]) == 0)))
   );
 }
