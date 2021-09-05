@@ -215,6 +215,12 @@ decide <-
 #' @export
 #' @method print singleJustifierElement
 print.singleJustifierElement <- function(x, ...) {
+
+  if (is.null(x) || (length(x) == 0)) {
+    cat("You passed an empty justifier element.");
+    return(invisible(x));
+  }
+
   cat0("Justifier element of type '",
        class(x)[1], "' and with id '",
        x$id,
@@ -226,6 +232,11 @@ print.singleJustifierElement <- function(x, ...) {
 #' @export
 #' @method print multipleJustifierElements
 print.multipleJustifierElements <- function(x, ...) {
+
+  if (is.null(x) || (length(x) == 0)) {
+    cat("You passed an empty list of justifier elements.");
+  }
+
   cat0("A list of ", length(x), " justifier elements of ",
        "type ", class(x[[1]])[1], " and with identifiers ",
        vecTxtQ(unlist(lapply(x, function(y) return(y$id)))));
@@ -236,6 +247,10 @@ print.multipleJustifierElements <- function(x, ...) {
 #' @export
 #' @method plot singleJustifierElement
 plot.singleJustifierElement <- function(x, ...) {
+
+  if (is.null(x) || (length(x) == 0)) {
+    return(invisible(x));
+  }
 
   tree <-
     create_justifierTree(
@@ -296,10 +311,12 @@ justifierObjectConstructor <-
            S = "justifierSource");
 
     class(res) <-
-      c(justifierClasses[justifierType],
-        "singleJustifierElement",
-        "justifierElement",
-        "justifier");
+      unname(
+        c(justifierClasses[justifierType],
+          "singleJustifierElement",
+          "justifierElement",
+          "justifier")
+      );
 
     return(res);
 
