@@ -34,7 +34,7 @@ originalObject |>
   exportedJSON;
 
 ### And import it again
-importedJSON <-
+importedFromJSON <-
   justifier::import_from_json(
     exportedJSON
   );
