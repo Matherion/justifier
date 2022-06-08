@@ -1,6 +1,6 @@
 Package: justifier
 Title: Human and Machine-Readable Justifications and Justified Decisions Based on 'YAML'
-Version: 0.2.1
+Version: 0.2.3
 Authors@R: c(
     person(given = "Gjalt-Jorn Ygram",
            family = "Peters",
