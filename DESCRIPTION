@@ -1,6 +1,6 @@
 Package: justifier
 Title: Human and Machine-Readable Justifications and Justified Decisions Based on 'YAML'
-Version: 0.2.0
+Version: 0.2.3
 Authors@R: c(
     person(given = "Gjalt-Jorn Ygram",
            family = "Peters",
@@ -37,9 +37,10 @@ Imports:
 Suggests: 
     covr,
     here,
+    jsonlite (>= 1.7),
     knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
