@@ -38,7 +38,7 @@ pkgdown_url <-
 
 ```
 
-# <img src='img/hex-logo.png' align="right" height="200" /> `r paste(packagename, "\U1F4E6")`
+# <img src='/man/figures/logo.png' align="right" height="200" /> `r paste(packagename, "\U1F4E6")`
 
 ## `r packageSubtitle`
 
@@ -62,9 +62,9 @@ The goal of `justifier` is to provide a simple human- and machine-readable stand
 
 Three vignettes (in progress) are located at:
 
-- https://r-packages.gitlab.io/justifier/articles/general-introduction-to-justifier.html
-- https://r-packages.gitlab.io/justifier/articles/justifier-in-study-design.html
-- https://r-packages.gitlab.io/justifier/articles/justifier-in-intervention-development.html
+- https://justifier.opens.science/articles/general-introduction-to-justifier.html
+- https://justifier.opens.science/articles/justifier-in-study-design.html
+- https://justifier.opens.science/articles/justifier-in-intervention-development.html
 
 This meets the increasing demand for accountability of professionals (see e.g. Van Woerkum & Aarts, 2012).
 
