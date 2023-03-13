@@ -38,7 +38,7 @@ pkgdown_url <-
 
 ```
 
-# <img src='/man/figures/logo.png' align="right" height="200" /> `r paste(packagename, "\U1F4E6")`
+# <img src='man/figures/logo.png' align="right" height="200" /> `r paste(packagename, "\U1F4E6")`
 
 ## `r packageSubtitle`
 

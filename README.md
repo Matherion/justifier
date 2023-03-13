@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# <img src='img/hex-logo.png' align="right" height="200" /> justifier 📦
+# <img src='man/figures/logo.png' align="right" height="200" /> justifier 📦
 
 ## Human and Machine-Readable Justifications and Justified Decisions Based on ‘YAML’
 
@@ -34,9 +34,9 @@ over time.
 
 Three vignettes (in progress) are located at:
 
--   <https://r-packages.gitlab.io/justifier/articles/general-introduction-to-justifier.html>
--   <https://r-packages.gitlab.io/justifier/articles/justifier-in-study-design.html>
--   <https://r-packages.gitlab.io/justifier/articles/justifier-in-intervention-development.html>
+- <https://justifier.opens.science/articles/general-introduction-to-justifier.html>
+- <https://justifier.opens.science/articles/justifier-in-study-design.html>
+- <https://justifier.opens.science/articles/justifier-in-intervention-development.html>
 
 This meets the increasing demand for accountability of professionals
 (see e.g. Van Woerkum & Aarts, 2012).
