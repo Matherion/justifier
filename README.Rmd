@@ -19,44 +19,66 @@ packagename <- 'justifier';
 packageSubtitle <- "Human and Machine-Readable Justifications and Justified Decisions Based on 'YAML'";
 
 gitLab_ci_badge <-
-  paste0("https://gitlab.com/r-packages/", packagename, "/badges/prod/pipeline.svg");
+  paste0("https://gitlab.com/r-packages/", packagename, "/badges/main/pipeline.svg");
 gitLab_ci_url <-
-  paste0("https://gitlab.com/r-packages/", packagename, "/-/commits/prod");
+  paste0("https://gitlab.com/r-packages/", packagename, "/-/commits/main");
 
 codecov_badge <-
-  paste0("https://codecov.io/gl/r-packages/", packagename, "/branch/prod/graph/badge.svg");
+  paste0("https://codecov.io/gl/r-packages/", packagename, "/branch/main/graph/badge.svg");
 codecov_url <-
-  paste0("https://app.codecov.io/gl/r-packages/", packagename, "?branch=prod");
+  paste0("https://app.codecov.io/gl/r-packages/", packagename, "?branch=main");
 
 dependency_badge <-
   paste0("https://tinyverse.netlify.com/badge/", packagename);
 dependency_url <-
   paste0("https://CRAN.R-project.org/package=", packagename);
 
-pkgdown_url <-
+cran_badge <-
+  paste0("https://www.r-pkg.org/badges/version/", packagename);
+cran_url <-
+  paste0("https://CRAN.R-project.org/package=", packagename);
+cran_url <-
+  paste0("https://cran.r-project.org/package=", packagename);
+cranVersion_badge <-
+  paste0("https://www.r-pkg.org/badges/version/", packagename, "?color=brightgreen");
+cranLastMonth_badge <-
+  paste0("https://cranlogs.r-pkg.org/badges/last-month/", packagename, "?color=brightgreen");
+cranTotal_badge <-
+  paste0("https://cranlogs.r-pkg.org/badges/grand-total/", packagename, "?color=brightgreen");
+
+pkgdown_url_dev <-
   paste0("https://r-packages.gitlab.io/", packagename);
+
+pkgdown_url_prod <-
+  paste0("https://", packagename, ".opens.science");
 
 ```
 
-# <img src='man/figures/logo.png' align="right" height="200" /> `r paste(packagename, "\U1F4E6")`
-
+# <img src='man/figures/logo.png' align="right" style="height:250px" /> `r paste(packagename, "\U1F4E6")`
 ## `r packageSubtitle`
 
 <!-- badges: start -->
 
+[![CRAN status](`r cran_badge`)](`r cran_url`)
+
+[![Dependency status](`r dependency_badge`)](`r dependency_url`)
+
 [![Pipeline status](`r gitLab_ci_badge`)](`r gitLab_ci_url`)
+
+[![Downloads last month](`r cranLastMonth_badge`)](`r cran_url`)
+
+[![Total downloads](`r cranTotal_badge`)](`r cran_url`)
 
 [![Coverage status](`r codecov_badge`)](`r codecov_url`)
 
-<!-- [![Dependency status](`r dependency_badge`)](`r dependency_url`) -->
-
 <!-- badges: end -->
 
-The pkgdown website for this project is located at `r pkgdown_url`.
+The pkgdown website for this project is located at `r pkgdown_url_prod`. If the development version also has a pkgdown website, that's located at `r pkgdown_url_dev`.
 
-<!--------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - -->
 <!-- Start of a custom bit for every package -->
-<!--------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - -->
+
 
 The goal of `justifier` is to provide a simple human- and machine-readable standard for documenting justifications for decisions. `justifier` was primarily developed to enable documenting the development of behavior change interventions and the planning and execution of scientific studies, but it can also be used to document decisions in organisations, enabling deriving insights in decision processes from the accumulation of decisions and types of justifications over time.
 
@@ -68,9 +90,10 @@ Three vignettes (in progress) are located at:
 
 This meets the increasing demand for accountability of professionals (see e.g. Van Woerkum & Aarts, 2012).
 
-<!--------------------------------------------->
+
+<!-- - - - - - - - - - - - - - - - - - - - - -->
 <!--  End of a custom bit for every package  -->
-<!--------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - -->
 
 ## Installation
 
@@ -92,14 +115,24 @@ remotes::install_gitlab('r-packages/", packagename, "');
 
 (assuming you have `remotes` installed; otherwise, install that first using the `install.packages` function)
 
-<!--------------------------------------------->
+You can install the cutting edge development version (own risk, don't try this at home, etc)  of ``r packagename`` from [GitLab](https://about.gitlab.com) with:
+
+```{r echo=FALSE, comment="", results="asis"}
+cat(paste0("``` r
+remotes::install_gitlab('r-packages/", packagename, "@dev');
+```"));
+```
+
+<!-- - - - - - - - - - - - - - - - - - - - - -->
 <!-- Start of a custom bit for every package -->
-<!--------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - -->
 
 ## References
 
 van Woerkum, C. and Aarts, N. (2012), ‘Accountability: New challenges, new forms’, *Journal of Organizational Transformation & Social Change*, 9, pp. 271–283, \doi{10.1386/jots.9.3.271_1}.
 
-<!--------------------------------------------->
+
+<!-- - - - - - - - - - - - - - - - - - - - - -->
 <!--  End of a custom bit for every package  -->
-<!--------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - -->
+
